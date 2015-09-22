@@ -1,0 +1,17 @@
+{
+	"name": "coldtrick/poll",
+	"description": "Adds basic poll functionality to your Elgg website",
+	"type": "elgg-plugin",
+	"keywords": ["elgg", "plugin", "poll"],
+	"license": "GPL-2.0",
+	"support": {
+		"source": "https://github.com/ColdTrick/poll",
+		"issues": "https://github.com/ColdTrick/poll/issues"
+	},
+	"require": {
+		"composer/installers": "^1.0.8"
+	},
+	"require-dev": {
+		"coldtrick/sniffs": "dev-master"
+	}
+}
