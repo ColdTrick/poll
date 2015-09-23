@@ -22,6 +22,7 @@ if (empty($title)) {
 	forward(REFERER);
 }
 
+$new_entity = true;
 if (!empty($guid)) {
 	elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 	
@@ -30,6 +31,7 @@ if (!empty($guid)) {
 		register_error(elgg_echo('poll:edit:error:cant_edit'));
 		forward(REFERER);
 	}
+	$new_entity = false;
 } else {
 	$entity = new Poll();
 	$entity->container_guid = $container_guid;
@@ -50,6 +52,18 @@ $entity->comments_allowed = $comments_allowed;
 
 if ($entity->save()) {
 	elgg_clear_sticky_form('poll');
+	
+	// only add river item for new polls
+	if ($new_entity) {
+		elgg_create_river_item([
+			'view' => 'river/object/poll/create',
+			'action_type' => 'create',
+			'subject_guid' => elgg_get_logged_in_user_guid(),
+			'object_guid' => $entity->getGUID(),
+			'target_guid' => $entity->getContainerGUID(),
+			'access_id' => $entity->access_id,
+		]);
+	}
 	
 	system_message(elgg_echo('save:success'));
 	forward($entity->getURL());

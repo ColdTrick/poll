@@ -23,6 +23,8 @@ return [
 	
 	'poll:group_tool:title' => "Enable group polls",
 	
+	'river:create:object:default' => "%s created a new poll %s",
+	
 	// widgets
 	'poll:widgets:single_poll:poll_guid' => "Enter the guid of the poll that should be shown in the widget",
 	'poll:widgets:single_poll:misconfigured' => "You need to configure this widget",
