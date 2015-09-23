@@ -20,7 +20,7 @@ $title = $entity->title;
 
 $content = elgg_view_entity($entity);
 
-if ($entity->canComment()) {
+if ($entity->comments_allowed === 'yes') {
 	$content .= elgg_format_element('h3', ['class' => 'mtm'], elgg_echo('comments'));
 	$content .= elgg_view_comments($entity);
 }

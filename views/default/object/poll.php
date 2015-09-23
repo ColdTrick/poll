@@ -36,7 +36,7 @@ if (($container instanceof ElggGroup) && (elgg_get_page_owner_guid() !== $contai
 $subtitle[] = elgg_view_friendly_time($entity->time_created);
 
 // comments
-if ($entity->canComment()) {
+if ($entity->comments_allowed === 'yes') {
 	$comment_count = $entity->countComments();
 	if (!empty($comment_count)) {
 		$subtitle[] = elgg_view('output/url', [
@@ -59,7 +59,25 @@ if (!elgg_in_context('widgets')) {
 }
 
 if ($full_view) {
-	echo $entity->title;
+	
+	$body = elgg_view('output/longtext', [
+		'value' => $entity->description,
+	]);
+	
+	$params = [
+		'entity' => $entity,
+		'title' => false,
+		'metadata' => $entity_menu,
+		'subtitle' => implode(' ', $subtitle),
+	];
+	$params = $params + $vars;
+	$summary = elgg_view('object/elements/summary', $params);
+	
+	echo elgg_view('object/elements/full', [
+		'summary' => $summary,
+		'icon' => $owner_icon,
+		'body' => $body,
+	]);
 	
 } else {
 	$params = [
