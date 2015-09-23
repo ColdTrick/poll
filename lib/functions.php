@@ -113,6 +113,7 @@ function poll_prepare_form_vars(Poll $entity = null) {
 		'access_id' => null,
 		'tags' => null,
 		'guid' => null,
+		'answers' => null,
 		'container_guid' => elgg_get_page_owner_guid(),
 		'comments_allowed' => 'no',
 	];
@@ -121,6 +122,10 @@ function poll_prepare_form_vars(Poll $entity = null) {
 	if ($entity instanceof Poll) {
 		foreach ($values as $key => $value) {
 			$values[$key] = $entity->$key;
+		}
+		
+		if (!empty($values['answers'])) {
+			$values['answers'] = json_decode($values['answers'], true);
 		}
 		
 		$values['entity'] = $entity;

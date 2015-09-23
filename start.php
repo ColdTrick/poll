@@ -20,6 +20,9 @@ function poll_init() {
 		'src' => '/mod/poll/vendors/Chart.js/Chart.min.js',
 	]);
 	
+	// css
+	elgg_extend_view('css/elgg', 'css/poll/site.css');
+	
 	// register page handler
 	elgg_register_page_handler('poll', ['\ColdTrick\Poll\PageHandlers', 'pollHandler']);
 	

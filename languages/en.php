@@ -16,6 +16,9 @@ return [
 	'poll:owner:title' => "%s's polls",
 	'poll:friends:title' => "Friends' polls",
 	'poll:edit:title' => "Edit poll \"%s\"",
+	'poll:edit:answers' => "Answers",
+	'poll:edit:answers:name' => "Name",
+	'poll:edit:answers:label' => "Label",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	
 	'poll:menu:site' => "Polls",

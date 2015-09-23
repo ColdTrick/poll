@@ -3,6 +3,8 @@
 // get supplied arguments
 $entity = elgg_extract('entity', $vars);
 
+elgg_require_js('poll/edit');
+
 $noyes_options = [
 	'no' => elgg_echo('option:no'),
 	'yes' => elgg_echo('option:yes'),
@@ -15,6 +17,7 @@ $title .= elgg_view('input/text', [
 	'name' => 'title',
 	'value' => elgg_extract('title', $vars),
 	'id' => 'poll-title',
+	'required' => true,
 ]);
 echo elgg_format_element('div', [], $title);
 
@@ -26,6 +29,11 @@ $description .= elgg_view('input/longtext', [
 	'id' => 'poll-description',
 ]);
 echo elgg_format_element('div', [], $description);
+
+// answers
+$answers = elgg_format_element('label', [], elgg_echo('poll:edit:answers'));
+$answers .= elgg_view('poll/edit/answers', $vars);
+echo elgg_format_element('div', [], $answers);
 
 // tags
 $tags = elgg_format_element('label', ['for' => 'poll-tags'], elgg_echo('tags'));

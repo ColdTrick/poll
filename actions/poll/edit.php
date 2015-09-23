@@ -12,6 +12,8 @@ $access_id = (int) get_input('access_id');
 $tags = string_to_tag_array(get_input('tags'));
 $comments_allowed = get_input('comments_allowed', 'no');
 
+$answers = (array) get_input('answers', []);
+
 if (empty($guid) && empty($container_guid)) {
 	register_error(elgg_echo('error:missing_data'));
 	forward(REFERER);
@@ -49,6 +51,17 @@ $entity->access_id = $access_id;
 
 $entity->tags = $tags;
 $entity->comments_allowed = $comments_allowed;
+
+foreach ($answers as $index => $answer) {
+	$name = elgg_extract('name', $answer);
+	$label = elgg_extract('label', $answer);
+	
+	if ($name === '' || $label === '') {
+		unset($answers[$index]);
+	}
+}
+$answers = json_encode(array_values($answers));
+$entity->answers = $answers;
 
 if ($entity->save()) {
 	elgg_clear_sticky_form('poll');

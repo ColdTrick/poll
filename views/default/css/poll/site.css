@@ -1,0 +1,20 @@
+.poll-edit-answers > li > table {
+	width: 100%;
+}
+
+.poll-edit-answers-name {
+	width: 200px;
+}
+
+.poll-edit-answers-icon {
+	width: 20px;
+	vertical-align: middle;
+}
+
+.poll-edit-answers-icon .elgg-icon {
+	cursor: pointer;
+}
+
+.poll-edit-answers-blank .poll-edit-answers-icon .elgg-icon {
+	display: none;
+}
