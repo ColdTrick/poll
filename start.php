@@ -15,6 +15,11 @@ elgg_register_event_handler('init', 'system', 'poll_init');
  */
 function poll_init() {
 	
+	// register js
+	elgg_define_js('chart.js', [
+		'src' => '/mod/poll/vendors/Chart.js/Chart.min.js',
+	]);
+	
 	// register page handler
 	elgg_register_page_handler('poll', ['\ColdTrick\Poll\PageHandlers', 'pollHandler']);
 	
