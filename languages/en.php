@@ -32,4 +32,15 @@ return [
 	'poll:container_gatekeeper:user' => "Poll is not enabled for personal use",
 	'poll:container_gatekeeper:group' => "Poll is not enabled for use in groups",
 	
+	// notifications
+	'poll:notification:create:subject' => "A new poll \"%s\" was created",
+	'poll:notification:create:summary' => "New poll \"%s\"",
+	'poll:notification:create:body' => "Hi,
+
+%s created a new poll \"%s\".
+
+%s
+
+To view the poll click the link:
+%s",
 ];

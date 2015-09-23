@@ -23,6 +23,10 @@ function poll_init() {
 		add_group_tool_option('poll', elgg_echo('poll:group_tool:title'), false);
 	}
 	
+	// notifications
+	elgg_register_notification_event('object', Poll::SUBTYPE, ['create']);
+	elgg_register_plugin_hook_handler('prepare', 'notification:create:object:' . Poll::SUBTYPE, ['\ColdTrick\Poll\Notifications', 'createPoll']);
+	
 	// plugin hooks
 	elgg_register_plugin_hook_handler('register', 'menu:site', ['\ColdTrick\Poll\MenuHandler', 'siteMenu']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
