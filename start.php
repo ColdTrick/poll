@@ -30,8 +30,8 @@ function poll_init() {
 	}
 	
 	// widgets
-	elgg_register_widget_type('recent_polls', elgg_echo('poll:widgets:recent_polls:title'), elgg_echo('poll:widgets:recent_polls:description'), ['index', 'profile', 'dashboard', 'group']);
-	elgg_register_widget_type('single_poll', elgg_echo('poll:widgets:single_poll:title'), elgg_echo('poll:widgets:single_poll:description'), ['index', 'profile', 'group'], true);
+	elgg_register_widget_type('recent_polls', elgg_echo('poll:widgets:recent_polls:title'), elgg_echo('poll:widgets:recent_polls:description'), ['index', 'profile', 'dashboard', 'groups']);
+	elgg_register_widget_type('single_poll', elgg_echo('poll:widgets:single_poll:title'), elgg_echo('poll:widgets:single_poll:description'), ['index', 'profile', 'groups'], true);
 	
 	elgg_register_plugin_hook_handler('entity:url', 'object', ['\ColdTrick\Poll\Widgets', 'widgetUrls']);
 	elgg_register_plugin_hook_handler('group_tool_widgets', 'widget_manager', ['\ColdTrick\Poll\Widgets', 'groupToolWidgets']);
