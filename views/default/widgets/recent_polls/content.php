@@ -11,14 +11,17 @@ $container = $widget->getContainerEntity();
 
 $options = [
 	'type' => 'object',
-	'subtype' => 'poll',
+	'subtype' => Poll::SUBTYPE,
 	'limit' => $num_display,
+	'pagination' => false,
 ];
 
-if ($container instanceof ElggUser) {
+if (($container instanceof ElggUser) && ($widget->context !== 'dashboard')) {
 	$options['owner_guid'] = $container->getGUID();
+	$options['preload_containers'] = true;
 } elseif ($container instanceof ElggGroup) {
 	$options['container_guid'] = $container->getGUID();
+	$options['preload_owners'] = true;
 }
 
 echo elgg_list_entities($options);

@@ -3,10 +3,13 @@
  * Group poll module
  */
 
-$group = elgg_get_page_owner_entity();
+$group = elgg_extract('entity', $vars);
+if (!($group instanceof ElggGroup)) {
+	return;
+}
 
-if ($group->poll_enable !== "yes") {
-	return true;
+if (!poll_is_enabled_for_group($group)) {
+	return;
 }
 
 $all_link = elgg_view('output/url', [
@@ -18,13 +21,12 @@ $all_link = elgg_view('output/url', [
 elgg_push_context('widgets');
 $options = [
 	'type' => 'object',
-	'subtype' => 'poll',
+	'subtype' => Poll::SUBTYPE,
 	'container_guid' => $group->getGUID(),
 	'limit' => 6,
-	'full_view' => false,
 	'pagination' => false,
 	'no_results' => elgg_echo('poll:none'),
-	'distinct' => false,
+	'preload_owners' => true,
 ];
 $content = elgg_list_entities($options);
 elgg_pop_context();
