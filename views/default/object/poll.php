@@ -40,7 +40,7 @@ if ($entity->comments_allowed === 'yes') {
 	$comment_count = $entity->countComments();
 	if (!empty($comment_count)) {
 		$subtitle[] = elgg_view('output/url', [
-			'text' => elgg_echo('comments') . "({$comment_count})",
+			'text' => elgg_echo('comments') . " ({$comment_count})",
 			'href' => "{$entity->getURL()}#comments",
 			'is_trusted' => true,
 		]);
