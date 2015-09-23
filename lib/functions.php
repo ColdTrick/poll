@@ -112,6 +112,7 @@ function poll_prepare_form_vars(Poll $entity = null) {
 		'description' => null,
 		'access_id' => null,
 		'tags' => null,
+		'guid' => null,
 		'container_guid' => elgg_get_page_owner_guid(),
 	];
 	
