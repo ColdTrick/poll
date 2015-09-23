@@ -21,4 +21,17 @@ class Poll extends \ElggObject {
 	public function getURL() {
 		return "poll/view/{$this->getGUID()}";
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see ElggObject::canComment()
+	 */
+	public function canComment($user_guid = 0) {
+		
+		if ($this->comments_allowed !== 'yes') {
+			return false;
+		}
+		
+		return parent::canComment($user_guid);
+	}
 }

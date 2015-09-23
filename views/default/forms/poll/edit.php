@@ -3,6 +3,11 @@
 // get supplied arguments
 $entity = elgg_extract('entity', $vars);
 
+$noyes_options = [
+	'no' => elgg_echo('option:no'),
+	'yes' => elgg_echo('option:yes'),
+];
+
 // build form elements
 // title
 $title = elgg_format_element('label', ['for' => 'poll-title'], elgg_echo('title'));
@@ -30,6 +35,17 @@ $tags .= elgg_view('input/tags', [
 	'id' => 'poll-tags',
 ]);
 echo elgg_format_element('div', [], $tags);
+
+// comments
+$comments = elgg_format_element('label', ['for' => 'poll-comments'], elgg_echo('comments'));
+$comments .= elgg_view('input/select', [
+	'name' => 'comments_allowed',
+	'options_values' => $noyes_options,
+	'value' => elgg_extract('comments_allowed', $vars),
+	'id' => 'poll-comments',
+	'class' => 'mls',
+]);
+echo elgg_format_element('div', [], $comments);
 
 // access
 $access = elgg_format_element('label', ['for' => 'poll-access-id'], elgg_echo('access'));

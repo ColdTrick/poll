@@ -10,6 +10,7 @@ $description = get_input('description');
 $access_id = (int) get_input('access_id');
 
 $tags = string_to_tag_array(get_input('tags'));
+$comments_allowed = get_input('comments_allowed', 'no');
 
 if (empty($guid) && empty($container_guid)) {
 	register_error(elgg_echo('error:missing_data'));
@@ -45,6 +46,7 @@ $entity->description = $description;
 $entity->access_id = $access_id;
 
 $entity->tags = $tags;
+$entity->comments_allowed = $comments_allowed;
 
 if ($entity->save()) {
 	elgg_clear_sticky_form('poll');

@@ -47,10 +47,13 @@ class PageHandlers {
 				}
 				$include_file = "{$pages_root}poll/edit.php";
 				break;
+			default:
+				forward('poll/all');
+				break;
 		}
 		
 		if (!empty($include_file)) {
-			elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll');
+			elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
 			
 			include($include_file);
 			return true;
