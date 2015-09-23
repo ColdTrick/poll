@@ -26,9 +26,32 @@ class PageHandlers {
 				}
 				$include_file = "{$pages_root}poll/view.php";
 				break;
+			case 'all':
+				$include_file = "{$pages_root}poll/all.php";
+				break;
+			case 'owner':
+				$include_file = "{$pages_root}poll/owner.php";
+				break;
+			case 'friends':
+				$include_file = "{$pages_root}poll/friends.php";
+				break;
+			case 'group':
+				if (isset($page[1]) && is_numeric($page[1])) {
+					elgg_set_page_owner_guid($page[1]);
+				}
+				$include_file = "{$pages_root}poll/owner.php";
+				break;
+			case 'edit':
+				if (isset($page[1]) && is_numeric($page[1])) {
+					set_input('guid', $page[1]);
+				}
+				$include_file = "{$pages_root}poll/edit.php";
+				break;
 		}
 		
 		if (!empty($include_file)) {
+			elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll');
+			
 			include($include_file);
 			return true;
 		}

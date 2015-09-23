@@ -6,6 +6,15 @@ elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 
 $entity = get_entity($guid);
 
+// breadcrumb
+$container = $entity->getContainerEntity();
+if ($container instanceof ElggUser) {
+	elgg_push_breadcrumb($container->name, "poll/owner/{$container->username}");
+} elseif ($container instanceof ElggGroup) {
+	elgg_push_breadcrumb($container->name, "poll/group/{$container->getGUID()}/all");
+}
+elgg_push_breadcrumb($entity->title);
+
 // build page elements
 $title = $entity->title;
 

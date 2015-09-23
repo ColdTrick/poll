@@ -2,7 +2,6 @@
 
 // get supplied arguments
 $entity = elgg_extract('entity', $vars);
-$container = elgg_extract('container', $vars);
 
 // build form elements
 // title
@@ -48,11 +47,11 @@ echo elgg_format_element('div', [], $access);
 // footer
 $footer = elgg_view('input/hidden', [
 	'name' => 'guid',
-	'value' => elgg_extract('guid', $vars),
+	'value' => (int) elgg_extract('guid', $vars),
 ]);
 $footer .= elgg_view('input/hidden', [
 	'name' => 'container_guid',
-	'value' => $container->getGUID(),
+	'value' => (int) elgg_extract('container_guid', $vars),
 ]);
 $footer .= elgg_view('input/submit', [
 	'value' => elgg_echo('save'),

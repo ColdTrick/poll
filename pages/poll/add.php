@@ -7,15 +7,22 @@ if (empty($page_owner)) {
 	forward(REFERER);
 }
 
-// build page elements
-$title = elgg_echo('add');
+// make sure poll is enabled
+poll_container_gatekeeper($page_owner);
 
-$body = elgg_view_form('poll/edit', [], ['container' => $page_owner]);
+//breadcrumb
+elgg_push_breadcrumb(elgg_echo('poll:add'));
+
+// build page elements
+$title = elgg_echo('poll:add');
+
+$body_vars = poll_prepare_form_vars();
+$content = elgg_view_form('poll/edit', [], $body_vars);
 
 // build page
 $page_data = elgg_view_layout('content', [
 	'title' => $title,
-	'content' => $body,
+	'content' => $content,
 	'filter' => '',
 ]);
 
