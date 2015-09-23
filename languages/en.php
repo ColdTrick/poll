@@ -48,4 +48,7 @@ return [
 
 To view the poll click the link:
 %s",
+	
+	// actions
+	'poll:action:edit:error:title' => "Please provide a title",
 ];

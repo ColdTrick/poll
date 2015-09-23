@@ -5,7 +5,7 @@ elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 
 $entity = get_entity($guid);
 if (!$entity->canEdit()) {
-	register_error(elgg_echo(''));
+	register_error(elgg_echo('poll:edit:error:cant_edit'));
 	forward(REFERER);
 }
 
