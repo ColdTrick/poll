@@ -51,4 +51,5 @@ function poll_init() {
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');
 	elgg_register_action('poll/delete', dirname(__FILE__) . '/actions/poll/delete.php');
+	elgg_register_action('poll/vote', dirname(__FILE__) . '/actions/answer/vote.php');
 }

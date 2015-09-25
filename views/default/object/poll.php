@@ -60,10 +60,7 @@ if (!elgg_in_context('widgets')) {
 
 if ($full_view) {
 	
-	$body = elgg_view('output/longtext', [
-		'value' => $entity->description,
-	]);
-	
+	// summary
 	$params = [
 		'entity' => $entity,
 		'title' => false,
@@ -72,6 +69,16 @@ if ($full_view) {
 	];
 	$params = $params + $vars;
 	$summary = elgg_view('object/elements/summary', $params);
+	
+	// body
+	$body = elgg_view('output/longtext', [
+		'value' => $entity->description,
+	]);
+	
+	// add answers form
+	if ($entity->canVote()) {
+		$body .= elgg_view_form('poll/vote', ['class' => 'mvm'], ['entity' => $entity]);
+	}
 	
 	echo elgg_view('object/elements/full', [
 		'summary' => $summary,

@@ -21,6 +21,9 @@ return [
 	'poll:edit:answers:label' => "Label",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	
+	'poll:vote:title' => "Vote for this poll",
+	'poll:vote' => "Vote",
+	
 	'poll:menu:site' => "Polls",
 	'poll:menu:owner_block:group' => "Group polls",
 	
@@ -54,4 +57,8 @@ To view the poll click the link:
 	
 	// actions
 	'poll:action:edit:error:title' => "Please provide a title",
+	
+	'poll:action:vote:error:input' => "You need to choose an answer",
+	'poll:action:vote:error:vote' => "An error occured while saving your vote",
+	'poll:action:vote:success' => "Your vote was saved",
 ];
