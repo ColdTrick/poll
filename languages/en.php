@@ -1,7 +1,9 @@
 <?php
 
 return [
-
+	
+	'item:object:poll' => 'Poll',
+	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
 	'poll:settings:enable_site:info' => "Are users allowed to create personal polls?",

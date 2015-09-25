@@ -26,6 +26,9 @@ function poll_init() {
 	// register page handler
 	elgg_register_page_handler('poll', ['\ColdTrick\Poll\PageHandlers', 'pollHandler']);
 	
+	// searchable
+	elgg_register_entity_type('object', Poll::SUBTYPE);
+	
 	// group tool option
 	if (poll_is_enabled_for_group()) {
 		add_group_tool_option('poll', elgg_echo('poll:group_tool:title'), false);
