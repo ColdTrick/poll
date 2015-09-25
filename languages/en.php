@@ -32,6 +32,7 @@ return [
 	'poll:group_tool:title' => "Enable group polls",
 	
 	'river:create:object:default' => "%s created a new poll %s",
+	'river:vote:object:default' => "%s voted on the poll %s",
 	
 	// widgets
 	'poll:widgets:single_poll:title' => "Featured poll",

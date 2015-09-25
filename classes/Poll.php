@@ -68,6 +68,32 @@ class Poll extends \ElggObject {
 	}
 	
 	/**
+	 * Get the label assosiated with a answer-name
+	 *
+	 * @param string $answer the answer name
+	 *
+	 * @return false|string
+	 */
+	public function getAnswerLabel($answer) {
+		
+		$answers = $this->getAnswers();
+		if (empty($answers)) {
+			return false;
+		}
+		
+		foreach ($answers as $stored_answer) {
+			$name = elgg_extract('name' , $stored_answer);
+			if ($name !== $answer) {
+				continue;
+			}
+			
+			return elgg_extract('label', $stored_answer);
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * Check if a user can vote for this poll
 	 *
 	 * @param int $user_guid (optional) user_guid to check, defaults to current user
@@ -126,7 +152,22 @@ class Poll extends \ElggObject {
 			return (bool) $existing_vote->save();
 		}
 		
-		return (bool) $this->annotate('vote', $answer, $this->access_id, $user_guid);
+		$annotation_id = $this->annotate('vote', $answer, $this->access_id, $user_guid);
+		if (empty($annotation_id)) {
+			return false;
+		}
+		
+		elgg_create_river_item([
+			'view' => 'river/object/poll/vote',
+			'action_type' => 'vote',
+			'subject_guid' => $user_guid,
+			'object_guid' => $this->getGUID(),
+			'target_guid' => $this->getContainerGUID(),
+			'annotation_id' => $annotation_id,
+			'access_id' => $this->access_id,
+		]);
+		
+		return true;
 	}
 	
 	/**
