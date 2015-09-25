@@ -80,6 +80,12 @@ if ($full_view) {
 		$body .= elgg_view_form('poll/vote', ['class' => 'mvm'], ['entity' => $entity]);
 	}
 	
+	// show results
+	$body .= elgg_view('poll/view/results', [
+		'entity' => $entity,
+	]);
+	
+	// make full view
 	echo elgg_view('object/elements/full', [
 		'summary' => $summary,
 		'icon' => $owner_icon,

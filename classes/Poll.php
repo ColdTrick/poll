@@ -162,4 +162,33 @@ class Poll extends \ElggObject {
 		
 		return $annotations[0];
 	}
+	
+	/**
+	 * Get all the votes in a count array
+	 *
+	 * @return array
+	 */
+	public function getVotes() {
+		
+		$votes = $this->getAnnotations([
+			'annotation_name' => 'vote',
+			'limit' => false,
+		]);
+		
+		if (empty($votes)) {
+			return [];
+		}
+		
+		$results = [];
+		foreach ($votes as $vote) {
+			$name = $vote->value;
+			if (!isset($results[$name])) {
+				$results[$name] = 0;
+			}
+			
+			$results[$name]++;
+		}
+		
+		return $results;
+	}
 }
