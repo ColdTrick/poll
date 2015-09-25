@@ -211,20 +211,31 @@ class Poll extends \ElggObject {
 	 */
 	public function getVotes() {
 		
+		$answers = $this->getAnswers();
+		if (empty($answers)) {
+			return [];
+		}
+		
+		$results = [];
+		foreach ($answers as $answer) {
+			$name = elgg_extract('name', $answer);
+			$results[$name] = 0;
+		}
+		
 		$votes = $this->getAnnotations([
 			'annotation_name' => 'vote',
 			'limit' => false,
 		]);
 		
 		if (empty($votes)) {
-			return [];
+			return $results;
 		}
 		
-		$results = [];
 		foreach ($votes as $vote) {
 			$name = $vote->value;
 			if (!isset($results[$name])) {
-				$results[$name] = 0;
+				// no longer an option
+				continue;
 			}
 			
 			$results[$name]++;
