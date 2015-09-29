@@ -96,9 +96,11 @@ if ($full_view) {
 	}
 	
 	// show results
-	$body .= elgg_view('poll/view/results', [
-		'entity' => $entity,
-	]);
+	if ($entity->getVotes()) {
+		$body .= elgg_view('poll/view/results', [
+			'entity' => $entity,
+		]);
+	}
 	
 	// make full view
 	echo elgg_view('object/elements/full', [

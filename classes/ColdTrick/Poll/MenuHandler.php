@@ -120,22 +120,26 @@ class MenuHandler {
 			]);
 		}
 		
-		$return_value[] = \ElggMenuItem::factory([
-			'name' => 'results_pie',
-			'text' => elgg_echo('poll:menu:poll_tabs:pie'),
-			'href' => '#',
-			'selected' => (bool) $entity->getVote(),
-			'data-toggle-selector' => '#poll-result-chart-pie-wrapper',
-			'data-is-chart' => true,
-		]);
-		
-		$return_value[] = \ElggMenuItem::factory([
-			'name' => 'results_bar',
-			'text' => elgg_echo('poll:menu:poll_tabs:bar'),
-			'href' => '#',
-			'data-toggle-selector' => '#poll-result-chart-bar-wrapper',
-			'data-is-chart' => true,
-		]);
+		if ($entity->getVotes()) {
+			$pie_selected = !$entity->canVote() || (bool) $entity->getVote();
+			
+			$return_value[] = \ElggMenuItem::factory([
+				'name' => 'results_pie',
+				'text' => elgg_echo('poll:menu:poll_tabs:pie'),
+				'href' => '#',
+				'selected' => $pie_selected,
+				'data-toggle-selector' => '#poll-result-chart-pie-wrapper',
+				'data-is-chart' => true,
+			]);
+			
+			$return_value[] = \ElggMenuItem::factory([
+				'name' => 'results_bar',
+				'text' => elgg_echo('poll:menu:poll_tabs:bar'),
+				'href' => '#',
+				'data-toggle-selector' => '#poll-result-chart-bar-wrapper',
+				'data-is-chart' => true,
+			]);
+		}
 		
 		return $return_value;
 	}
