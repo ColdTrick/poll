@@ -18,3 +18,8 @@
 .poll-edit-answers-blank .poll-edit-answers-icon .elgg-icon {
 	display: none;
 }
+
+.poll-content {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}

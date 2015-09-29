@@ -3,6 +3,8 @@
 return [
 	
 	'item:object:poll' => 'Poll',
+	'river:create:object:default' => "%s created a new poll %s",
+	'river:vote:object:default' => "%s voted on the poll %s",
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
@@ -28,11 +30,12 @@ return [
 	
 	'poll:menu:site' => "Polls",
 	'poll:menu:owner_block:group' => "Group polls",
+	'poll:menu:poll_tabs:vote' => "Vote",
+	'poll:menu:poll_tabs:pie' => "Results pie-chart",
+	'poll:menu:poll_tabs:bar' => "Results bar-chart",
 	
 	'poll:group_tool:title' => "Enable group polls",
 	
-	'river:create:object:default' => "%s created a new poll %s",
-	'river:vote:object:default' => "%s voted on the poll %s",
 	
 	// widgets
 	'poll:widgets:single_poll:title' => "Featured poll",

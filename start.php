@@ -16,7 +16,7 @@ elgg_register_event_handler('init', 'system', 'poll_init');
 function poll_init() {
 	
 	// register js
-	elgg_define_js('chart.js', [
+	elgg_define_js('chartjs', [
 		'src' => '/mod/poll/vendors/Chart.js/Chart.min.js',
 	]);
 	
@@ -50,6 +50,7 @@ function poll_init() {
 	elgg_register_plugin_hook_handler('register', 'menu:site', ['\ColdTrick\Poll\MenuHandler', 'siteMenu']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'groupOwnerBlock']);
+	elgg_register_plugin_hook_handler('register', 'menu:poll_tabs', ['\ColdTrick\Poll\MenuHandler', 'pollTabs']);
 	
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');

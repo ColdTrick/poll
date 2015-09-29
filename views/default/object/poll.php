@@ -75,9 +75,24 @@ if ($full_view) {
 		'value' => $entity->description,
 	]);
 	
+	// tabbed
+	$body .= elgg_view_menu('poll_tabs', [
+		'entity' => $entity,
+		'sort_by' => 'priority',
+		'class' => 'elgg-menu-hz elgg-tabs mtm',
+	]);
+	
 	// add answers form
 	if ($entity->canVote()) {
-		$body .= elgg_view_form('poll/vote', ['class' => 'mvm'], ['entity' => $entity]);
+		$form_vars = [
+			'class' => 'mvm poll-content',
+			'id' => 'poll-vote-form',
+		];
+		if ($entity->getVote()) {
+			$form_vars['class'] .= ' hidden';
+		}
+		
+		$body .= elgg_view_form('poll/vote', $form_vars, ['entity' => $entity]);
 	}
 	
 	// show results

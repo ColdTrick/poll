@@ -219,7 +219,13 @@ class Poll extends \ElggObject {
 		$results = [];
 		foreach ($answers as $answer) {
 			$name = elgg_extract('name', $answer);
-			$results[$name] = 0;
+			$label = elgg_extract('label', $answer);
+			
+			$results[$name] = [
+				'label' => $label,
+				'value' => 0,
+				'color' => '#' . substr(md5($name), 0, 6),
+			];
 		}
 		
 		$votes = $this->getAnnotations([
@@ -238,9 +244,9 @@ class Poll extends \ElggObject {
 				continue;
 			}
 			
-			$results[$name]++;
+			$results[$name]['value']++;
 		}
 		
-		return $results;
+		return array_values($results);
 	}
 }
