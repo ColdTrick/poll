@@ -23,6 +23,7 @@ return [
 	'poll:edit:answers' => "Answers",
 	'poll:edit:answers:name' => "Name",
 	'poll:edit:answers:label' => "Label",
+	'poll:edit:close_date' => "Close date (optional)",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	
 	'poll:vote:title' => "Vote for this poll",
@@ -65,6 +66,7 @@ To view the poll click the link:
 	'poll:action:edit:error:title' => "Please provide a title",
 	
 	'poll:action:vote:error:input' => "You need to choose an answer",
+	'poll:action:vote:error:can_vote' => "You're not allowed to vote on this poll",
 	'poll:action:vote:error:vote' => "An error occured while saving your vote",
 	'poll:action:vote:success' => "Your vote was saved",
 ];

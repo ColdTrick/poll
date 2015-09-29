@@ -11,6 +11,11 @@ if ($vote === null || $vote === '') {
 	forward(REFERER);
 }
 
+if (!$entity->canVote()) {
+	register_error(elgg_echo('poll:action:vote:error:can_vote'));
+	forward(REFERER);
+}
+
 if ($entity->vote($vote)) {
 	system_message(elgg_echo('poll:action:vote:success'));
 } else {

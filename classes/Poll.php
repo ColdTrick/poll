@@ -116,8 +116,12 @@ class Poll extends \ElggObject {
 		}
 		
 		// check close date
-		
-		// check if user voted already
+		if ($this->close_date) {
+			$close_date = (int) $this->close_date;
+			if ($close_date < time()) {
+				return false;
+			}
+		}
 		
 		return true;
 	}

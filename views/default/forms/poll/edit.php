@@ -35,6 +35,15 @@ $answers = elgg_format_element('label', [], elgg_echo('poll:edit:answers'));
 $answers .= elgg_view('poll/edit/answers', $vars);
 echo elgg_format_element('div', [], $answers);
 
+// close date
+$answers = elgg_format_element('label', ['for' => 'close_date'], elgg_echo('poll:edit:close_date'));
+$answers .= elgg_view('input/date', [
+	'name' => 'close_date',
+	'value' => elgg_extract('close_date', $vars),
+	'timestamp' => true,
+]);
+echo elgg_format_element('div', [], $answers);
+
 // tags
 $tags = elgg_format_element('label', ['for' => 'poll-tags'], elgg_echo('tags'));
 $tags .= elgg_view('input/tags', [

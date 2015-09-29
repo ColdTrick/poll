@@ -116,6 +116,7 @@ function poll_prepare_form_vars(Poll $entity = null) {
 		'answers' => null,
 		'container_guid' => elgg_get_page_owner_guid(),
 		'comments_allowed' => 'no',
+		'close_date' => null,
 	];
 	
 	// edit form

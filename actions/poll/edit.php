@@ -11,6 +11,7 @@ $access_id = (int) get_input('access_id');
 
 $tags = string_to_tag_array(get_input('tags'));
 $comments_allowed = get_input('comments_allowed', 'no');
+$close_date = get_input('close_date');
 
 $answers = (array) get_input('answers', []);
 
@@ -51,6 +52,14 @@ $entity->access_id = $access_id;
 
 $entity->tags = $tags;
 $entity->comments_allowed = $comments_allowed;
+
+if (empty($close_date)) {
+	unset($entity->close_date);
+} else {
+	$date = getdate($close_date);
+	$new_close_date = mktime(23, 59, 59, $date['mon'], $date['mday'], $date['year']);
+	$entity->close_date = $new_close_date;
+}
 
 foreach ($answers as $index => $answer) {
 	$name = elgg_extract('name', $answer);
