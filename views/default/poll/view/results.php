@@ -6,6 +6,9 @@ if (!($entity instanceof Poll)) {
 }
 
 elgg_require_js('poll/results');
+if (elgg_is_xhr()) {
+	echo elgg_format_element('script', [], 'require(["poll/results"], function(){elgg.poll.results.init();});');
+}
 
 // poll results
 $results = $entity->getVotes();

@@ -58,7 +58,39 @@ if (!elgg_in_context('widgets')) {
 	]);
 }
 
-if ($full_view) {
+if (elgg_in_context('widgets') && $full_view) {
+	// single poll in widget
+	
+	// tabbed
+	$body = elgg_view_menu('poll_tabs', [
+		'entity' => $entity,
+		'sort_by' => 'priority',
+		'class' => 'elgg-menu-hz elgg-tabs mtm',
+	]);
+	
+	// add answers form
+	if ($entity->canVote()) {
+		$form_vars = [
+			'class' => 'mvm poll-content',
+			'id' => 'poll-vote-form',
+		];
+		if ($entity->getVote()) {
+			$form_vars['class'] .= ' hidden';
+		}
+		
+		$body .= elgg_view_form('poll/vote', $form_vars, ['entity' => $entity]);
+	}
+	
+	// show results
+	if ($entity->getVotes()) {
+		$body .= elgg_view('poll/view/results', [
+			'entity' => $entity,
+		]);
+	}
+	
+	echo $body;
+	
+} elseif ($full_view) {
 	
 	// summary
 	$params = [

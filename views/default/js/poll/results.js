@@ -15,6 +15,10 @@ elgg.poll.results.init_chart = function (elem) {
 		}
 		
 		var ctx = elem.getContext('2d');
+		var maxWidth = $(elem).parent().innerWidth();
+		if (maxWidth < 500) {
+			ctx.canvas.width = maxWidth;
+		}
 		
 		switch (data.chartType) {
 			case 'pie':
