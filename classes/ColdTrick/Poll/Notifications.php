@@ -5,7 +5,7 @@ namespace ColdTrick\Poll;
 class Notifications {
 	
 	/**
-	 * Add a menu item to the site menu
+	 * Change the notification contents
 	 *
 	 * @param string                           $hook         the name of the hook
 	 * @param string                           $type         the type of the hook
