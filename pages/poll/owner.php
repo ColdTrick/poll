@@ -14,7 +14,11 @@ if ($page_owner instanceof ElggGroup) {
 elgg_push_breadcrumb($page_owner->name);
 
 if (poll_is_enabled_for_container($page_owner)) {
-	elgg_register_title_button();
+	
+	// check if add button is allowed
+	if (can_write_to_container(0, $page_owner->getGUID(), 'object', Poll::SUBTYPE)) {
+		elgg_register_title_button();
+	}
 }
 
 // build page elements

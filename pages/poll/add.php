@@ -9,6 +9,10 @@ if (empty($page_owner)) {
 
 // make sure poll is enabled
 poll_container_gatekeeper($page_owner);
+// and you're allowed to write to the container
+if (!can_write_to_container(0, $page_owner->getGUID(), 'object', Poll::SUBTYPE)) {
+	forward(REFERER);
+}
 
 //breadcrumb
 elgg_push_breadcrumb(elgg_echo('poll:add'));

@@ -33,6 +33,7 @@ function poll_init() {
 	if (poll_is_enabled_for_group()) {
 		add_group_tool_option('poll', elgg_echo('poll:group_tool:title'), false);
 		elgg_extend_view('groups/tool_latest', 'poll/group_module');
+		elgg_extend_view('groups/edit', 'poll/group_settings');
 	}
 	
 	// widgets
@@ -51,9 +52,11 @@ function poll_init() {
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'groupOwnerBlock']);
 	elgg_register_plugin_hook_handler('register', 'menu:poll_tabs', ['\ColdTrick\Poll\MenuHandler', 'pollTabs']);
+	elgg_register_plugin_hook_handler('container_permissions_check', 'all', ['\ColdTrick\Poll\Permissions', 'canWriteContainer']);
 	
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');
 	elgg_register_action('poll/delete', dirname(__FILE__) . '/actions/poll/delete.php');
 	elgg_register_action('poll/vote', dirname(__FILE__) . '/actions/answer/vote.php');
+	elgg_register_action('poll/group_settings', dirname(__FILE__) . '/actions/group_settings.php');
 }

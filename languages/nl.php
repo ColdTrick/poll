@@ -1,10 +1,13 @@
 <?php
 /**
  * This file was created by Translation Editor v4.0
- * On 2015-09-29 16:52
+ * On 2015-11-24 15:22
  */
 
 return array (
+  'poll:group_settings:title' => 'Peilingen instellingen voor groepsleden',
+  'poll:group_settings:members' => 'Mogen groepsleden peilingen aanmaken',
+  'poll:group_settings:members:description' => 'Als deze instelling op \'nee\' wordt gezet kunnen alleen groep eigenaren/beheerders peilingen aanmaken in deze groep.',
   'item:object:poll' => 'Peiling',
   'river:create:object:default' => '%s heeft de peiling \'%s\' aangemaakt',
   'river:vote:object:default' => '%s heeft gestemd op de peiling %s',

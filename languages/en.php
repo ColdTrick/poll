@@ -36,7 +36,9 @@ return [
 	'poll:menu:poll_tabs:bar' => "Results bar-chart",
 	
 	'poll:group_tool:title' => "Enable group polls",
-	
+	'poll:group_settings:title' => "Poll group member settings",
+	'poll:group_settings:members' => "Allow group members to create polls",
+	'poll:group_settings:members:description' => "When this setting is set to 'no', only group owners/admins can create polls in this group.",
 	
 	// widgets
 	'poll:widgets:single_poll:title' => "Featured poll",
