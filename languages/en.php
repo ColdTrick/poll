@@ -29,6 +29,7 @@ return [
 	'poll:edit:answers:label' => "Label",
 	'poll:edit:close_date' => "Close date (optional)",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
+	'poll:edit:error:answer_count' => "You need at least two answers when creating a poll",
 	
 	'poll:vote:title' => "Vote for this poll",
 	'poll:vote' => "Vote",

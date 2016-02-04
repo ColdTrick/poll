@@ -23,6 +23,25 @@ elgg.poll.init_edit = function() {
 		$blank.after($clone);
 		$blank.removeClass('poll-edit-answers-blank');
 	});
+	
+	$('.elgg-form-poll-edit').submit(function() {
+		// Prevent form submit if there are not at least 2 answers
+		
+		var count = 0;
+		$(this).find('.poll-edit-answers [name$="][label]"]').each(function(index, elem) {
+			if ($(elem).val()) {
+				count++;
+			}
+		});
+		
+		if (count > 1) {
+			return;
+		}
+		
+		elgg.system_message(elgg.echo('poll:edit:error:answer_count'));
+		
+		return false;
+	});
 };
 
 //register init hook
