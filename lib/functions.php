@@ -17,6 +17,7 @@ function poll_get_plugin_setting($setting) {
 		$defaults = [
 			'enable_site' => 'no',
 			'enable_group' => 'no',
+			'group_create' => 'members',
 		];
 		
 		$plugin = elgg_get_plugin_from_id('poll');

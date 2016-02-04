@@ -14,11 +14,18 @@ $yesno_options = [
 	'no' => elgg_echo('option:no'),
 ];
 
+$value = $entity->getPrivateSetting('poll_enable_group_members');
+if (empty($value)) {
+	if (poll_get_plugin_setting('group_create') === 'owners') {
+		$value = 'no';
+	}
+}
+
 // enable group members
 $members = elgg_echo('poll:group_settings:members');
 $members .= elgg_view('input/select', [
 	'name' => 'poll_enable_group_members',
-	'value' => $entity->getPrivateSetting('poll_enable_group_members'),
+	'value' => $value,
 	'options_values' => $yesno_options,
 	'class' => 'mls',
 ]);

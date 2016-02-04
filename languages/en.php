@@ -11,6 +11,10 @@ return [
 	'poll:settings:enable_site:info' => "Are users allowed to create personal polls?",
 	'poll:settings:enable_group' => "Enable polls for groups",
 	'poll:settings:enable_group:info' => "Are users allowed to create polls in groups? Groups still have to enable this feature if they wish to use it.",
+	'poll:settings:group_create' => "By default, who can create polls in a group?",
+	'poll:settings:group_create:info' => "When enabling group polls, this setting will control who can create the polls by default. Group owners can configure otherwise.",
+	'poll:settings:group_create:options:members' => "Group members",
+	'poll:settings:group_create:options:owners' => "Group owners",
 	
 	'poll:none' => "No polls found",
 	'poll:group' => "Group polls",
