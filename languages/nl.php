@@ -25,7 +25,7 @@ return array (
   'poll:edit:answers' => 'Antwoorden',
   'poll:edit:answers:name' => 'Naam',
   'poll:edit:answers:label' => 'Label',
-  'poll:edit:close_date' => 'Sluitdatum (optioneel)',
+  'poll:edit:close_date' => 'Sluitdatum',
   'poll:edit:error:cant_edit' => 'Je mag deze peiling niet bewerken',
   'poll:vote:title' => 'Stem op deze peiling',
   'poll:vote' => 'Stem',

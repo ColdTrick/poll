@@ -15,6 +15,8 @@ return [
 	'poll:settings:group_create:info' => "When enabling group polls, this setting will control who can create the polls by default. Group owners can configure otherwise.",
 	'poll:settings:group_create:options:members' => "Group members",
 	'poll:settings:group_create:options:owners' => "Group owners",
+	'poll:settings:close_date_required' => "Close date required?",
+	'poll:settings:close_date_required:info' => "By default a close date is not required for a poll. This setting will make it required.",
 	
 	'poll:none' => "No polls found",
 	'poll:group' => "Group polls",
@@ -27,7 +29,7 @@ return [
 	'poll:edit:answers' => "Answers",
 	'poll:edit:answers:name' => "Name",
 	'poll:edit:answers:label' => "Label",
-	'poll:edit:close_date' => "Close date (optional)",
+	'poll:edit:close_date' => "Close date",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	'poll:edit:error:answer_count' => "You need at least two answers when creating a poll",
 	

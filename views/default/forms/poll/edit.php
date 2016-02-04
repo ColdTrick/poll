@@ -41,6 +41,7 @@ $answers .= elgg_view('input/date', [
 	'name' => 'close_date',
 	'value' => elgg_extract('close_date', $vars),
 	'timestamp' => true,
+	'required' => poll_get_plugin_setting('close_date_required') === 'yes' ? true : false,
 ]);
 echo elgg_format_element('div', [], $answers);
 

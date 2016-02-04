@@ -38,3 +38,12 @@ echo elgg_view('input/select', [
 	'class' => 'mls'
 ]);
 echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:settings:group_create:info'));
+
+echo elgg_format_element('label', [], elgg_echo('poll:settings:close_date_required'));
+echo elgg_view('input/select', [
+		'name' => 'params[close_date_required]',
+		'options_values' => $noyes_options,
+		'value' => $plugin->close_date_required,
+		'class' => 'mls'
+		]);
+echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:settings:close_date_required:info'));
