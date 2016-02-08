@@ -60,9 +60,10 @@ if (!elgg_in_context('widgets')) {
 
 if (elgg_in_context('widgets') && $full_view) {
 	// single poll in widget
+	$body = elgg_format_element('h3', [], elgg_view('output/url', ['href' => $entity->getURL(), 'text' => $entity->title]));
 	
 	// tabbed
-	$body = elgg_view_menu('poll_tabs', [
+	$body .= elgg_view_menu('poll_tabs', [
 		'entity' => $entity,
 		'sort_by' => 'priority',
 		'class' => 'elgg-menu-hz elgg-tabs mtm',
@@ -86,6 +87,12 @@ if (elgg_in_context('widgets') && $full_view) {
 		$body .= elgg_view('poll/view/results', [
 			'entity' => $entity,
 		]);
+	}
+	
+	// show optional close date
+	$close_date = (int) $entity->close_date;
+	if ($close_date && ($close_date < time())) {
+		$body .= elgg_format_element('div', ['class' => 'elgg-subtext'], elgg_echo('poll:closed') . ' ' . elgg_view_friendly_time($close_date));
 	}
 	
 	echo $body;
@@ -132,6 +139,12 @@ if (elgg_in_context('widgets') && $full_view) {
 		$body .= elgg_view('poll/view/results', [
 			'entity' => $entity,
 		]);
+	}
+	
+	// show optional close date
+	$close_date = (int) $entity->close_date;
+	if ($close_date && ($close_date < time())) {
+		$body .= elgg_format_element('div', ['class' => 'elgg-subtext'], elgg_echo('poll:closed') . ' ' . elgg_view_friendly_time($close_date));
 	}
 	
 	// make full view
