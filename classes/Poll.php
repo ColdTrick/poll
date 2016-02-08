@@ -194,7 +194,7 @@ class Poll extends \ElggObject {
 		
 		$annotations = $this->getAnnotations([
 			'annotation_name' => 'vote',
-			'owner_guid' => $user_guid,
+			'annotation_owner_guid' => $user_guid,
 			'limit' => 1,
 		]);
 		if (empty($annotations)) {
