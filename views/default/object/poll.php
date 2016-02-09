@@ -60,10 +60,19 @@ if (!elgg_in_context('widgets')) {
 
 if (elgg_in_context('widgets') && $full_view) {
 	// single poll in widget
-	$body = elgg_format_element('h3', [], elgg_view('output/url', ['href' => $entity->getURL(), 'text' => $entity->title]));
 	
+	// summary
+	$params = [
+		'entity' => $entity,
+		'metadata' => $entity_menu,
+		'subtitle' => implode(' ', $subtitle),
+		'content' => elgg_get_excerpt($entity->description),
+	];
+	$params = $params + $vars;
+	echo elgg_view('object/elements/summary', $params);
+		
 	// tabbed
-	$body .= elgg_view_menu('poll_tabs', [
+	$body = elgg_view_menu('poll_tabs', [
 		'entity' => $entity,
 		'sort_by' => 'priority',
 		'class' => 'elgg-menu-hz elgg-tabs mtm',
