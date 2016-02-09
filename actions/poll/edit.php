@@ -12,6 +12,7 @@ $access_id = (int) get_input('access_id');
 $tags = string_to_tag_array(get_input('tags'));
 $comments_allowed = get_input('comments_allowed', 'no');
 $close_date = get_input('close_date');
+$results_output = get_input('results_output');
 
 $answers = (array) get_input('answers', []);
 
@@ -52,6 +53,7 @@ $entity->access_id = $access_id;
 
 $entity->tags = $tags;
 $entity->comments_allowed = $comments_allowed;
+$entity->results_output = $results_output;
 
 if (empty($close_date)) {
 	unset($entity->close_date);

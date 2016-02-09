@@ -30,6 +30,9 @@ return [
 	'poll:edit:answers:name' => "Name",
 	'poll:edit:answers:label' => "Label",
 	'poll:edit:close_date' => "Close date",
+	'poll:edit:results_output' => "Show poll results as",
+	'poll:edit:results_output:pie' => "pie chart",
+	'poll:edit:results_output:bar' => "bar chart",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	'poll:edit:error:answer_count' => "You need at least two answers when creating a poll",
 	
@@ -40,8 +43,7 @@ return [
 	'poll:menu:site' => "Polls",
 	'poll:menu:owner_block:group' => "Group polls",
 	'poll:menu:poll_tabs:vote' => "Vote",
-	'poll:menu:poll_tabs:pie' => "Results pie-chart",
-	'poll:menu:poll_tabs:bar' => "Results bar-chart",
+	'poll:menu:poll_tabs:results' => "Results",
 	
 	'poll:group_tool:title' => "Enable group polls",
 	'poll:group_settings:title' => "Poll group member settings",

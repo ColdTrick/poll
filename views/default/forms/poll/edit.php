@@ -10,6 +10,11 @@ $noyes_options = [
 	'yes' => elgg_echo('option:yes'),
 ];
 
+$results_output_options = [
+	'pie' => elgg_echo('poll:edit:results_output:pie'),
+	'bar' => elgg_echo('poll:edit:results_output:bar'),
+];
+
 // build form elements
 // title
 $title = elgg_format_element('label', ['for' => 'poll-title'], elgg_echo('title'));
@@ -53,6 +58,17 @@ $tags .= elgg_view('input/tags', [
 	'id' => 'poll-tags',
 ]);
 echo elgg_format_element('div', [], $tags);
+
+// results output
+$comments = elgg_format_element('label', ['for' => 'poll-results-output'], elgg_echo('poll:edit:results_output'));
+$comments .= elgg_view('input/select', [
+	'name' => 'results_output',
+	'options_values' => $results_output_options,
+	'value' => elgg_extract('results_output', $vars),
+	'id' => 'poll-results-output',
+	'class' => 'mls',
+]);
+echo elgg_format_element('div', [], $comments);
 
 // comments
 $comments = elgg_format_element('label', ['for' => 'poll-comments'], elgg_echo('comments'));
