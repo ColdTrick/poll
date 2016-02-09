@@ -67,6 +67,7 @@ if (elgg_in_context('widgets') && $full_view) {
 		'metadata' => $entity_menu,
 		'subtitle' => implode(' ', $subtitle),
 		'content' => elgg_get_excerpt($entity->description),
+		'tags' => false,
 	];
 	$params = $params + $vars;
 	echo elgg_view('object/elements/summary', $params);
