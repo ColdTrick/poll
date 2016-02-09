@@ -47,6 +47,8 @@ function poll_init() {
 	elgg_register_notification_event('object', Poll::SUBTYPE, ['create']);
 	elgg_register_plugin_hook_handler('prepare', 'notification:create:object:' . Poll::SUBTYPE, ['\ColdTrick\Poll\Notifications', 'createPoll']);
 	
+	elgg_register_plugin_hook_handler('entity_types', 'content_subscriptions', '\ColdTrick\Poll\ContentSubscriptions::registerEntityType');
+	
 	// plugin hooks
 	elgg_register_plugin_hook_handler('register', 'menu:site', ['\ColdTrick\Poll\MenuHandler', 'siteMenu']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
