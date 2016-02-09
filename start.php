@@ -49,6 +49,8 @@ function poll_init() {
 	
 	elgg_register_plugin_hook_handler('entity_types', 'content_subscriptions', '\ColdTrick\Poll\ContentSubscriptions::registerEntityType');
 	
+	elgg_register_plugin_hook_handler('cron', 'daily', '\ColdTrick\Poll\Notifications::closeCron');
+	
 	// plugin hooks
 	elgg_register_plugin_hook_handler('register', 'menu:site', ['\ColdTrick\Poll\MenuHandler', 'siteMenu']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);

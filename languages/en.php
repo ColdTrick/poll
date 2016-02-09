@@ -76,6 +76,24 @@ return [
 
 To view the poll click the link:
 %s",
+
+	'poll:notification:close:owner:subject' => "Your poll \"%s\" is now closed",
+	'poll:notification:close:owner:summary' => "Your poll \"%s\" is now closed",
+	'poll:notification:close:owner:body' => "Hi %s,
+
+Your poll \"%s\" is now closed. Users can no longer vote.
+
+To view the results check out the poll here:
+%s",
+	
+	'poll:notification:close:participant:subject' => "The poll \"%s\" you voted on is closed",
+	'poll:notification:close:participant:summary' => "The poll \"%s\" you voted on is closed",
+	'poll:notification:close:participant:body' => "Hi,
+
+The poll \"%s\" you voted on is now closed.
+
+To view the results check out the poll here:
+%s",
 	
 	// actions
 	'poll:action:edit:error:title' => "Please provide a title",
