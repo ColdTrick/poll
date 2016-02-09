@@ -29,6 +29,7 @@ return [
 	'poll:edit:answers' => "Answers",
 	'poll:edit:answers:name' => "Name",
 	'poll:edit:answers:label' => "Label",
+	'poll:edit:answers:show_internal_names' => "Show internal names",
 	'poll:edit:close_date' => "Close date",
 	'poll:edit:results_output' => "Show poll results as",
 	'poll:edit:results_output:pie' => "pie chart",

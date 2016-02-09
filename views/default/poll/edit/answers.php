@@ -22,15 +22,7 @@ foreach ($answers as $index => $answer) {
 	$answer_fields .= '<table class="elgg-discover"><tr><td class="poll-edit-answers-icon">';
 	
 	$answer_fields .= elgg_view_icon('drag-arrow', ['class' => 'elgg-discoverable']);
-	
-	$answer_fields .= '</td><td class="poll-edit-answers-name">';
-	
-	$answer_fields .= elgg_view('input/text', [
-		'name' => "answers[$index][name]",
-		'placeholder' => elgg_echo('poll:edit:answers:name'),
-		'value' => $name,
-	]);
-	
+
 	$answer_fields .= '</td><td>';
 
 	$answer_fields .= elgg_view('input/text', [
@@ -38,9 +30,23 @@ foreach ($answers as $index => $answer) {
 		'placeholder' => elgg_echo('poll:edit:answers:label'),
 		'value' => $label,
 	]);
-
-	$answer_fields .= '</td><td class="poll-edit-answers-icon">';
 	
+
+	$answer_fields .= '</td><td class="poll-edit-answers-name hidden pls">';
+	
+	$answer_fields .= elgg_view('input/text', [
+		'name' => "answers[$index][name]",
+		'placeholder' => elgg_echo('poll:edit:answers:name'),
+		'value' => $name,
+	]);
+	
+	$answer_fields .= '</td><td class="poll-edit-answers-icon">';
+	$answer_fields .= elgg_view_icon('settings-alt', [
+		'class' => 'elgg-discoverable',
+		'rel' => 'toggle',
+		'data-toggle-selector' => '.poll-edit-answers-name',
+		'title' => elgg_echo('poll:edit:answers:show_internal_names'),
+	]);
 	$answer_fields .= elgg_view_icon('delete', ['class' => 'elgg-discoverable']);
 	
 	$answer_fields .= '</td></tr></table>';

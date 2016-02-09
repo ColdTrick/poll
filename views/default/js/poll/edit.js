@@ -14,12 +14,18 @@ elgg.poll.init_edit = function() {
 		$blank = $(this).parents('.poll-edit-answers-blank');
 		$clone = $blank.clone(true);
 		
+		var index = 1;
+		
 		$clone.find('input[name^="answers"]').each(function() {
-			var index = $blank.data().index + 1;
+			index = $blank.data().index + 1;
 
 			$(this).attr('name', $(this).attr('name').replace($(this).attr('name').match(/\[[0-9]+\]/), '[' + index + ']'));
 			$clone.data('index', index);    
 		});
+		
+		// generate internal name value
+		$blank.find('.elgg-input-text[name="answers[' + (index - 1) + '][name]"]').val('answer_' + Date.now());
+		
 		$blank.after($clone);
 		$blank.removeClass('poll-edit-answers-blank');
 	});
