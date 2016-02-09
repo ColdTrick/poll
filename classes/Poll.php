@@ -253,4 +253,80 @@ class Poll extends \ElggObject {
 		
 		return array_values($results);
 	}
+	
+	/**
+	 * Notify the owner of the poll that it's closed
+	 *
+	 * @return array
+	 */
+	public function notifyOwnerOnClose() {
+		
+		$owner = $this->getOwnerEntity();
+		
+		// make notification subject / body
+		$subject = elgg_echo('poll:notification:close:owner:subject', [$this->title]);
+		$summary = elgg_echo('poll:notification:close:owner:summary', [$this->title]);
+		$message = elgg_echo('poll:notification:close:owner:body', [
+			$owner->name,
+			$this->title,
+			$this->getURL(),
+		]);
+		
+		// prepare some params
+		$params = [
+			'object' => $this,
+			'action' => 'close',
+			'summary' => $summary,
+		];
+		return notify_user($owner->getGUID(), $owner->getGUID(), $subject, $message, $params);
+	}
+	
+	/**
+	 * Notify the participants of the poll that it's closed
+	 *
+	 * @return array
+	 */
+	public function notifyParticipantsOnClose() {
+	
+		// this could take a while
+		set_time_limit(0);
+		
+		$owner = $this->getOwnerEntity();
+		
+		$annotation_options = [
+			'guid' => $this->getGUID(),
+			'limit' => false,
+			'annotation_name' => 'vote',
+			'callback' => function($row) {
+				return (int) $row->owner_guid;
+			},
+		];
+		
+		$ia = elgg_set_ignore_access(true);
+		$participants = elgg_get_annotations($annotation_options);
+		elgg_set_ignore_access($ia);
+		
+		if (empty($participants)) {
+			// nobody voted :(
+			return [];
+		}
+		
+		$participants = array_unique($participants);
+		
+		// make notification subject / body
+		$subject = elgg_echo('poll:notification:close:participant:subject', [$this->title]);
+		$summary = elgg_echo('poll:notification:close:participant:summary', [$this->title]);
+		$message = elgg_echo('poll:notification:close:participant:body', [
+			$this->title,
+			$this->getURL(),
+		]);
+		
+		// prepare some params
+		$params = [
+			'object' => $this,
+			'action' => 'close',
+			'summary' => $summary,
+		];
+		return notify_user($participants, $owner->getGUID(), $subject, $message, $params);
+	}
 }

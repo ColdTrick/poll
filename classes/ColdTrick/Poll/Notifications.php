@@ -40,4 +40,57 @@ class Notifications {
 		
 		return $return_value;
 	}
+	
+	/**
+	 * Send out notifications when a poll is 'closed'
+	 *
+	 * @param string $hook         the name of the hook
+	 * @param string $type         the type of the hook
+	 * @param array  $return_value current return value
+	 * @param array  $params       supplied params
+	 *
+	 * @return void
+	 */
+	public static function closeCron($hook, $type, $return_value, $params) {
+		
+		$time = mktime(0, 0, 0);
+		
+		$options = [
+			'type' => 'object',
+			'subtype' => \Poll::SUBTYPE,
+			'limit' => false,
+			'metadata_name_value_pairs' => [
+				[
+					'name' => 'close_date',
+					'value' => $time - (24 * 60 * 60), // past 24 hours
+					'operand' => '>'
+				],
+				[
+					'name' => 'close_date',
+					'value' => $time, // today 0h:0m:0s
+					'operand' => '<='
+				],
+			],
+		];
+		
+		// ignore access
+		$ia = elgg_set_ignore_access(true);
+		
+		$batch = new \ElggBatch('elgg_get_entities_from_metadata', $options);
+		foreach ($batch as $poll) {
+			
+			if (!($poll instanceof \Poll)) {
+				continue;
+			}
+			
+			// notify owner
+			$poll->notifyOwnerOnClose();
+			
+			// notify participants
+			$poll->notifyParticipantsOnClose();
+		}
+		
+		// restore access
+		elgg_set_ignore_access($ia);
+	}
 }
