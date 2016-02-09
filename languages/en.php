@@ -55,7 +55,8 @@ return [
 	// widgets
 	'poll:widgets:single_poll:title' => "Featured poll",
 	'poll:widgets:single_poll:description' => "Show a single poll",
-	'poll:widgets:single_poll:poll_guid' => "Enter the guid of the poll that should be shown in the widget",
+	'poll:widgets:single_poll:poll_guid:object' => "Enter the poll title and select from the list",
+	'poll:widgets:single_poll:poll_guid:guid' => "Enter the guid of the poll that should be shown in the widget",
 	'poll:widgets:single_poll:misconfigured' => "You need to configure this widget",
 	
 	'poll:widgets:recent_polls:title' => "Recent polls",
