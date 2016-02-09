@@ -99,11 +99,7 @@ if (elgg_in_context('widgets') && $full_view) {
 		]);
 	}
 	
-	// show optional close date
-	$close_date = (int) $entity->close_date;
-	if ($close_date && ($close_date < time())) {
-		$body .= elgg_format_element('div', ['class' => 'elgg-subtext'], elgg_echo('poll:closed') . ' ' . elgg_view_friendly_time($close_date));
-	}
+	$body .= elgg_view('poll/view/close_date', $vars);
 	
 	echo $body;
 	
@@ -151,11 +147,7 @@ if (elgg_in_context('widgets') && $full_view) {
 		]);
 	}
 	
-	// show optional close date
-	$close_date = (int) $entity->close_date;
-	if ($close_date && ($close_date < time())) {
-		$body .= elgg_format_element('div', ['class' => 'elgg-subtext'], elgg_echo('poll:closed') . ' ' . elgg_view_friendly_time($close_date));
-	}
+	$body .= elgg_view('poll/view/close_date', $vars);
 	
 	// make full view
 	echo elgg_view('object/elements/full', [
@@ -169,7 +161,7 @@ if (elgg_in_context('widgets') && $full_view) {
 		'entity' => $entity,
 		'metadata' => $entity_menu,
 		'subtitle' => implode(' ', $subtitle),
-		'content' => elgg_get_excerpt($entity->description),
+		'content' => elgg_get_excerpt($entity->description) . elgg_view('poll/view/close_date', $vars),
 	];
 	$params = $params + $vars;
 	$list_body = elgg_view('object/elements/summary', $params);

@@ -38,6 +38,7 @@ return [
 	'poll:edit:error:answer_count' => "You need at least two answers when creating a poll",
 	
 	'poll:closed' => "This poll is closed since:",
+	'poll:closed:future' => "Poll closes:",
 	'poll:vote:title' => "Vote for this poll",
 	'poll:vote' => "Vote",
 	
