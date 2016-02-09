@@ -20,7 +20,7 @@ $results = $entity->getVotes();
 // chart canvas (default options for pie)
 $canvas_options = [
 	'width' => '500px',
-	'height' => '300px',
+	'height' => '200px',
 	'id' => 'poll-result-chart',
 	'class' => 'poll-result-chart',
 	'data-chart-type' => 'pie',
