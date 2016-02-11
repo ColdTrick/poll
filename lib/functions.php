@@ -19,6 +19,7 @@ function poll_get_plugin_setting($setting) {
 			'enable_group' => 'no',
 			'group_create' => 'members',
 			'close_date_required' => 'no',
+			'vote_change_allowed' => 'yes',
 		];
 		
 		$plugin = elgg_get_plugin_from_id('poll');

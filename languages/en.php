@@ -17,6 +17,8 @@ return [
 	'poll:settings:group_create:options:owners' => "Group owners",
 	'poll:settings:close_date_required' => "Close date required?",
 	'poll:settings:close_date_required:info' => "By default a close date is not required for a poll. This setting will make it required.",
+	'poll:settings:vote_change_allowed' => "Is it allowed to change your vote?",
+	'poll:settings:vote_change_allowed:info' => "This settings allows users to change their vote after they have voted.",
 	
 	'poll:none' => "No polls found",
 	'poll:group' => "Group polls",
