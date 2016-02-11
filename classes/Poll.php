@@ -19,7 +19,7 @@ class Poll extends \ElggObject {
 	 * @see ElggEntity::getURL()
 	 */
 	public function getURL() {
-		return "poll/view/{$this->getGUID()}";
+		return elgg_normalize_url("poll/view/{$this->getGUID()}");
 	}
 	
 	/**
