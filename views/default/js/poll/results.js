@@ -49,16 +49,16 @@ elgg.poll.results.init = function() {
 	
 	$('.elgg-menu-poll-tabs a').on('click', function(event) {
 		event.preventDefault();
-		
-		$('.elgg-menu-poll-tabs .elgg-state-selected').removeClass('elgg-state-selected');
-		$('.poll-content').hide();
+		var $container = $(this).parents('.elgg-menu-poll-tabs').parent();
+		$container.find('.elgg-menu-poll-tabs .elgg-state-selected').removeClass('elgg-state-selected');
+		$container.find('.poll-content').hide();
 		
 		var data = $(this).data();
 		if (data.toggleSelector) {
-			$(data.toggleSelector).show();
+			$container.find(data.toggleSelector).show();
 			
 			if (data.isChart) {
-				var chart = $(data.toggleSelector).find('.poll-result-chart').get(0);
+				var chart = $container.find(data.toggleSelector).find('.poll-result-chart').get(0);
 				elgg.poll.results.init_chart(chart);
 			}
 		}
