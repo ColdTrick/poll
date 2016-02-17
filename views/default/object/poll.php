@@ -6,6 +6,7 @@ if (!($entity instanceof Poll)) {
 }
 
 $full_view = (bool) elgg_extract('full_view', $vars, false);
+$show_entity_menu = (bool) elgg_extract('show_entity_menu', $vars, !elgg_in_context('widgets'));
 
 $subtitle = [];
 
@@ -49,7 +50,7 @@ if ($entity->comments_allowed === 'yes') {
 
 // entity menu
 $entity_menu = '';
-if (!elgg_in_context('widgets')) {
+if ($show_entity_menu) {
 	$entity_menu = elgg_view_menu('entity',[
 		'entity' => $entity,
 		'handler' => 'poll',
