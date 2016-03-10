@@ -3,8 +3,8 @@
 return [
 	
 	'item:object:poll' => 'Poll',
-	'river:create:object:default' => "%s created a new poll %s",
-	'river:vote:object:default' => "%s voted on the poll %s",
+	'river:create:object:poll' => "%s created a new poll %s",
+	'river:vote:object:poll' => "%s voted on the poll %s",
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
