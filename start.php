@@ -58,6 +58,8 @@ function poll_init() {
 	elgg_register_plugin_hook_handler('register', 'menu:poll_tabs', ['\ColdTrick\Poll\MenuHandler', 'pollTabs']);
 	elgg_register_plugin_hook_handler('container_permissions_check', 'all', ['\ColdTrick\Poll\Permissions', 'canWriteContainer']);
 	
+	elgg_register_plugin_hook_handler('likes:is_likable', 'object:' . \Poll::SUBTYPE, '\Elgg\Values::getTrue');
+	
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');
 	elgg_register_action('poll/delete', dirname(__FILE__) . '/actions/poll/delete.php');
