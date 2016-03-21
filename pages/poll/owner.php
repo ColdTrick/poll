@@ -44,7 +44,7 @@ $page_data = elgg_view_layout('content', [
 	'title' => $title,
 	'content' => $contents,
 	'filter' => ($page_owner instanceof ElggGroup) ? '' : null,
-	'filter_context' => 'mine',
+	'filter_context' => ($page_owner->getGUID === elgg_get_logged_in_user_guid()) ? 'mine' : '',
 ]);
 
 // draw page
