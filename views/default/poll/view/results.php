@@ -33,7 +33,6 @@ if ($results_output !== 'bar') {
 
 if ($results_output === 'pie') {
 	$canvas_options['data-chart-data'] = json_encode($results);
-
 } else {
 	// convert to bar data array
 	$bar_data = [
@@ -53,6 +52,7 @@ if ($results_output === 'pie') {
 	];
 	
 	$canvas_options['width'] = '600px';
+	$canvas_options['height'] = '400px';
 	$canvas_options['data-chart-type'] = 'bar';
 	$canvas_options['data-chart-data'] = json_encode($bar_data);
 }

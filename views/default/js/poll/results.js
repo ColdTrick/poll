@@ -23,7 +23,18 @@ elgg.poll.results.init_chart = function (elem) {
 		switch (data.chartType) {
 			case 'pie':
 				var chart = new Chart(ctx).Pie(data.chartData, {
-					legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend mrm\" style=\"display: inline-block;\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>; width:16px; height: 16px; display:inline-block; margin-right: 5px;\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>",
+					legendTemplate: function() {
+						var result = "<ul class=\"pie-legend mrm\" style=\"display: inline-block;\">";
+						
+						for (var i = 0; i < data.chartData.length; i++) {
+							var item = data.chartData[i];
+							result += "<li><span style=\"background-color:" + item.color + "; width:16px; height: 16px; display:inline-block; margin-right: 5px;\"></span>";
+							result += item.full_label + "</li>";
+						}
+						result += "</ul>";
+						
+						return result;
+					},
 					animation: false,
 				});
 				var legend = chart.generateLegend();

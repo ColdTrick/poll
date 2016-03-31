@@ -228,9 +228,11 @@ class Poll extends \ElggObject {
 		foreach ($answers as $answer) {
 			$name = elgg_extract('name', $answer);
 			$label = elgg_extract('label', $answer);
+			$short_label = elgg_get_excerpt($label, 20);
 			
 			$results[$name] = [
-				'label' => $label,
+				'label' => $short_label,
+				'full_label' => $label,
 				'value' => 0,
 				'color' => '#' . substr(md5($name), 0, 6),
 			];
