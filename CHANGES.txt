@@ -1,6 +1,13 @@
 Version history
 ===============
 
+1.0.1 (2016-04-14):
+
+- fixed: issues with long labels in tooltip and barchart labels
+- fixed: mine tab incorrectly set as selected in some cases
+- fixed: polls can't be liked
+- fixed: providing wrong language keys for river events
+
 1.0 (2016-03-10):
 
 - added: basic pages and menu items
