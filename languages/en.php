@@ -19,6 +19,8 @@ return [
 	'poll:settings:close_date_required:info' => "By default a close date is not required for a poll. This setting will make it required.",
 	'poll:settings:vote_change_allowed' => "Is it allowed to change your vote?",
 	'poll:settings:vote_change_allowed:info' => "This settings allows users to change their vote after they have voted.",
+	'poll:settings:add_vote_to_river' => "Add poll vote activity to the river",
+	'poll:settings:add_vote_to_river:info' => "This settings determines if voting on a poll is added to the activity stream.",
 	
 	'poll:none' => "No polls found",
 	'poll:group' => "Group polls",

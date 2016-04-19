@@ -43,18 +43,27 @@ echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:sett
 
 echo elgg_format_element('label', [], elgg_echo('poll:settings:close_date_required'));
 echo elgg_view('input/select', [
-		'name' => 'params[close_date_required]',
-		'options_values' => $noyes_options,
-		'value' => $plugin->close_date_required,
-		'class' => 'mls'
-		]);
+	'name' => 'params[close_date_required]',
+	'options_values' => $noyes_options,
+	'value' => $plugin->close_date_required,
+	'class' => 'mls'
+]);
 echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:settings:close_date_required:info'));
 
 echo elgg_format_element('label', [], elgg_echo('poll:settings:vote_change_allowed'));
 echo elgg_view('input/select', [
-		'name' => 'params[vote_change_allowed]',
-		'options_values' => $yesno_options,
-		'value' => $plugin->vote_change_allowed,
-		'class' => 'mls'
-		]);
+	'name' => 'params[vote_change_allowed]',
+	'options_values' => $yesno_options,
+	'value' => $plugin->vote_change_allowed,
+	'class' => 'mls'
+]);
 echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:settings:vote_change_allowed:info'));
+
+echo elgg_format_element('label', [], elgg_echo('poll:settings:add_vote_to_river'));
+echo elgg_view('input/select', [
+	'name' => 'params[add_vote_to_river]',
+	'options_values' => $yesno_options,
+	'value' => $plugin->add_vote_to_river,
+	'class' => 'mls'
+]);
+echo elgg_format_element('div', ['class'=> 'elgg-subtext'], elgg_echo('poll:settings:add_vote_to_river:info'));

@@ -165,16 +165,17 @@ class Poll extends \ElggObject {
 			return false;
 		}
 		
-		elgg_create_river_item([
-			'view' => 'river/object/poll/vote',
-			'action_type' => 'vote',
-			'subject_guid' => $user_guid,
-			'object_guid' => $this->getGUID(),
-			'target_guid' => $this->getContainerGUID(),
-			'annotation_id' => $annotation_id,
-			'access_id' => $this->access_id,
-		]);
-		
+		if (elgg_get_plugin_setting('add_vote_to_river', 'poll', 'yes') !== 'no') {
+			elgg_create_river_item([
+				'view' => 'river/object/poll/vote',
+				'action_type' => 'vote',
+				'subject_guid' => $user_guid,
+				'object_guid' => $this->getGUID(),
+				'target_guid' => $this->getContainerGUID(),
+				'annotation_id' => $annotation_id,
+				'access_id' => $this->access_id,
+			]);
+		}
 		return true;
 	}
 	
