@@ -1,6 +1,10 @@
 Version history
 ===============
 
+1.1 (2016-05-04):
+
+- added: a setting to control if vote activity is added to the river
+
 1.0.1 (2016-04-14):
 
 - fixed: issues with long labels in tooltip and barchart labels
