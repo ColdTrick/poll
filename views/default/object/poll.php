@@ -8,33 +8,16 @@ if (!($entity instanceof Poll)) {
 $full_view = (bool) elgg_extract('full_view', $vars, false);
 $show_entity_menu = (bool) elgg_extract('show_entity_menu', $vars, !elgg_in_context('widgets'));
 
-$subtitle = [];
-
 $owner = $entity->getOwnerEntity();
-$container = $entity->getContainerEntity();
 
 // owner related
 $owner_icon = elgg_view_entity_icon($owner, 'small');
-$owner_link = elgg_view('output/url', [
-	'text' => $owner->name,
-	'href' => "poll/owner/{$owner->username}",
-	'is_trusted' => true,
-]);
-$subtitle[] = elgg_echo('byline', [$owner_link]);
 
-// container
-if (($container instanceof ElggGroup) && (elgg_get_page_owner_guid() !== $container->getGUID())) {
-	$container_link = elgg_view('output/url', [
-		'text' => $container->name,
-		'href' => "poll/group/{$container->getGUID()}/all",
-		'is_trusted' => true,
-	]);
-	
-	$subtitle[] = elgg_echo('river:ingroup', [$container_link]);
-}
+// create subtitle
+$subtitle = [];
 
-// date
-$subtitle[] = elgg_view_friendly_time($entity->time_created);
+$vars['owner_url'] = "poll/owner/{$owner->username}";
+$subtitle[] = elgg_view('page/elements/by_line', $vars);
 
 // comments
 if ($entity->comments_allowed === 'yes') {
