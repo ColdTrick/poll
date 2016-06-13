@@ -4,21 +4,21 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "55e80dd97da692a9b4fefcd7c9c94295",
-    "content-hash": "9a665dd6d11efc5a72e5b3c20391c096",
+    "hash": "a59fa62fd2668b9ab8af95b350099057",
+    "content-hash": "d7c86f16aa67c3296b530a28a55f35df",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.23",
+            "version": "v1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e"
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/6213d900e92647831f7a406d5c530ea1f3d4360e",
-                "reference": "6213d900e92647831f7a406d5c530ea1f3d4360e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
                 "shasum": ""
             },
             "require": {
@@ -40,8 +40,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Composer\\Installers\\": "src/"
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -56,12 +56,14 @@
                 }
             ],
             "description": "A multi-framework Composer library installer",
-            "homepage": "http://composer.github.com/installers/",
+            "homepage": "https://composer.github.io/installers/",
             "keywords": [
                 "Craft",
                 "Dolibarr",
                 "Hurad",
+                "ImageCMS",
                 "MODX Evo",
+                "Mautic",
                 "OXID",
                 "SMF",
                 "Thelia",
@@ -103,7 +105,372 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2016-01-27 12:54:22"
+            "time": "2016-04-13 19:46:30"
+        },
+        {
+            "name": "npm-asset/chart.js",
+            "version": "2.1.5",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/chart.js/-/chart.js-2.1.5.tgz",
+                "reference": null,
+                "shasum": "419272499a466874454c5132c9acc4385f638947"
+            },
+            "require": {
+                "npm-asset/chartjs-color": ">=2.0.0,<3.0.0",
+                "npm-asset/moment": ">=2.10.6,<3.0.0"
+            },
+            "require-dev": {
+                "npm-asset/browserify": ">=13.0.0,<14.0.0",
+                "npm-asset/browserify-istanbul": ">=0.2.1,<0.3.0",
+                "npm-asset/bundle-collapser": ">=1.2.1,<2.0.0",
+                "npm-asset/coveralls": ">=2.11.6,<3.0.0",
+                "npm-asset/gulp": "dev-3.9.x|3.9.x",
+                "npm-asset/gulp-concat": "~2.1.0",
+                "npm-asset/gulp-connect": "~2.0.5",
+                "npm-asset/gulp-html-validator": ">=0.0.2,<0.0.3",
+                "npm-asset/gulp-insert": "~0.5.0",
+                "npm-asset/gulp-jshint": "~1.5.1",
+                "npm-asset/gulp-karma": "0.0.4",
+                "npm-asset/gulp-replace": ">=0.4.0,<0.5.0",
+                "npm-asset/gulp-size": "~0.4.0",
+                "npm-asset/gulp-streamify": ">=1.0.2,<2.0.0",
+                "npm-asset/gulp-uglify": "~0.2.0",
+                "npm-asset/gulp-umd": "~0.2.0",
+                "npm-asset/gulp-util": "~2.2.0",
+                "npm-asset/inquirer": ">=0.5.1,<0.6.0",
+                "npm-asset/jasmine": ">=2.3.2,<3.0.0",
+                "npm-asset/jasmine-core": ">=2.3.4,<3.0.0",
+                "npm-asset/jquery": ">=2.1.4,<3.0.0",
+                "npm-asset/jshint-stylish": "~2.1.0",
+                "npm-asset/karma": ">=0.12.37,<0.13.0",
+                "npm-asset/karma-browserify": ">=5.0.1,<6.0.0",
+                "npm-asset/karma-chrome-launcher": ">=0.2.0,<0.3.0",
+                "npm-asset/karma-coverage": ">=0.5.1,<0.6.0",
+                "npm-asset/karma-firefox-launcher": ">=0.1.6,<0.2.0",
+                "npm-asset/karma-jasmine": ">=0.3.6,<0.4.0",
+                "npm-asset/karma-jasmine-html-reporter": ">=0.1.8,<0.2.0",
+                "npm-asset/merge-stream": ">=1.0.0,<2.0.0",
+                "npm-asset/semver": ">=3.0.1,<4.0.0",
+                "npm-asset/vinyl-source-stream": ">=1.1.0,<2.0.0",
+                "npm-asset/watchify": ">=3.7.0,<4.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/chartjs/Chart.js/issues"
+                },
+                "npm-asset-main": "src/chart.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/chartjs/Chart.js.git"
+                },
+                "npm-asset-scripts": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Simple HTML5 charts using the canvas element.",
+            "homepage": "http://www.chartjs.org"
+        },
+        {
+            "name": "npm-asset/chartjs-color",
+            "version": "2.0.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.0.0.tgz",
+                "reference": null,
+                "shasum": "7f60c7256589b24914814ece757659117381e35b"
+            },
+            "require": {
+                "npm-asset/chartjs-color-string": ">=0.4.0,<0.5.0",
+                "npm-asset/color-convert": ">=0.5.3,<0.6.0"
+            },
+            "require-dev": {
+                "npm-asset/browserify": ">=10.1.3,<11.0.0",
+                "npm-asset/gulp": ">=3.8.11,<4.0.0",
+                "npm-asset/gulp-rename": ">=1.2.2,<2.0.0",
+                "npm-asset/gulp-streamify": ">=1.0.2,<2.0.0",
+                "npm-asset/gulp-uglify": ">=1.2.0,<2.0.0",
+                "npm-asset/mocha": ">=2.2.5,<3.0.0",
+                "npm-asset/vinyl-source-stream": ">=1.1.0,<2.0.0",
+                "npm-asset/xo": ">=0.12.1,<0.13.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/chartjs/chartjs-color/issues"
+                },
+                "npm-asset-files": [
+                    "CHANGELOG.md",
+                    "LICENSE",
+                    "index.js"
+                ],
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/chartjs/chartjs-color.git"
+                },
+                "npm-asset-scripts": {
+                    "build": "gulp build",
+                    "pretest": "xo",
+                    "test": "mocha"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Color conversion and manipulation with CSS string support",
+            "homepage": "https://github.com/chartjs/chartjs-color#readme",
+            "keywords": [
+                "color",
+                "colour",
+                "css"
+            ]
+        },
+        {
+            "name": "npm-asset/chartjs-color-string",
+            "version": "0.4.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.4.0.tgz",
+                "reference": null,
+                "shasum": "57748d4530ae28d8db0a5492182ba06dfdf2f468"
+            },
+            "require": {
+                "npm-asset/color-name": ">=1.0.0,<2.0.0"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/harthur/color-string/issues"
+                },
+                "npm-asset-main": "./color-string",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/harthur/color-string.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "node test/basic.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Heather Arthur",
+                    "email": "fayearthur@gmail.com"
+                },
+                {
+                    "name": "Maxime Thirouin"
+                },
+                {
+                    "name": "Dyma Ywanov",
+                    "email": "dfcreative@gmail.com"
+                }
+            ],
+            "description": "Parser and generator for CSS color strings",
+            "homepage": "https://github.com/harthur/color-string#readme",
+            "keywords": [
+                "color",
+                "colour",
+                "css",
+                "rgb"
+            ]
+        },
+        {
+            "name": "npm-asset/color-convert",
+            "version": "0.5.3",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/color-convert/-/color-convert-0.5.3.tgz",
+                "reference": null,
+                "shasum": "bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/harthur/color-convert/issues"
+                },
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/harthur/color-convert.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "node test/basic.js"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Heather Arthur",
+                    "email": "fayearthur@gmail.com"
+                }
+            ],
+            "description": "Plain color conversion functions",
+            "homepage": "https://github.com/harthur/color-convert#readme",
+            "keywords": [
+                "color",
+                "colour",
+                "rgb"
+            ]
+        },
+        {
+            "name": "npm-asset/color-name",
+            "version": "1.1.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.1.tgz",
+                "reference": null,
+                "shasum": "4b1415304cf50028ea81643643bd82ea05803689"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/dfcreative/color-name/issues"
+                },
+                "npm-asset-files": [
+                    "index.js"
+                ],
+                "npm-asset-main": "index.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+ssh://git@github.com/dfcreative/color-name.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "node test.js"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DY",
+                    "email": "dfcreative@gmail.com"
+                }
+            ],
+            "description": "A list of color names and it’s values",
+            "homepage": "https://github.com/dfcreative/color-name",
+            "keywords": [
+                "color",
+                "color-keyword",
+                "color-name",
+                "keyword"
+            ]
+        },
+        {
+            "name": "npm-asset/moment",
+            "version": "2.13.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/moment/-/moment-2.13.0.tgz",
+                "reference": null,
+                "shasum": "24162d99521e6d40f99ae6939e806d2139eaac52"
+            },
+            "require-dev": {
+                "npm-asset/benchmark": "dev-default|*",
+                "npm-asset/coveralls": ">=2.11.2,<3.0.0",
+                "npm-asset/es6-promise": "dev-default|*",
+                "npm-asset/esperanto": "dev-default|*",
+                "npm-asset/grunt": "~0.4",
+                "npm-asset/grunt-benchmark": "dev-default|*",
+                "npm-asset/grunt-cli": "dev-default|*",
+                "npm-asset/grunt-contrib-clean": "dev-default|*",
+                "npm-asset/grunt-contrib-concat": "dev-default|*",
+                "npm-asset/grunt-contrib-copy": "dev-default|*",
+                "npm-asset/grunt-contrib-jshint": "dev-default|*",
+                "npm-asset/grunt-contrib-uglify": "dev-default|*",
+                "npm-asset/grunt-contrib-watch": "dev-default|*",
+                "npm-asset/grunt-env": "dev-default|*",
+                "npm-asset/grunt-exec": "dev-default|*",
+                "npm-asset/grunt-jscs": "dev-default|*",
+                "npm-asset/grunt-karma": "dev-default|*",
+                "npm-asset/grunt-nuget": "dev-default|*",
+                "npm-asset/grunt-string-replace": "dev-default|*",
+                "npm-asset/karma": "dev-default|*",
+                "npm-asset/karma-chrome-launcher": "dev-default|*",
+                "npm-asset/karma-firefox-launcher": "dev-default|*",
+                "npm-asset/karma-qunit": "dev-default|*",
+                "npm-asset/karma-sauce-launcher": "dev-default|*",
+                "npm-asset/load-grunt-tasks": "dev-default|*",
+                "npm-asset/nyc": ">=2.1.4,<3.0.0",
+                "npm-asset/qunit": ">=0.7.5,<0.8.0",
+                "npm-asset/qunit-cli": ">=0.1.4,<0.2.0",
+                "npm-asset/spacejam": "dev-default|*",
+                "npm-asset/uglify-js": "dev-default|*"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/moment/moment/issues"
+                },
+                "npm-asset-main": "./moment.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "https://github.com/moment/moment.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "grunt test",
+                    "coverage": "nyc npm test && nyc report",
+                    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+                },
+                "npm-asset-engines": {
+                    "node": "*"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Iskren Ivov Chernev",
+                    "email": "iskren.chernev@gmail.com",
+                    "url": "https://github.com/ichernev"
+                },
+                {
+                    "name": "Tim Wood",
+                    "email": "washwithcare@gmail.com",
+                    "url": "http://timwoodcreates.com/"
+                },
+                {
+                    "name": "Rocky Meza",
+                    "url": "http://rockymeza.com"
+                },
+                {
+                    "name": "Matt Johnson",
+                    "email": "mj1856@hotmail.com",
+                    "url": "http://codeofmatt.com"
+                },
+                {
+                    "name": "Isaac Cambron",
+                    "email": "isaac@isaaccambron.com",
+                    "url": "http://isaaccambron.com"
+                },
+                {
+                    "name": "Andre Polykanine",
+                    "email": "andre@oire.org",
+                    "url": "https://github.com/oire"
+                }
+            ],
+            "description": "Parse, validate, manipulate, and display dates",
+            "homepage": "http://momentjs.com",
+            "keywords": [
+                "date",
+                "ender",
+                "format",
+                "i18n",
+                "l10n",
+                "moment",
+                "parse",
+                "time",
+                "validate"
+            ]
         }
     ],
     "packages-dev": [
@@ -113,12 +480,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColdTrick/releases.git",
-                "reference": "b5da4ac570e599e4e491083ae6d568d64d776b92"
+                "reference": "a4ac414e013dc31e0f19c4f729488b86b285b263"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/b5da4ac570e599e4e491083ae6d568d64d776b92",
-                "reference": "b5da4ac570e599e4e491083ae6d568d64d776b92",
+                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/a4ac414e013dc31e0f19c4f729488b86b285b263",
+                "reference": "a4ac414e013dc31e0f19c4f729488b86b285b263",
                 "shasum": ""
             },
             "type": "library",
@@ -132,7 +499,7 @@
                 "release",
                 "travis"
             ],
-            "time": "2016-01-11 14:56:50"
+            "time": "2016-03-11 12:51:42"
         },
         {
             "name": "coldtrick/sniffs",
@@ -163,19 +530,20 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.5.1",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "6731851d6aaf1d0d6c58feff1065227b7fda3ba8"
+                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
-                "reference": "6731851d6aaf1d0d6c58feff1065227b7fda3ba8",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
+                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
                 "shasum": ""
             },
             "require": {
+                "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
                 "php": ">=5.1.2"
@@ -236,7 +604,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-01-19 23:39:10"
+            "time": "2016-05-30 22:24:32"
         }
     ],
     "aliases": [],

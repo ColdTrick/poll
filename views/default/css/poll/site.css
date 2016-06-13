@@ -23,3 +23,12 @@
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+
+.poll-bar-legend .elgg-image-block {
+	padding: 0;
+}
+.poll-bar-legend-item {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+}

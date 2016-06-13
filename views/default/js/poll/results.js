@@ -19,30 +19,23 @@ elgg.poll.results.init_chart = function (elem) {
 		if (maxWidth < 500) {
 			ctx.canvas.width = maxWidth;
 		}
-		
+
 		switch (data.chartType) {
 			case 'pie':
-				var chart = new Chart(ctx).Pie(data.chartData, {
-					legendTemplate: function() {
-						var result = "<ul class=\"pie-legend mrm\" style=\"display: inline-block;\">";
-						
-						for (var i = 0; i < data.chartData.length; i++) {
-							var item = data.chartData[i];
-							result += "<li><span style=\"background-color:" + item.color + "; width:16px; height: 16px; display:inline-block; margin-right: 5px;\"></span>";
-							result += item.full_label + "</li>";
-						}
-						result += "</ul>";
-						
-						return result;
-					},
-					animation: false,
+				var chart = new Chart(ctx, {
+					type: data.chartType,
+					data: data.chartData,
 				});
-				var legend = chart.generateLegend();
-				$(elem).after(legend);
 				break;
 			case 'bar':
-				var chart = new Chart(ctx).Bar(data.chartData, {
-					animation: false,
+				var chart = new Chart(ctx, {
+					type: data.chartType,
+					data: data.chartData,
+					options: {
+						legend: {
+							display: false,
+						},
+					},
 				});
 				break;
 		}
