@@ -1,6 +1,10 @@
 Version history
 ===============
 
+2.0.1 (2016-06-16):
+
+- changed: updated to 2.1.5 version of Chartjs and made it an npm install
+
 2.0 (2016-05-26):
 
 - changed: set Elgg requirement to 2.0
