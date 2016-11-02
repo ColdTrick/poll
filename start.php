@@ -65,6 +65,8 @@ function poll_init() {
 	
 	elgg_register_plugin_hook_handler('likes:is_likable', 'object:' . \Poll::SUBTYPE, '\Elgg\Values::getTrue');
 	
+	elgg_register_plugin_hook_handler('supported_types', 'entity_tools', '\ColdTrick\Poll\MigratePoll::supportedSubtypes');
+	
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');
 	elgg_register_action('poll/delete', dirname(__FILE__) . '/actions/poll/delete.php');
