@@ -1,6 +1,10 @@
 Version history
 ===============
 
+2.1 (2016-11-18):
+
+- added: support for entity_tools
+
 2.0.1 (2016-06-16):
 
 - changed: updated to 2.1.5 version of Chartjs and made it an npm install
