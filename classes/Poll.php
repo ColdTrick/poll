@@ -272,19 +272,21 @@ class Poll extends \ElggObject {
         $annotations = $this->getAnnotations([
             'annotation_name' => 'vote',
             'annotation_owner_guid' => $user_guid,
-            'limit' => 0,
-                //'limit' => 1,
+            'limit' => 0
         ]);
 
-        /* if (empty($annotations)) {
-          return false;
-          }// */
+        if (empty($annotations)) {
+            return false;
+        }
         if ($value_only) {
             return $annotations[0]->value;
         }
 
-        return $annotations;
-        //return $annotations[0];
+        if ($this->is_multi_answer) {
+            return $annotations;
+        } else {
+            return $annotations[0];
+        }
     }
 
     /**
