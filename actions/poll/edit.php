@@ -14,6 +14,8 @@ $comments_allowed = get_input('comments_allowed', 'no');
 $close_date = get_input('close_date');
 $results_output = get_input('results_output');
 
+$is_multi_answer = get_input('is_multi_answer', false);
+
 $answers = (array) get_input('answers', []);
 
 if (empty($guid) && empty($container_guid)) {
@@ -25,6 +27,8 @@ if (empty($title)) {
 	register_error(elgg_echo('poll:action:edit:error:title'));
 	forward(REFERER);
 }
+
+
 
 $new_entity = true;
 if (!empty($guid)) {
@@ -54,6 +58,8 @@ $entity->access_id = $access_id;
 $entity->tags = $tags;
 $entity->comments_allowed = $comments_allowed;
 $entity->results_output = $results_output;
+
+$entity->is_multi_answer = $is_multi_answer;
 
 if (empty($close_date)) {
 	unset($entity->close_date);

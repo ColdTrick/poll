@@ -50,6 +50,19 @@ $answers .= elgg_view('input/date', [
 ]);
 echo elgg_format_element('div', [], $answers);
 
+// multianwser
+$checkbox_options = [
+	//'rel' => $slot_set,
+	'name' => 'is_multi_answer', 
+	'id' => 'is_multi_answer',
+	'value' => 'yes',
+    'label' => elgg_echo('poll:edit:is_multi_answer')
+    //'class' => 'event_manager_program_participatetoslot'
+];
+
+$is_multi_answer = elgg_view('input/checkbox', $checkbox_options);
+echo elgg_format_element('div', [], $is_multi_answer);
+
 // tags
 $tags = elgg_format_element('label', ['for' => 'poll-tags'], elgg_echo('tags'));
 $tags .= elgg_view('input/tags', [
