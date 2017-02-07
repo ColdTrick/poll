@@ -136,6 +136,7 @@ if (elgg_in_context('widgets') && $full_view) {
 	// make full view
 	echo elgg_view('object/elements/full', [
 		'summary' => $summary,
+		'entity' => $entity,
 		'icon' => $owner_icon,
 		'body' => $body,
 	]);
