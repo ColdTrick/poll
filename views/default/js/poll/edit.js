@@ -44,7 +44,7 @@ elgg.poll.init_edit = function() {
 			return;
 		}
 		
-		elgg.system_message(elgg.echo('poll:edit:error:answer_count'));
+		elgg.register_error(elgg.echo('poll:edit:error:answer_count'));
 		
 		return false;
 	});
