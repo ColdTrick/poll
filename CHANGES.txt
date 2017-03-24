@@ -1,6 +1,10 @@
 Version history
 ===============
 
+3.0.1 (2017-03-24):
+
+- several small chores/fixes
+
 3.0 (2017-01-26):
 
 - changed: increased Elgg version requirement to 2.3
