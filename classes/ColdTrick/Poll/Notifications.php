@@ -53,6 +53,9 @@ class Notifications {
 	 */
 	public static function closeCron($hook, $type, $return_value, $params) {
 		
+		echo 'Starting Poll closed notification' . PHP_EOL;
+		elgg_log('Starting Poll closed notification', 'NOTICE');
+		
 		$time = mktime(0, 0, 0);
 		
 		$options = [
@@ -92,5 +95,8 @@ class Notifications {
 		
 		// restore access
 		elgg_set_ignore_access($ia);
+		
+		echo 'Done with Poll closed notification' . PHP_EOL;
+		elgg_log('Done with Poll closed notification', 'NOTICE');
 	}
 }
