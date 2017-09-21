@@ -41,53 +41,7 @@ if ($show_entity_menu) {
 		'class' => 'elgg-menu-hz',
 	]);
 }
-
-if (elgg_in_context('widgets') && $full_view) {
-	// single poll in widget
-	
-	// summary
-	$params = [
-		'entity' => $entity,
-		'metadata' => $entity_menu,
-		'subtitle' => implode(' ', $subtitle),
-		'content' => elgg_get_excerpt($entity->description),
-		'tags' => false,
-	];
-	$params = $params + $vars;
-	echo elgg_view('object/elements/summary', $params);
-		
-	// tabbed
-	$body = elgg_view_menu('poll_tabs', [
-		'entity' => $entity,
-		'sort_by' => 'priority',
-		'class' => 'elgg-menu-hz elgg-tabs mtm',
-	]);
-	
-	// add answers form
-	if ($entity->canVote()) {
-		$form_vars = [
-			'class' => 'mvm poll-content',
-			'id' => 'poll-vote-form',
-		];
-		if ($entity->getVote()) {
-			$form_vars['class'] .= ' hidden';
-		}
-		
-		$body .= elgg_view_form('poll/vote', $form_vars, ['entity' => $entity]);
-	}
-	
-	// show results
-	if ($entity->getVotes()) {
-		$body .= elgg_view('poll/view/results', [
-			'entity' => $entity,
-		]);
-	}
-	
-	$body .= elgg_view('poll/view/close_date', $vars);
-	
-	echo $body;
-	
-} elseif ($full_view) {
+if ($full_view) {
 	
 	// summary
 	$params = [
