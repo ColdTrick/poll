@@ -1,6 +1,10 @@
 Version history
 ===============
 
+3.1 (2017-10-04):
+
+- changed: no longer misuse object/poll view for single poll widget output
+
 3.0.2 (2017-09-06):
 
 - several small chores/fixes
