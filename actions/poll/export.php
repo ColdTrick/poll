@@ -39,7 +39,7 @@ $filename = 'poll-results-' . elgg_get_friendly_title($entity->getDisplayName())
 
 header('Content-Type: text/csv');
 header('Content-Disposition: Attachment; filename="' . $filename . '"');
-header('Content-Length: ' . strlen($contents));
+header('Content-Length: ' . strlen($content));
 header('Pragma: public');
 
 echo $content;
