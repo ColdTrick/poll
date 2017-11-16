@@ -1,10 +1,17 @@
 <?php
 /**
- * This file was created by Translation Editor v4.0.1
- * On 2016-02-09 16:04
+ * This file was created by Translation Editor v6.0
+ * On 2017-11-16 14:48
  */
 
 return array (
+  'poll:settings:vote_change_allowed' => 'Mag de gebruiker zijn stem aanpassen?',
+  'poll:settings:vote_change_allowed:info' => 'Met deze instelling is het mogelijk dat de gebruiker zijn stem kan aanpassen nadat deze is uitgebracht.',
+  'poll:settings:add_vote_to_river' => 'Voeg stemmen toe aan de activiteiten',
+  'poll:settings:add_vote_to_river:info' => 'Met deze instelling kan worden gecontroleerd of het stemmen op een peiling wordt toegevoegd aan de activiteiten stroom',
+  'poll:widgets:single_poll:poll_guid:object' => 'Zoek naar een peiling titel en selecteer deze uit de lijst',
+  'poll:widgets:single_poll:poll_guid:guid' => 'Geen de GUID op van de peiling welke moet worden getoond in de widget',
+  'poll:action:export:error:no_votes' => 'Geen stemmen beschikbaar om te exporteren',
   'poll:settings:group_create' => 'Wie mogen er standaard peilingen aanmaken in de groep?',
   'poll:settings:group_create:info' => 'Als groepspeilingen wordt ingeschakeld, beïnvloed deze instelling wie er standaard peilingen mogen aanmaken in de groep. De groepseigenaar kan dit aanpassen.',
   'poll:settings:group_create:options:members' => 'Groepsleden',
@@ -65,7 +72,6 @@ Om de resultaten van de peiling te bekijken, klik hier:
   'poll:group_tool:title' => 'Groepspeilingen inschakelen',
   'poll:widgets:single_poll:title' => 'Uitgelichte peiling',
   'poll:widgets:single_poll:description' => 'Toon een enkele peiling',
-  'poll:widgets:single_poll:poll_guid' => 'Geef de GUID op van de peiling welke moet worden getoond in de widget',
   'poll:widgets:single_poll:misconfigured' => 'De widget moet nog geconfigureerd worden',
   'poll:widgets:recent_polls:title' => 'Recente peilingen',
   'poll:widgets:recent_polls:description' => 'Toon een lijst met de recent aangemaakte peilingen',
