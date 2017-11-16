@@ -61,6 +61,7 @@ function poll_init() {
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'groupOwnerBlock']);
 	elgg_register_plugin_hook_handler('register', 'menu:poll_tabs', ['\ColdTrick\Poll\MenuHandler', 'pollTabs']);
+	elgg_register_plugin_hook_handler('register', 'menu:entity', '\ColdTrick\Poll\MenuHandler::entityMenu');
 	elgg_register_plugin_hook_handler('container_permissions_check', 'all', ['\ColdTrick\Poll\Permissions', 'canWriteContainer']);
 	
 	elgg_register_plugin_hook_handler('likes:is_likable', 'object:' . \Poll::SUBTYPE, '\Elgg\Values::getTrue');
@@ -70,6 +71,10 @@ function poll_init() {
 	// register actions
 	elgg_register_action('poll/edit', dirname(__FILE__) . '/actions/poll/edit.php');
 	elgg_register_action('poll/delete', dirname(__FILE__) . '/actions/poll/delete.php');
+	elgg_register_action('poll/export', dirname(__FILE__) . '/actions/poll/export.php');
+	
 	elgg_register_action('poll/vote', dirname(__FILE__) . '/actions/answer/vote.php');
+	
 	elgg_register_action('poll/group_settings', dirname(__FILE__) . '/actions/group_settings.php');
+	
 }

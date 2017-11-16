@@ -106,4 +106,6 @@ To view the results check out the poll here:
 	'poll:action:vote:error:can_vote' => "You're not allowed to vote on this poll",
 	'poll:action:vote:error:vote' => "An error occured while saving your vote",
 	'poll:action:vote:success' => "Your vote was saved",
+	
+	'poll:action:export:error:no_votes' => "No votes available to export",
 ];

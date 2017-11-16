@@ -135,4 +135,34 @@ class MenuHandler {
 		
 		return $return_value;
 	}
+	
+	/**
+	 * Add a menu item to poll entity menu
+	 *
+	 * @param string          $hook         the name of the hook
+	 * @param string          $type         the type of the hook
+	 * @param \ElggMenuItem[] $return_value current return value
+	 * @param array           $params       supplied params
+	 *
+	 * @return void|\ElggMenuItem[]
+	 */
+	public static function entityMenu($hook, $type, $return_value, $params) {
+		
+		$entity = elgg_extract('entity', $params);
+		if (!($entity instanceof \Poll) || !$entity->canEdit()) {
+			return;
+		}
+		
+		$return_value[] = \ElggMenuItem::factory([
+			'name' => 'export',
+			'text' => elgg_view_icon('download'),
+			'title' => elgg_echo('export'),
+			'href' => elgg_http_add_url_query_elements('action/poll/export', [
+				'guid' => $entity->guid,
+			]),
+			'is_action' => true,
+		]);
+		
+		return $return_value;
+	}
 }
