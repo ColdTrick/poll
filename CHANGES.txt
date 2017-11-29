@@ -1,6 +1,11 @@
 Version history
 ===============
 
+3.2 (2017-11-29):
+
+- added: option to export poll votes to CSV
+- added: Spanish translation
+
 3.1 (2017-10-04):
 
 - changed: no longer misuse object/poll view for single poll widget output
