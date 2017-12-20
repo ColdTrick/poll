@@ -12,7 +12,7 @@ if (empty($answer_options)) {
 
 // in case the user already voted
 $answer_value = null;
-$vote = $entity->getVote();
+$vote = $entity->getVote(false, 0, $entity->is_multi_answer);
 if ($vote !== false) {
     $answer_value = $vote;
 }
