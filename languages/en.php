@@ -40,6 +40,7 @@ return [
 	'poll:edit:results_output:bar' => "bar chart",
 	'poll:edit:error:cant_edit' => "You're not allowed to edit this poll",
 	'poll:edit:error:answer_count' => "You need at least two answers when creating a poll",
+	'poll:edit:answers:is_multi_answer' => "People can vote for several answers?",
 	
 	'poll:closed' => "This poll is closed since:",
 	'poll:closed:future' => "Poll closes:",

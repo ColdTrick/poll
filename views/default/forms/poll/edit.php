@@ -31,7 +31,7 @@ echo elgg_view_field([
 ]);
 
 // answers
-$answers = elgg_view('elements/forms/label', ['label' => elgg_echo('poll:edit:answers'), 'required' => true]);;
+$answers = elgg_view('elements/forms/label', ['label' => elgg_echo('poll:edit:answers'), 'required' => true]);
 $answers .= elgg_view('poll/edit/answers', $vars);
 echo elgg_format_element('div', [], $answers);
 
@@ -45,6 +45,19 @@ echo elgg_view_field([
 	'required' => poll_get_plugin_setting('close_date_required') === 'yes' ? true : false,
 ]);
 
+// multianwser
+$checkbox_options = [
+	//'rel' => $slot_set,
+	'name' => 'is_multi_answer', 
+	'id' => 'is_multi_answer',
+	'value' => 'on',
+    'label' => elgg_echo('poll:edit:answers:is_multi_answer')
+    //'class' => 'event_manager_program_participatetoslot'
+];
+
+$is_multi_answer = elgg_view('input/checkbox', $checkbox_options);
+echo elgg_format_element('div', [], $is_multi_answer);
+
 // tags
 echo elgg_view_field([
 	'#type' => 'tags',
@@ -55,10 +68,9 @@ echo elgg_view_field([
 ]);
 
 // results output
-echo elgg_view_field([
-	'#type' => 'select',
-	'#label' => elgg_echo('poll:edit:results_output'),
-	'id' => 'poll-results-output',
+
+$results = elgg_format_element('label', ['for' => 'poll-results-output'], elgg_echo('poll:edit:results_output'));
+$results .= elgg_view('input/select', [
 	'name' => 'results_output',
 	'options_values' => [
 		'pie' => elgg_echo('poll:edit:results_output:pie'),
@@ -66,6 +78,9 @@ echo elgg_view_field([
 	],
 	'value' => elgg_extract('results_output', $vars),
 ]);
+
+echo elgg_format_element('div', [], $results);
+
 
 // comments
 echo elgg_view_field([
