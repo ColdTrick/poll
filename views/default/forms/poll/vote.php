@@ -10,11 +10,13 @@ if (empty($answer_options)) {
     return;
 }
 
-// in case the user already voted
+// if user already vote
+$get_only_value = $entity->is_multi_answer ? false : true;
 $answer_value = null;
-$vote = $entity->getVote(false, 0, $entity->is_multi_answer);
-if ($vote !== false) {
-    $answer_value = $vote;
+
+$user_votes = $entity->getVote($get_only_value, 0, $entity->is_multi_answer);
+if ($user_votes !== false) {
+    $answer_value = $user_votes;
 }
 
 // title
