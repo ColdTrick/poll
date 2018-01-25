@@ -4,21 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a59fa62fd2668b9ab8af95b350099057",
-    "content-hash": "d7c86f16aa67c3296b530a28a55f35df",
+    "content-hash": "99ca28614d2d342209452b95d2d134bb",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.0.25",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e"
+                "reference": "049797d727261bf27f2690430d935067710049c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
-                "reference": "36e5b5843203d7f1cf6ffb0305a97e014387bd8e",
+                "url": "https://api.github.com/repos/composer/installers/zipball/049797d727261bf27f2690430d935067710049c2",
+                "reference": "049797d727261bf27f2690430d935067710049c2",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +29,7 @@
             },
             "require-dev": {
                 "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "4.1.*"
+                "phpunit/phpunit": "^4.8.36"
             },
             "type": "composer-plugin",
             "extra": {
@@ -60,61 +59,81 @@
             "keywords": [
                 "Craft",
                 "Dolibarr",
+                "Eliasis",
                 "Hurad",
                 "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
                 "MODX Evo",
                 "Mautic",
+                "Maya",
                 "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
                 "SMF",
                 "Thelia",
                 "WolfCMS",
                 "agl",
                 "aimeos",
                 "annotatecms",
+                "attogram",
                 "bitrix",
                 "cakephp",
                 "chef",
+                "cockpit",
                 "codeigniter",
                 "concrete5",
                 "croogo",
                 "dokuwiki",
                 "drupal",
+                "eZ Platform",
                 "elgg",
+                "expressionengine",
                 "fuelphp",
                 "grav",
                 "installer",
+                "itop",
                 "joomla",
                 "kohana",
                 "laravel",
+                "lavalite",
                 "lithium",
                 "magento",
+                "majima",
                 "mako",
                 "mediawiki",
                 "modulework",
+                "modx",
                 "moodle",
+                "osclass",
                 "phpbb",
                 "piwik",
                 "ppi",
                 "puppet",
+                "pxcms",
+                "reindex",
                 "roundcube",
                 "shopware",
                 "silverstripe",
+                "sydes",
                 "symfony",
                 "typo3",
                 "wordpress",
+                "yawik",
                 "zend",
                 "zikula"
             ],
-            "time": "2016-04-13 19:46:30"
+            "time": "2017-12-29T09:13:20+00:00"
         },
         {
             "name": "npm-asset/chart.js",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/chart.js/-/chart.js-2.1.5.tgz",
+                "url": "https://registry.npmjs.org/chart.js/-/chart.js-2.1.6.tgz",
                 "reference": null,
-                "shasum": "419272499a466874454c5132c9acc4385f638947"
+                "shasum": "9bf42d47bbb3cc702756ef0a496e7c443a1f6aa5"
             },
             "require": {
                 "npm-asset/chartjs-color": ">=2.0.0,<3.0.0",
@@ -172,19 +191,20 @@
                 "MIT"
             ],
             "description": "Simple HTML5 charts using the canvas element.",
-            "homepage": "http://www.chartjs.org"
+            "homepage": "http://www.chartjs.org",
+            "time": "2016-06-14T23:33:57+00:00"
         },
         {
             "name": "npm-asset/chartjs-color",
-            "version": "2.0.0",
+            "version": "2.2.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.0.0.tgz",
+                "url": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.2.0.tgz",
                 "reference": null,
-                "shasum": "7f60c7256589b24914814ece757659117381e35b"
+                "shasum": "84a2fb755787ed85c39dd6dd8c7b1d88429baeae"
             },
             "require": {
-                "npm-asset/chartjs-color-string": ">=0.4.0,<0.5.0",
+                "npm-asset/chartjs-color-string": ">=0.5.0,<0.6.0",
                 "npm-asset/color-convert": ">=0.5.3,<0.6.0"
             },
             "require-dev": {
@@ -213,7 +233,6 @@
                     "url": "git+https://github.com/chartjs/chartjs-color.git"
                 },
                 "npm-asset-scripts": {
-                    "build": "gulp build",
                     "pretest": "xo",
                     "test": "mocha"
                 }
@@ -227,16 +246,17 @@
                 "color",
                 "colour",
                 "css"
-            ]
+            ],
+            "time": "2017-09-09T20:37:24+00:00"
         },
         {
             "name": "npm-asset/chartjs-color-string",
-            "version": "0.4.0",
+            "version": "0.5.0",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.4.0.tgz",
+                "url": "https://registry.npmjs.org/chartjs-color-string/-/chartjs-color-string-0.5.0.tgz",
                 "reference": null,
-                "shasum": "57748d4530ae28d8db0a5492182ba06dfdf2f468"
+                "shasum": "8d3752d8581d86687c35bfe2cb80ac5213ceb8c1"
             },
             "require": {
                 "npm-asset/color-name": ">=1.0.0,<2.0.0"
@@ -244,13 +264,13 @@
             "type": "npm-asset-library",
             "extra": {
                 "npm-asset-bugs": {
-                    "url": "https://github.com/harthur/color-string/issues"
+                    "url": "https://github.com/chartjs/chartjs-color-string/issues"
                 },
                 "npm-asset-main": "./color-string",
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
                     "type": "git",
-                    "url": "git+ssh://git@github.com/harthur/color-string.git"
+                    "url": "git+https://github.com/chartjs/chartjs-color-string.git"
                 },
                 "npm-asset-scripts": {
                     "test": "node test/basic.js"
@@ -263,23 +283,17 @@
                 {
                     "name": "Heather Arthur",
                     "email": "fayearthur@gmail.com"
-                },
-                {
-                    "name": "Maxime Thirouin"
-                },
-                {
-                    "name": "Dyma Ywanov",
-                    "email": "dfcreative@gmail.com"
                 }
             ],
             "description": "Parser and generator for CSS color strings",
-            "homepage": "https://github.com/harthur/color-string#readme",
+            "homepage": "https://github.com/chartjs/chartjs-color-string#readme",
             "keywords": [
                 "color",
                 "colour",
                 "css",
                 "rgb"
-            ]
+            ],
+            "time": "2017-09-09T20:09:29+00:00"
         },
         {
             "name": "npm-asset/color-convert",
@@ -320,21 +334,18 @@
         },
         {
             "name": "npm-asset/color-name",
-            "version": "1.1.1",
+            "version": "1.1.3",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.1.tgz",
+                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz",
                 "reference": null,
-                "shasum": "4b1415304cf50028ea81643643bd82ea05803689"
+                "shasum": "a7d0558bd89c42f795dd42328f740831ca53bc25"
             },
             "type": "npm-asset-library",
             "extra": {
                 "npm-asset-bugs": {
                     "url": "https://github.com/dfcreative/color-name/issues"
                 },
-                "npm-asset-files": [
-                    "index.js"
-                ],
                 "npm-asset-main": "index.js",
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
@@ -354,29 +365,29 @@
                     "email": "dfcreative@gmail.com"
                 }
             ],
-            "description": "A list of color names and it’s values",
+            "description": "A list of color names and its values",
             "homepage": "https://github.com/dfcreative/color-name",
             "keywords": [
                 "color",
                 "color-keyword",
                 "color-name",
                 "keyword"
-            ]
+            ],
+            "time": "2017-07-15T22:17:08+00:00"
         },
         {
             "name": "npm-asset/moment",
-            "version": "2.13.0",
+            "version": "2.20.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/moment/-/moment-2.13.0.tgz",
+                "url": "https://registry.npmjs.org/moment/-/moment-2.20.1.tgz",
                 "reference": null,
-                "shasum": "24162d99521e6d40f99ae6939e806d2139eaac52"
+                "shasum": "d6eb1a46cbcc14a2b2f9434112c1ff8907f313fd"
             },
             "require-dev": {
                 "npm-asset/benchmark": "dev-default|*",
                 "npm-asset/coveralls": ">=2.11.2,<3.0.0",
                 "npm-asset/es6-promise": "dev-default|*",
-                "npm-asset/esperanto": "dev-default|*",
                 "npm-asset/grunt": "~0.4",
                 "npm-asset/grunt-benchmark": "dev-default|*",
                 "npm-asset/grunt-cli": "dev-default|*",
@@ -401,7 +412,9 @@
                 "npm-asset/nyc": ">=2.1.4,<3.0.0",
                 "npm-asset/qunit": ">=0.7.5,<0.8.0",
                 "npm-asset/qunit-cli": ">=0.1.4,<0.2.0",
+                "npm-asset/rollup": "dev-default|*",
                 "npm-asset/spacejam": "dev-default|*",
+                "npm-asset/typescript": ">=1.8.10,<2.0.0",
                 "npm-asset/uglify-js": "dev-default|*"
             },
             "type": "npm-asset-library",
@@ -413,9 +426,10 @@
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
                     "type": "git",
-                    "url": "https://github.com/moment/moment.git"
+                    "url": "git+https://github.com/moment/moment.git"
                 },
                 "npm-asset-scripts": {
+                    "typescript-test": "tsc --project typing-tests",
                     "test": "grunt test",
                     "coverage": "nyc npm test && nyc report",
                     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
@@ -470,7 +484,8 @@
                 "parse",
                 "time",
                 "validate"
-            ]
+            ],
+            "time": "2017-12-19T04:44:18+00:00"
         }
     ],
     "packages-dev": [
@@ -480,12 +495,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColdTrick/releases.git",
-                "reference": "a4ac414e013dc31e0f19c4f729488b86b285b263"
+                "reference": "60cbbc82f4b5164723d2b40029fead1c5f2715dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/a4ac414e013dc31e0f19c4f729488b86b285b263",
-                "reference": "a4ac414e013dc31e0f19c4f729488b86b285b263",
+                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/60cbbc82f4b5164723d2b40029fead1c5f2715dd",
+                "reference": "60cbbc82f4b5164723d2b40029fead1c5f2715dd",
                 "shasum": ""
             },
             "type": "library",
@@ -499,7 +514,7 @@
                 "release",
                 "travis"
             ],
-            "time": "2016-03-11 12:51:42"
+            "time": "2017-11-01T09:37:42+00:00"
         },
         {
             "name": "coldtrick/sniffs",
@@ -526,67 +541,40 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Elgg coding standards",
-            "time": "2015-02-17 14:47:25"
+            "time": "2015-02-17T14:47:25+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "2.6.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d"
+                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
-                "reference": "fb72ed32f8418db5e7770be1653e62e0d6f5dd3d",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
+                "reference": "d7c00c3000ac0ce79c96fcbfef86b49a71158cd1",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
-                "php": ">=5.1.2"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0"
             },
             "bin": [
-                "scripts/phpcs",
-                "scripts/phpcbf"
+                "bin/phpcs",
+                "bin/phpcbf"
             ],
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.x-dev"
+                    "dev-master": "3.x-dev"
                 }
-            },
-            "autoload": {
-                "classmap": [
-                    "CodeSniffer.php",
-                    "CodeSniffer/CLI.php",
-                    "CodeSniffer/Exception.php",
-                    "CodeSniffer/File.php",
-                    "CodeSniffer/Fixer.php",
-                    "CodeSniffer/Report.php",
-                    "CodeSniffer/Reporting.php",
-                    "CodeSniffer/Sniff.php",
-                    "CodeSniffer/Tokens.php",
-                    "CodeSniffer/Reports/",
-                    "CodeSniffer/Tokenizers/",
-                    "CodeSniffer/DocGenerators/",
-                    "CodeSniffer/Standards/AbstractPatternSniff.php",
-                    "CodeSniffer/Standards/AbstractScopeSniff.php",
-                    "CodeSniffer/Standards/AbstractVariableSniff.php",
-                    "CodeSniffer/Standards/IncorrectPatternException.php",
-                    "CodeSniffer/Standards/Generic/Sniffs/",
-                    "CodeSniffer/Standards/MySource/Sniffs/",
-                    "CodeSniffer/Standards/PEAR/Sniffs/",
-                    "CodeSniffer/Standards/PSR1/Sniffs/",
-                    "CodeSniffer/Standards/PSR2/Sniffs/",
-                    "CodeSniffer/Standards/Squiz/Sniffs/",
-                    "CodeSniffer/Standards/Zend/Sniffs/"
-                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -604,7 +592,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-05-30 22:24:32"
+            "time": "2017-12-19T21:44:46+00:00"
         }
     ],
     "aliases": [],

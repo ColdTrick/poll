@@ -3,7 +3,7 @@
 	"description": "Adds basic poll functionality to your Elgg website",
 	"type": "elgg-plugin",
 	"keywords": ["elgg", "plugin", "poll"],
-	"license": "GPL-2.0",
+	"license": "GPL-2.0-only",
 	"support": {
 		"source": "https://github.com/ColdTrick/poll",
 		"issues": "https://github.com/ColdTrick/poll/issues"
