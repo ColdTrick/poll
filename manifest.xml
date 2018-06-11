@@ -6,12 +6,12 @@
 	<id>poll</id>
 	<description>Adds basic poll functionality to your Elgg website</description>
 	<website>http://www.coldtrick.com/</website>
-	<copyright>(C) ColdTrick IT Solutions 2015 - 2016</copyright>
+	<copyright>(C) ColdTrick IT Solutions 2015 - 2018</copyright>
 	<license>GNU Public License version 2</license>
 	
 	<requires>
 		<type>elgg_release</type>
-		<version>2.3</version>
+		<version>3.0</version>
 	</requires>
 	
 	<category>content</category>
