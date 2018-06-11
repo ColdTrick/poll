@@ -7,19 +7,15 @@ elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 $entity = get_entity($guid);
 
 if ($vote === null || $vote === '') {
-	register_error(elgg_echo('poll:action:vote:error:input'));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('poll:action:vote:error:input'));
 }
 
 if (!$entity->canVote()) {
-	register_error(elgg_echo('poll:action:vote:error:can_vote'));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('poll:action:vote:error:can_vote'));
 }
 
-if ($entity->vote($vote)) {
-	system_message(elgg_echo('poll:action:vote:success'));
-} else {
-	register_error(elgg_echo('poll:action:vote:error:vote'));
+if (!$entity->vote($vote)) {
+	return elgg_error_response(elgg_echo('poll:action:vote:error:vote'));
 }
 
-forward(REFERER);
+return elgg_ok_response('', elgg_echo('poll:action:vote:success'));

@@ -5,23 +5,22 @@ elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 
 $entity = get_entity($guid);
 if (!$entity->canEdit()) {
-	register_error(elgg_echo('poll:edit:error:cant_edit'));
-	forward(REFERER);
+	return elgg_error_response(elgg_echo('poll:edit:error:cant_edit'));
 }
 
 $title = $entity->title;
 $container = $entity->getContainerEntity();
 
-if ($entity->delete()) {
-	system_message(elgg_echo('entity:delete:success', [$title]));
-	
-	if ($container instanceof ElggUser) {
-		forward("poll/owner/{$container->username}");
-	} elseif ($container instanceof ElggGroup) {
-		forward("poll/group/{$container->getGUID()}/all");
-	}
-} else {
-	register_error(elgg_echo('entity:delete:fail', [$title]));
+if (!$entity->delete()) {
+	return elgg_error_response(elgg_echo('entity:delete:fail', [$title]));
 }
 
-forward(REFERER);
+$forward = REFERER;
+
+if ($container instanceof ElggUser) {
+	$forward = elgg_generate_url('collection:object:poll:owner', ['username' => $container->username]);
+} elseif ($container instanceof ElggGroup) {
+	$forward = elgg_generate_url('collection:object:poll:group', ['guid' => $container->guid]);
+}
+
+return elgg_ok_response('', elgg_echo('entity:delete:success', [$title]), $forward);
