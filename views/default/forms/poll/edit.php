@@ -42,7 +42,7 @@ echo elgg_view_field([
 	'name' => 'close_date',
 	'value' => elgg_extract('close_date', $vars),
 	'timestamp' => true,
-	'required' => poll_get_plugin_setting('close_date_required') === 'yes' ? true : false,
+	'required' => (bool) (elgg_get_plugin_setting('close_date_required', 'poll') === 'yes'),
 ]);
 
 // tags

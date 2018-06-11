@@ -116,7 +116,7 @@ class Poll extends \ElggObject {
 		}
 		
 
-		if ($this->getVote() && (poll_get_plugin_setting('vote_change_allowed') !== 'yes')) {
+		if ($this->getVote() && (elgg_get_plugin_setting('vote_change_allowed', 'poll') !== 'yes')) {
 			return false;
 		}
 		// check close date

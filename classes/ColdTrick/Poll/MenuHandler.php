@@ -20,6 +20,7 @@ class MenuHandler {
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:site'),
 			'href' => 'poll/all',
+			'icon' => 'chart-pie',
 		]);
 		
 		return $return_value;
@@ -50,6 +51,7 @@ class MenuHandler {
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:site'),
 			'href' => "poll/owner/{$entity->username}",
+			'icon' => 'chart-pie',
 		]);
 		
 		return $return_value;
@@ -84,6 +86,7 @@ class MenuHandler {
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:owner_block:group'),
 			'href' => "poll/group/{$entity->getGUID()}/all",
+			'icon' => 'chart-pie',
 		]);
 		
 		return $return_value;
@@ -155,8 +158,8 @@ class MenuHandler {
 		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'export',
-			'text' => elgg_view_icon('download'),
-			'title' => elgg_echo('export'),
+			'icon' => 'download',
+			'text' => elgg_echo('export'),
 			'href' => elgg_http_add_url_query_elements('action/poll/export', [
 				'guid' => $entity->guid,
 			]),

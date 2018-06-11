@@ -16,7 +16,7 @@ $yesno_options = [
 
 $value = $entity->getPrivateSetting('poll_enable_group_members');
 if (empty($value)) {
-	if (poll_get_plugin_setting('group_create') === 'owners') {
+	if (elgg_get_plugin_setting('group_create', 'poll') === 'owners') {
 		$value = 'no';
 	}
 }

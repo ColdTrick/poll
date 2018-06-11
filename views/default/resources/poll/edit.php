@@ -13,6 +13,7 @@ if (!$entity->canEdit()) {
 }
 
 // breadcrumb
+elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
 elgg_push_breadcrumb($entity->title, $entity->getURL());
 elgg_push_breadcrumb(elgg_echo('edit'));
 

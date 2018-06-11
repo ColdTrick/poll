@@ -5,12 +5,8 @@ if (empty($page_owner)) {
 	forward(REFERER);
 }
 
-if ($page_owner instanceof ElggGroup) {
-	poll_container_gatekeeper($page_owner);
-	elgg_group_gatekeeper();
-}
-
 // breadcrumb
+elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
 elgg_push_breadcrumb($page_owner->name);
 
 if (poll_is_enabled_for_container($page_owner)) {

@@ -6,6 +6,7 @@ if (!($page_owner instanceof ElggUser)) {
 }
 
 // breadcrumb
+elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
 elgg_push_breadcrumb($page_owner->name, "poll/owner/{$page_owner->username}");
 elgg_push_breadcrumb(elgg_echo('poll:friends:title'));
 
@@ -15,7 +16,7 @@ if (poll_is_enabled_for_container($page_owner)) {
 
 $title = elgg_echo('poll:friends:title');
 
-$options = [
+$contents = elgg_list_entities_from_relationship([
 	'type' => 'object',
 	'subtype' => Poll::SUBTYPE,
 	'relationship' => 'friend',
@@ -24,9 +25,7 @@ $options = [
 	'no_results' => elgg_echo('poll:none'),
 	'preload_owners' => true,
 	'preload_containers' => true,
-];
-
-$contents = elgg_list_entities_from_relationship($options);
+]);
 
 // build page
 $page_data = elgg_view_layout('content', [

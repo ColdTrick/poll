@@ -52,7 +52,7 @@ class Permissions {
 		// check group setting
 		$poll_enable_group_members = $container->getPrivateSetting('poll_enable_group_members');
 		if (empty($poll_enable_group_members)) {
-			if (poll_get_plugin_setting('group_create') === 'owners') {
+			if (elgg_get_plugin_setting('group_create', 'poll') === 'owners') {
 				$poll_enable_group_members = 'no';
 			}
 		}
