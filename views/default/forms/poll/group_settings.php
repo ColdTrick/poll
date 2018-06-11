@@ -9,11 +9,6 @@ if (!poll_is_enabled_for_container($entity)) {
 	return;
 }
 
-$yesno_options = [
-	'yes' => elgg_echo('option:yes'),
-	'no' => elgg_echo('option:no'),
-];
-
 $value = $entity->getPrivateSetting('poll_enable_group_members');
 if (empty($value)) {
 	if (elgg_get_plugin_setting('group_create', 'poll') === 'owners') {
@@ -22,24 +17,27 @@ if (empty($value)) {
 }
 
 // enable group members
-$members = elgg_echo('poll:group_settings:members');
-$members .= elgg_view('input/select', [
+echo elgg_view_field([
+	'#type' => 'select',
+	'#label' => elgg_echo('poll:group_settings:members'),
+	'#help' => elgg_echo('poll:group_settings:members:description'),
 	'name' => 'poll_enable_group_members',
 	'value' => $value,
-	'options_values' => $yesno_options,
-	'class' => 'mls',
+	'options_values' => [
+		'yes' => elgg_echo('option:yes'),
+		'no' => elgg_echo('option:no'),
+	],
 ]);
-$members .= elgg_format_element('div', ['class' => 'elgg-subtext'], elgg_echo('poll:group_settings:members:description'));
 
-echo elgg_format_element('div', [], $members);
-
-// form footer
-$footer = elgg_view('input/hidden', [
+echo elgg_view_field([
+	'#type' => 'hidden',
 	'name' => 'group_guid',
-	'value' => $entity->getGUID(),
+	'value' => $entity->guid,
 ]);
-$footer .= elgg_view('input/submit', [
+
+$footer = elgg_view_field([
+	'#type' => 'submit',
 	'value' => elgg_echo('save'),
 ]);
 
-echo elgg_format_element('div', ['class' => 'elgg-foot'], $footer);
+elgg_set_form_footer($footer);

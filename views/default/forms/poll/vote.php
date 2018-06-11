@@ -17,23 +17,24 @@ if ($vote !== false) {
 	$answer_value = $vote;
 }
 
-// title
-echo elgg_format_element('h3', ['class' => 'mbs'], elgg_echo('poll:vote:title'));
-
 // voting options
-$vote = elgg_view('input/radio', [
+echo elgg_view_field([
+	'#type' => 'radio',
+	'#label' => elgg_echo('poll:vote:title'),
 	'name' => 'vote',
 	'options' => $answer_options,
 	'value' => $answer_value,
 ]);
-echo elgg_format_element('div', [], $vote);
 
-// footer
-$footer = elgg_view('input/hidden', [
+echo elgg_view_field([
+	'#type' => 'hidden',
 	'name' => 'guid',
-	'value' => $entity->getGUID(),
+	'value' => $entity->guid,
 ]);
-$footer .= elgg_view('input/submit', [
+
+$footer = elgg_view_field([
+	'#type' => 'submit',
 	'value' => elgg_echo('poll:vote'),
 ]);
-echo elgg_format_element('div', ['class' => 'elgg-foot'], $footer);
+
+elgg_set_form_footer($footer);
