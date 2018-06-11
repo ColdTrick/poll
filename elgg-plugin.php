@@ -20,6 +20,7 @@ return [
 		'group_create' => 'members',
 		'close_date_required' => 'no',
 		'vote_change_allowed' => 'yes',
+		'add_vote_to_river' => 'yes',
 	],
 	'routes' => [
 		'collection:object:poll:all' => [

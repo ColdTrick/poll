@@ -165,7 +165,7 @@ class Poll extends \ElggObject {
 			return false;
 		}
 		
-		if (elgg_get_plugin_setting('add_vote_to_river', 'poll', 'yes') !== 'no') {
+		if (elgg_get_plugin_setting('add_vote_to_river', 'poll') === 'yes') {
 			elgg_create_river_item([
 				'view' => 'river/object/poll/vote',
 				'action_type' => 'vote',
