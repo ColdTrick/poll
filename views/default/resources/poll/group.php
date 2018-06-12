@@ -11,13 +11,7 @@ elgg_group_tool_gatekeeper('poll');
 elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
 elgg_push_breadcrumb($page_owner->name);
 
-if (poll_is_enabled_for_container($page_owner)) {
-	
-	// check if add button is allowed
-	if (can_write_to_container(0, $page_owner->getGUID(), 'object', Poll::SUBTYPE)) {
-		elgg_register_title_button();
-	}
-}
+elgg_register_title_button('poll', 'add', 'object', 'poll');
 
 // build page elements
 $title = elgg_echo('poll:owner:title', [$page_owner->name]);

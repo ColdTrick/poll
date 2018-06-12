@@ -1,59 +1,16 @@
 <?php
+/**
+ * View for poll objects
+ *
+ * @uses $vars['entity'] Poll entity to show
+ */
 
 $entity = elgg_extract('entity', $vars);
-if (!($entity instanceof Poll)) {
+if (!$entity instanceof \Poll) {
 	return;
 }
 
-$full_view = (bool) elgg_extract('full_view', $vars, false);
-$show_entity_menu = (bool) elgg_extract('show_entity_menu', $vars, !elgg_in_context('widgets'));
-
-$owner = $entity->getOwnerEntity();
-
-// owner related
-$owner_icon = elgg_view_entity_icon($owner, 'small');
-
-// create subtitle
-$subtitle = [];
-
-$vars['owner_url'] = "poll/owner/{$owner->username}";
-$subtitle[] = elgg_view('page/elements/by_line', $vars);
-
-// comments
-if ($entity->comments_allowed === 'yes') {
-	$comment_count = $entity->countComments();
-	if (!empty($comment_count)) {
-		$subtitle[] = elgg_view('output/url', [
-			'text' => elgg_echo('comments') . " ({$comment_count})",
-			'href' => "{$entity->getURL()}#comments",
-			'is_trusted' => true,
-		]);
-	}
-}
-
-// entity menu
-$entity_menu = '';
-if ($show_entity_menu) {
-	$entity_menu = elgg_view_menu('entity',[
-		'entity' => $entity,
-		'handler' => 'poll',
-		'sort_by' => 'priority',
-		'class' => 'elgg-menu-hz',
-	]);
-}
-if ($full_view) {
-	
-	// summary
-	$params = [
-		'entity' => $entity,
-		'title' => false,
-		'metadata' => $entity_menu,
-		'subtitle' => implode(' ', $subtitle),
-	];
-	$params = $params + $vars;
-	$summary = elgg_view('object/elements/summary', $params);
-	
-	// body
+if (elgg_extract('full_view', $vars)) {
 	$body = elgg_view('output/longtext', [
 		'value' => $entity->description,
 	]);
@@ -86,24 +43,24 @@ if ($full_view) {
 	}
 	
 	$body .= elgg_view('poll/view/close_date', $vars);
-	
-	// make full view
-	echo elgg_view('object/elements/full', [
-		'summary' => $summary,
-		'entity' => $entity,
-		'icon' => $owner_icon,
-		'body' => $body,
-	]);
-	
-} else {
+
 	$params = [
-		'entity' => $entity,
-		'metadata' => $entity_menu,
-		'subtitle' => implode(' ', $subtitle),
-		'content' => elgg_get_excerpt($entity->description) . elgg_view('poll/view/close_date', $vars),
+		'icon' => true,
+		'body' => $body,
+		'show_summary' => true,
+		'show_navigation' => true,
 	];
 	$params = $params + $vars;
-	$list_body = elgg_view('object/elements/summary', $params);
 	
-	echo elgg_view_image_block($owner_icon, $list_body);
+	echo elgg_view('object/elements/full', $params);
+} else {
+	$content = elgg_get_excerpt($entity->description) . elgg_view('poll/view/close_date', $vars);
+	
+	// brief view
+	$params = [
+		'content' => $content,
+		'icon' => true,
+	];
+	$params = $params + $vars;
+	echo elgg_view('object/elements/summary', $params);
 }

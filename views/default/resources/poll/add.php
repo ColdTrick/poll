@@ -8,7 +8,7 @@ if (empty($page_owner)) {
 }
 
 // and you're allowed to write to the container
-if (!can_write_to_container(0, $page_owner->getGUID(), 'object', Poll::SUBTYPE)) {
+if (!$page_owner->canWriteToContainer(0, 'object', 'poll')) {
 	forward(REFERER);
 }
 

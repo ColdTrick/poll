@@ -69,12 +69,14 @@ echo elgg_view_field([
 
 // comments
 echo elgg_view_field([
-	'#type' => 'select',
+	'#type' => 'checkbox',
 	'#label' => elgg_echo('comments'),
 	'id' => 'poll-comments',
 	'name' => 'comments_allowed',
-	'options_values' => $noyes_options,
-	'value' => elgg_extract('comments_allowed', $vars),
+	'checked' => elgg_extract('comments_allowed', $vars) === 'yes',
+	'switch' => true,
+	'default' => 'no',
+	'value' => 'yes',
 ]);
 
 // access

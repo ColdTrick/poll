@@ -18,20 +18,12 @@ if ($container instanceof ElggUser) {
 elgg_push_breadcrumb($entity->title);
 
 // build page elements
-$title = $entity->title;
-
-$content = elgg_view_entity($entity);
-
-if ($entity->comments_allowed === 'yes') {
-	$content .= elgg_format_element('h3', ['class' => 'mtm'], elgg_echo('comments'));
-	$content .= elgg_view_comments($entity);
-}
+$title = $entity->getDisplayName();
 
 // build page
-$page_data = elgg_view_layout('content', [
+$page_data = elgg_view_layout('default', [
 	'title' => $title,
-	'content' => $content,
-	'filter' => '',
+	'content' => elgg_view_entity($entity),
 ]);
 
 // draw page

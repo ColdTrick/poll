@@ -51,7 +51,6 @@ class MenuHandler {
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:site'),
 			'href' => "poll/owner/{$entity->username}",
-			'icon' => 'chart-pie',
 		]);
 		
 		return $return_value;
@@ -85,8 +84,7 @@ class MenuHandler {
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:owner_block:group'),
-			'href' => "poll/group/{$entity->getGUID()}/all",
-			'icon' => 'chart-pie',
+			'href' => "poll/group/{$entity->guid}/all",
 		]);
 		
 		return $return_value;
