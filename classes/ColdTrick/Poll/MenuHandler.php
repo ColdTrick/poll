@@ -89,54 +89,7 @@ class MenuHandler {
 		
 		return $return_value;
 	}
-	
-	/**
-	 * Add a menu item to poll tabs
-	 *
-	 * @param string          $hook         the name of the hook
-	 * @param string          $type         the type of the hook
-	 * @param \ElggMenuItem[] $return_value current return value
-	 * @param array           $params       supplied params
-	 *
-	 * @return void|\ElggMenuItem[]
-	 */
-	public static function pollTabs($hook, $type, $return_value, $params) {
 		
-		if (empty($params) || !is_array($params)) {
-			return;
-		}
-		
-		$entity = elgg_extract('entity', $params);
-		if (!($entity instanceof \Poll)) {
-			return;
-		}
-		
-		if ($entity->canVote()) {
-			$return_value[] = \ElggMenuItem::factory([
-				'name' => 'vote_form',
-				'text' => elgg_echo('poll:menu:poll_tabs:vote'),
-				'href' => '#',
-				'selected' => (bool) !$entity->getVote(),
-				'data-toggle-selector' => '#poll-vote-form',
-			]);
-		}
-		
-		if ($entity->getVotes()) {
-			$selected = !$entity->canVote() || (bool) $entity->getVote();
-			
-			$return_value[] = \ElggMenuItem::factory([
-				'name' => 'results',
-				'text' => elgg_echo('poll:menu:poll_tabs:results'),
-				'href' => '#',
-				'selected' => $selected,
-				'data-toggle-selector' => '#poll-result-chart-wrapper',
-				'data-is-chart' => true,
-			]);
-		}
-		
-		return $return_value;
-	}
-	
 	/**
 	 * Add a menu item to poll entity menu
 	 *

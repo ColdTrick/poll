@@ -50,25 +50,6 @@ elgg.poll.results.init = function() {
 
 		elgg.poll.results.init_chart(elem);
 	});
-	
-	$('.elgg-menu-poll-tabs a').on('click', function(event) {
-		event.preventDefault();
-		var $container = $(this).parents('.elgg-menu-poll-tabs').parent();
-		$container.find('.elgg-menu-poll-tabs .elgg-state-selected').removeClass('elgg-state-selected');
-		$container.find('.poll-content').hide();
-		
-		var data = $(this).data();
-		if (data.toggleSelector) {
-			$container.find(data.toggleSelector).show();
-			
-			if (data.isChart) {
-				var chart = $container.find(data.toggleSelector).find('.poll-result-chart').get(0);
-				elgg.poll.results.init_chart(chart);
-			}
-		}
-		
-		$(this).parent().addClass('elgg-state-selected');
-	});
 };
 
 elgg.register_hook_handler('init', 'system', elgg.poll.results.init);

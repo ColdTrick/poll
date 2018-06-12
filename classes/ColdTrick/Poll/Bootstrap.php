@@ -31,7 +31,6 @@ class Bootstrap extends DefaultPluginBootstrap {
 		elgg_register_plugin_hook_handler('register', 'menu:site', ['\ColdTrick\Poll\MenuHandler', 'siteMenu']);
 		elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'userOwnerBlock']);
 		elgg_register_plugin_hook_handler('register', 'menu:owner_block', ['\ColdTrick\Poll\MenuHandler', 'groupOwnerBlock']);
-		elgg_register_plugin_hook_handler('register', 'menu:poll_tabs', ['\ColdTrick\Poll\MenuHandler', 'pollTabs']);
 		elgg_register_plugin_hook_handler('register', 'menu:entity', '\ColdTrick\Poll\MenuHandler::entityMenu');
 		elgg_register_plugin_hook_handler('container_permissions_check', 'all', ['\ColdTrick\Poll\Permissions', 'canWriteContainer']);
 		elgg_register_plugin_hook_handler('likes:is_likable', 'object:poll', '\Elgg\Values::getTrue');
