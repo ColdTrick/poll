@@ -11,16 +11,6 @@ class Bootstrap extends DefaultPluginBootstrap {
 	 */
 	public function init() {
 		
-		// register js
-		if (file_exists(dirname(__FILE__) . '/vendor/npm-asset/chart.js/dist/Chart.min.js')) {
-			elgg_define_js('chartjs', [
-				'src' => '/mod/poll/vendor/npm-asset/chart.js/dist/Chart.min.js',
-			]);
-		} else {
-			elgg_define_js('chartjs', [
-				'src' => '/vendor/npm-asset/chart.js/dist/Chart.min.js',
-			]);
-		}
 		// css
 		elgg_extend_view('css/elgg', 'css/poll/site.css');
 						

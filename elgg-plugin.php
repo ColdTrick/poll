@@ -2,6 +2,11 @@
 
 require_once(dirname(__FILE__) . '/lib/functions.php');
 
+$composer_path = '';
+if (is_dir(__DIR__ . '/vendor')) {
+	$composer_path = __DIR__ . '/';
+}
+
 use ColdTrick\Poll\Bootstrap;
 
 return [
@@ -78,5 +83,9 @@ return [
 			'multiple' => true,
 		],
 	],
+	'views' => [
+		'default' => [
+			'chartjs.js' => $composer_path . 'vendor/npm-asset/chart.js/dist/Chart.min.js',
+		],
+	],
 ];
-		
