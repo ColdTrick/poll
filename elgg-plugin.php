@@ -61,7 +61,6 @@ return [
 	],
 	'actions' => [
 		'poll/edit' => [],
-		'poll/delete' => [],
 		'poll/export' => [],
 		'poll/vote' => [],
 		'poll/group_settings' => [],

@@ -24,10 +24,10 @@ $body_vars = poll_prepare_form_vars($entity);
 $content = elgg_view_form('poll/edit', [], $body_vars);
 
 // build page
-$page_data = elgg_view_layout('content', [
+$page_data = elgg_view_layout('default', [
 	'title' => $title,
 	'content' => $content,
-	'filter' => '',
+	'filter' => false,
 ]);
 
 // draw page
