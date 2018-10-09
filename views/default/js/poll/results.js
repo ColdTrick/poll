@@ -35,6 +35,13 @@ elgg.poll.results.init_chart = function (elem) {
 						legend: {
 							display: false,
 						},
+						scales: {
+				            yAxes: [{
+				                ticks: {
+				                    beginAtZero: true
+				                }
+				            }]
+				        }
 					},
 				});
 				break;
