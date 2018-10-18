@@ -24,6 +24,7 @@ $title = $entity->getDisplayName();
 $page_data = elgg_view_layout('default', [
 	'title' => $title,
 	'content' => elgg_view_entity($entity),
+	'entity' => $entity,
 	'filter' => false,
 ]);
 
