@@ -1,6 +1,10 @@
 Version history
 ===============
 
+3.2.1 (2018-10-18):
+
+- fixed: bar chart should start yAxis at zero
+
 3.2 (2017-11-29):
 
 - added: option to export poll votes to CSV
