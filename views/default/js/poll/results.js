@@ -6,6 +6,8 @@ elgg.poll.results.init_chart = function (elem) {
 	require(['jquery', 'elgg', 'chartjs'], function($, elgg, Chart){
 
 		var data = $(elem).data();
+		console.log(elem);
+		console.log(data);
 		if (data.initialized) {
 			return;
 		}
@@ -16,9 +18,11 @@ elgg.poll.results.init_chart = function (elem) {
 		
 		var ctx = elem.getContext('2d');
 		var maxWidth = $(elem).parent().innerWidth();
+		console.log(ctx);
 		if (maxWidth < 500) {
 			ctx.canvas.width = maxWidth;
 		}
+		console.log(ctx);
 
 		switch (data.chartType) {
 			case 'pie':
