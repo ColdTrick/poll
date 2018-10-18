@@ -25,6 +25,11 @@ elgg.poll.results.init_chart = function (elem) {
 				var chart = new Chart(ctx, {
 					type: data.chartType,
 					data: data.chartData,
+					options: {
+						legend: {
+							display: false,
+						},
+					}
 				});
 				break;
 			case 'bar':

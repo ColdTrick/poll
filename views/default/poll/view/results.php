@@ -50,20 +50,17 @@ if ($results_output === 'bar') {
 }
 
 $poll_content = elgg_format_element('canvas', $canvas_options);
-if ($results_output === 'bar') {
-	// custom legend
-	$legend = '';
-	foreach ($votes as $vote) {
-		$icon = elgg_format_element('span', [
-			'style' => 'background: ' . elgg_extract('color', $vote),
-			'class' => 'poll-bar-legend-item',
-		]);
-		$text = elgg_extract('full_label', $vote);
-		$legend .= elgg_format_element('div', [], elgg_view_image_block($icon, $text));
-	}
-	$poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
-}
 
+// custom legend
+$legend = '';
+foreach ($votes as $vote) {
+	$icon = elgg_format_element('span', [
+		'style' => 'background: ' . elgg_extract('color', $vote),
+		'class' => 'poll-bar-legend-item',
+	]);
+	$text = elgg_extract('full_label', $vote);
+	$legend .= elgg_format_element('div', [], elgg_view_image_block($icon, $text));
+}
+$poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
 
 echo elgg_format_element('div', ['id' => 'poll-result-chart-wrapper', 'class' => 'poll-content'], $poll_content);
-
