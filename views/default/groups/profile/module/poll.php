@@ -3,17 +3,13 @@
  * Group poll module
  */
 
+/* @var $group \ElggGroup */
 $group = elgg_extract('entity', $vars);
-if (!($group instanceof ElggGroup)) {
-	return;
-}
-
-if (!poll_is_enabled_for_group($group)) {
-	return;
-}
 
 $all_link = elgg_view('output/url', [
-	'href' => "poll/group/{$group->getGUID()}/all",
+	'href' => elgg_generate_url('collection:object:poll:group', [
+		'guid' => $group->guid,
+	]),
 	'text' => elgg_echo('link:view:all'),
 	'is_trusted' => true,
 ]);
@@ -22,7 +18,7 @@ elgg_push_context('widgets');
 $options = [
 	'type' => 'object',
 	'subtype' => Poll::SUBTYPE,
-	'container_guid' => $group->getGUID(),
+	'container_guid' => $group->guid,
 	'limit' => 6,
 	'pagination' => false,
 	'no_results' => elgg_echo('poll:none'),
@@ -32,7 +28,9 @@ $content = elgg_list_entities($options);
 elgg_pop_context();
 
 $new_link = elgg_view('output/url', [
-	'href' => "poll/add/{$group->getGUID()}",
+	'href' => elgg_generate_url('add:object:poll', [
+		'guid' => $group->guid,
+	]),
 	'text' => elgg_echo('poll:add'),
 	'is_trusted' => true,
 ]);

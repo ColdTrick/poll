@@ -16,8 +16,10 @@ class Bootstrap extends DefaultPluginBootstrap {
 						
 		// group tool option
 		if (poll_is_enabled_for_group()) {
-			add_group_tool_option('poll', elgg_echo('poll:group_tool:title'), false);
-			elgg_extend_view('groups/tool_latest', 'poll/group_module');
+			$this->elgg()->group_tools->register('poll', [
+				'label' => elgg_echo('poll:group_tool:title'),
+				'default_on' => false,
+			]);
 			elgg_extend_view('groups/edit', 'poll/group_settings');
 		}
 		
