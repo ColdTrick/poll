@@ -18,20 +18,32 @@ class MigratePoll extends Migrate {
 	 */
 	public static function supportedSubtypes($hook, $type, $return_value, $params) {
 		
-		$return_value[\Poll::SUBTYPE] = '\ColdTrick\Poll\MigratePoll';
+		$return_value[\Poll::SUBTYPE] = self::class;
 		
 		return $return_value;
 	}
 	
 	/**
 	 * {@inheritDoc}
-	 * @see \ColdTrick\EntityTools\Migrate::setSupportedOptions()
+	 * @see \ColdTrick\EntityTools\Migrate::canBackDate()
 	 */
-	protected function setSupportedOptions() {
-		$this->supported_options = [
-			'backdate' => true,
-			'change_owner' => true,
-			'change_container' => true,
-		];
+	public function canBackDate() {
+		return true;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @see \ColdTrick\EntityTools\Migrate::canChangeOwner()
+	 */
+	public function canChangeOwner() {
+		return false;
+	}
+	
+	/**
+	 * {@inheritDoc}
+	 * @see \ColdTrick\EntityTools\Migrate::canChangeContainer()
+	 */
+	public function canChangeContainer() {
+		return true;
 	}
 }
