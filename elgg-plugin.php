@@ -72,12 +72,12 @@ return [
 	],
 	'widgets' => [
 		'recent_polls' => [
-			'title' => elgg_echo('poll:widgets:recent_polls:title'),
+			'name' => elgg_echo('poll:widgets:recent_polls:title'),
 			'description' => elgg_echo('poll:widgets:recent_polls:description'),
 			'context' => ['profile', 'dashboard', 'groups', 'index'],
 		],
 		'single_poll' => [
-			'title' => elgg_echo('poll:widgets:single_poll:title'),
+			'name' => elgg_echo('poll:widgets:single_poll:title'),
 			'description' => elgg_echo('poll:widgets:single_poll:description'),
 			'context' => ['profile', 'groups', 'index'],
 			'multiple' => true,

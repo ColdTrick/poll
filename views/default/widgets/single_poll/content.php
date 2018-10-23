@@ -1,44 +1,25 @@
 <?php
 
+/* @var $widget \ElggWidget */
 $widget = elgg_extract('entity', $vars);
 
 $poll_guid = $widget->poll_guid;
 if (is_array($poll_guid)) {
 	$poll_guid = $poll_guid[0];
 }
-$poll_guid = sanitise_int($poll_guid);
 
 $entity = get_entity($poll_guid);
-
-if (!($entity instanceof Poll)) {
+if (!$entity instanceof Poll) {
 	echo elgg_echo('poll:widgets:single_poll:misconfigured');
 	return;
 }
 
-// create subtitle
-$subtitle = [];
-
-$vars['owner_url'] = "poll/owner/{$entity->getOwnerEntity()->username}";
-$subtitle[] = elgg_view('page/elements/by_line', $vars);
-
-// comments
-if ($entity->comments_allowed === 'yes') {
-	$comment_count = $entity->countComments();
-	if (!empty($comment_count)) {
-		$subtitle[] = elgg_view('output/url', [
-			'text' => elgg_echo('comments') . " ({$comment_count})",
-			'href' => "{$entity->getURL()}#comments",
-			'is_trusted' => true,
-		]);
-	}
-}
-	
 // summary
 $params = [
 	'entity' => $entity,
-	'subtitle' => implode(' ', $subtitle),
 	'content' => elgg_get_excerpt($entity->description),
 	'tags' => false,
+	'icon' => false,
 ];
 $params = $params + $vars;
 echo elgg_view('object/elements/summary', $params);
@@ -73,4 +54,3 @@ if ($entity->getVotes()) {
 $body .= elgg_view('poll/view/close_date', $vars);
 
 echo $body;
-	

@@ -21,12 +21,8 @@ class Widgets {
 			return;
 		}
 		
-		if (empty($params) || !is_array($params)) {
-			return;
-		}
-		
 		$entity = elgg_extract('entity', $params);
-		if (!($entity instanceof \ElggWidget)) {
+		if (!$entity instanceof \ElggWidget) {
 			return;
 		}
 		
@@ -35,12 +31,16 @@ class Widgets {
 				$owner = $entity->getOwnerEntity();
 				
 				if ($owner instanceof \ElggUser) {
-					return "poll/owner/{$owner->username}";
+					return elgg_generate_url('collection:object:poll:owner', [
+						'username' => $owner->username
+					]);
 				} elseif ($owner instanceof \ElggGroup) {
-					return "poll/group/{$owner->getGUID()}/all";
+					return elgg_generate_url('collection:object:poll:group', [
+						'guid' => $owner->guid,
+					]);
 				}
 				
-				return 'poll/all';
+				return elgg_generate_url('collection:object:poll:all');
 			
 				break;
 			case 'single_poll':
@@ -50,7 +50,7 @@ class Widgets {
 				}
 				
 				$poll = get_entity($poll_guid);
-				if (!($poll instanceof \Poll)) {
+				if (!$poll instanceof \Poll) {
 					break;
 				}
 				
