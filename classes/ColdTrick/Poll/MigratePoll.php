@@ -36,7 +36,7 @@ class MigratePoll extends Migrate {
 	 * @see \ColdTrick\EntityTools\Migrate::canChangeOwner()
 	 */
 	public function canChangeOwner() {
-		return false;
+		return true;
 	}
 	
 	/**
