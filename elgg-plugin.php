@@ -37,8 +37,11 @@ return [
 			'resource' => 'poll/owner',
 		],
 		'collection:object:poll:group' => [
-			'path' => '/poll/group/{guid}',
+			'path' => '/poll/group/{guid}/{subpage?}',
 			'resource' => 'poll/group',
+			'defaults' => [
+				'subpage' => 'all',
+			],
 		],
 		'collection:object:poll:friends' => [
 			'path' => '/poll/friends/{username}',
