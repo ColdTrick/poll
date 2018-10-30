@@ -53,7 +53,11 @@ if (elgg_extract('full_view', $vars)) {
 		];
 	}
 	
-	$body .= elgg_view('page/components/tabs', ['tabs' => $tabs]);
+	if (count($tabs) > 1) {
+		$body .= elgg_view('page/components/tabs', ['tabs' => $tabs]);
+	} else {
+		$body .= elgg_extract('content', elgg_extract(0, $tabs));
+	}
 	
 	$body .= elgg_view('poll/view/close_date', $vars);
 
