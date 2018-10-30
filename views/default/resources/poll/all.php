@@ -4,6 +4,8 @@ if (elgg_get_plugin_setting('enable_site', 'poll') === 'yes') {
 	elgg_register_title_button('poll', 'add', 'object', Poll::SUBTYPE);
 }
 
+elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE);
+
 // build page elements
 $title = elgg_echo('poll:all:title');
 
