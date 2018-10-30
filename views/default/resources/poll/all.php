@@ -1,10 +1,7 @@
 <?php
 
-// breadcrumb
-elgg_push_breadcrumb(elgg_echo('poll:menu:site'));
-
 if (elgg_get_plugin_setting('enable_site', 'poll') === 'yes') {
-	elgg_register_title_button();
+	elgg_register_title_button('poll', 'add', 'object', Poll::SUBTYPE);
 }
 
 // build page elements

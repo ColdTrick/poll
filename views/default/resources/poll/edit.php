@@ -8,17 +8,14 @@ elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 
 $entity = get_entity($guid);
 if (!$entity->canEdit()) {
-	regsiter_error(elgg_echo('poll:edit:error:cant_edit'));
-	forward(REFERER);
+	throw new \Elgg\EntityPermissionsException();
 }
 
 // breadcrumb
-elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
-elgg_push_breadcrumb($entity->title, $entity->getURL());
-elgg_push_breadcrumb(elgg_echo('edit'));
+elgg_push_entity_breadcrumbs($entity);
 
 // build page elements
-$title = elgg_echo('poll:edit:title', [$entity->title]);
+$title = elgg_echo('poll:edit:title', [$entity->getDisplayName()]);
 
 $body_vars = poll_prepare_form_vars($entity);
 $content = elgg_view_form('poll/edit', [], $body_vars);

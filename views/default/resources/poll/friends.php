@@ -1,26 +1,24 @@
 <?php
 
 $page_owner = elgg_get_page_owner_entity();
-if (!($page_owner instanceof ElggUser)) {
+if (!$page_owner instanceof ElggUser) {
 	forward(REFERER);
 }
 
 // breadcrumb
-elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
-elgg_push_breadcrumb($page_owner->name, "poll/owner/{$page_owner->username}");
-elgg_push_breadcrumb(elgg_echo('poll:friends:title'));
+elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE, $page_owner, true);
 
 if (poll_is_enabled_for_container($page_owner)) {
-	elgg_register_title_button();
+	elgg_register_title_button('poll', 'add', 'object', Poll::SUBTYPE);
 }
 
 $title = elgg_echo('poll:friends:title');
 
-$contents = elgg_list_entities_from_relationship([
+$contents = elgg_list_entities([
 	'type' => 'object',
 	'subtype' => Poll::SUBTYPE,
 	'relationship' => 'friend',
-	'relationship_guid' => $page_owner->getGUID(),
+	'relationship_guid' => $page_owner->guid,
 	'relationship_join_on' => 'owner_guid',
 	'no_results' => elgg_echo('poll:none'),
 	'preload_owners' => true,

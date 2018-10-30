@@ -1,5 +1,7 @@
 <?php
 
+use Elgg\EntityPermissionsException;
+
 elgg_gatekeeper();
 
 $page_owner = elgg_get_page_owner_entity();
@@ -8,13 +10,12 @@ if (empty($page_owner)) {
 }
 
 // and you're allowed to write to the container
-if (!$page_owner->canWriteToContainer(0, 'object', 'poll')) {
-	forward(REFERER);
+if (!$page_owner->canWriteToContainer(0, 'object', Poll::SUBTYPE)) {
+	throw new EntityPermissionsException();
 }
 
 //breadcrumb
-elgg_push_breadcrumb(elgg_echo('poll:menu:site'), 'poll/all');
-elgg_push_breadcrumb(elgg_echo('poll:add'));
+elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE, $page_owner);
 
 // build page elements
 $title = elgg_echo('poll:add');

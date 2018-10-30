@@ -38,11 +38,11 @@ function poll_is_enabled_for_group(ElggGroup $group = null) {
 		return false;
 	}
 	
-	if (!($group instanceof ElggGroup)) {
+	if (!$group instanceof ElggGroup) {
 		return true;
 	}
 	
-	if ($group->poll_enable === 'yes') {
+	if ($group->isToolEnabled('poll')) {
 		return true;
 	}
 	
