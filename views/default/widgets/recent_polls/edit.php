@@ -8,4 +8,3 @@ echo elgg_view('object/widget/edit/num_display', [
 	'min' => 1,
 	'max' => 10,
 ]);
-
