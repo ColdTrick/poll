@@ -15,16 +15,14 @@ $all_link = elgg_view('output/url', [
 ]);
 
 elgg_push_context('widgets');
-$options = [
+$content = elgg_list_entities([
 	'type' => 'object',
 	'subtype' => Poll::SUBTYPE,
 	'container_guid' => $group->guid,
 	'limit' => 6,
 	'pagination' => false,
 	'no_results' => elgg_echo('poll:none'),
-	'preload_owners' => true,
-];
-$content = elgg_list_entities($options);
+]);
 elgg_pop_context();
 
 $new_link = elgg_view('output/url', [

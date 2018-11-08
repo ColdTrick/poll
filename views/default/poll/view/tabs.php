@@ -28,9 +28,8 @@ if ($entity->canVote()) {
 }
 
 // show results
-if ($entity->getVotes()) {
-	$content = elgg_view('poll/view/results', $vars);
-	
+$content = elgg_view('poll/view/results', $vars);
+if (!empty($content)) {
 	$selected = !$entity->canVote() || (bool) $entity->getVote();
 	
 	$tabs[] = [
