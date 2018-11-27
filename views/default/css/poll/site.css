@@ -24,6 +24,10 @@
 	margin-bottom: 15px;
 }
 
+.poll-result-chart-wrapper {
+	position: relative;
+}
+
 .poll-bar-legend .elgg-image-block {
 	padding: 0;
 }

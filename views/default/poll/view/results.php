@@ -35,22 +35,18 @@ foreach ($votes as $vote) {
 }
 
 // chart canvas (default options for pie)
-$container_options = [
-	'width' => '500px',
-	'height' => '200px',
-];
-
 $canvas_options = [
 	'id' => 'poll-result-chart',
 	'class' => ['poll-result-chart'],
 	'data-chart-type' => $results_output,
 	'data-chart-data' => json_encode($results),
+	'width' => '100%',
+	'height' => '200px',
 ];
 
 if ($results_output === 'bar') {
 	$canvas_options['class'][] = 'poll-bar';
-	$container_options['width'] = '600px';
-	$container_options['height'] = '400px';
+	$canvas_options['height'] = '400px';
 }
 
 $poll_content = elgg_format_element('canvas', $canvas_options);
@@ -67,4 +63,4 @@ foreach ($votes as $vote) {
 }
 $poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
 
-echo elgg_format_element('div', ['id' => 'poll-result-chart-wrapper', 'class' => 'poll-content'], $poll_content);
+echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper']], $poll_content);
