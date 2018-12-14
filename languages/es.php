@@ -1,7 +1,7 @@
 <?php
 /**
- * This file was created by Translation Editor v6.0
- * On 2017-10-07 17:21
+ * This file was created by Translation Editor v7.0-beta
+ * On 2018-12-14 15:36
  */
 
 return array (
@@ -54,8 +54,6 @@ return array (
   'poll:widgets:single_poll:title' => 'Encuesta destacada',
   'poll:widgets:single_poll:description' => 'Mostrar un sola encuesta',
   'poll:widgets:single_poll:poll_guid:object' => 'Introduzca el título de la encuesta y seleccione de la lista',
-  'poll:widgets:single_poll:poll_guid:guid' => 'Introduzca el GUID de la encuesta que se debe mostrar en el widget',
-  'poll:widgets:single_poll:misconfigured' => 'Es necesario configurar este widget',
   'poll:widgets:recent_polls:title' => 'Encuestas reciente',
   'poll:widgets:recent_polls:description' => 'Mostrar una lista de las encuestas recientes',
   'poll:container_gatekeeper:user' => 'Encuesta no está habilitado para uso personal',
