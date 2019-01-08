@@ -58,12 +58,12 @@ return [
 	'poll:group_settings:members:description' => "When this setting is set to 'no', only group owners/admins can create polls in this group.",
 	
 	// widgets
-	'poll:widgets:single_poll:title' => "Featured poll",
-	'poll:widgets:single_poll:description' => "Show a single poll",
+	'widgets:single_poll:name' => "Featured poll",
+	'widgets:single_poll:description' => "Show a single poll",
 	'poll:widgets:single_poll:poll_guid:object' => "Enter the poll title and select from the list",
 	
-	'poll:widgets:recent_polls:title' => "Recent polls",
-	'poll:widgets:recent_polls:description' => "Show a list of the recently created polls",
+	'widgets:recent_polls:name' => "Recent polls",
+	'widgets:recent_polls:description' => "Show a list of the recently created polls",
 	
 	'poll:container_gatekeeper:user' => "Poll is not enabled for personal use",
 	'poll:container_gatekeeper:group' => "Poll is not enabled for use in groups",
