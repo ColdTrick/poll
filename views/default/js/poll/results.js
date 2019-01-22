@@ -16,7 +16,7 @@ elgg.poll.results.init_chart = function (elem) {
 		
 		var ctx = elem.getContext('2d');
 		var maxWidth = $(elem).closest('.elgg-image-block').find(' > .elgg-body').innerWidth();
-
+		ctx.canvas.width = 500;
 		if (maxWidth < 500) {
 			ctx.canvas.width = maxWidth;
 		}
