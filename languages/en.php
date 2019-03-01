@@ -6,6 +6,7 @@ return [
 	'collection:object:poll' => 'Polls',
 	'river:object:poll:create' => "%s created a new poll %s",
 	'river:object:poll:vote' => "%s voted on the poll %s",
+	'river:object:poll:comment' => "%s commented on the poll %s",
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",

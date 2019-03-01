@@ -48,6 +48,7 @@ Om de resultaten van de peiling te bekijken, klik hier:
   'item:object:poll' => 'Peiling',
   'river:object:poll:create' => '%s heeft de peiling \'%s\' aangemaakt',
   'river:object:poll:vote' => '%s heeft gestemd op de peiling %s',
+  'river:object:poll:comment' => '%s reageerde op de peiling %s',
   'poll:settings:enable_site' => 'Schakel peilingen in voor de site',
   'poll:settings:enable_site:info' => 'Mogen gebruikers persoonlijke peilingen aanmaken?',
   'poll:settings:enable_group' => 'Schakel peilingen in voor groepen',
