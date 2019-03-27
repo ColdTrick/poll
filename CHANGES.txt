@@ -1,6 +1,22 @@
 Version history
 ===============
 
+4.0 (2019-03-27):
+
+- changed: always show custom legend
+- changed: group module registration
+- changed: manage chart width with css now
+- changed: mapping js now happens in elgg-plugin
+- changed: moved plugin initialisation to elgg-plugin
+- changed: toggle tabs now use a page component
+- changed: unified breadcrumbs
+- changed: updated action responses
+- changed: updated chartjs to 2.7.3
+- changed: updated settings form
+- changed: upped minimal requirement to Elgg 3
+- fixed: EntityTools support
+- fixed: only show tabs if usefull
+
 3.2.1 (2018-10-18):
 
 - fixed: bar chart should start yAxis at zero
