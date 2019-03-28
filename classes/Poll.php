@@ -336,4 +336,26 @@ class Poll extends \ElggObject {
 		];
 		return notify_user($participants, $owner->getGUID(), $subject, $message, $params);
 	}
+	
+	/**
+	 * Is the poll closed for voting
+	 *
+	 * @return bool
+	 */
+	public function isClosed() {
+		
+		$close_date = $this->close_date;
+		if (!isset($close_date)) {
+			// no close date
+			return false;
+		}
+		
+		$close_date = (int) $close_date;
+		if ($close_date > time()) {
+			// in the future
+			return false;
+		}
+		
+		return true;
+	}
 }
