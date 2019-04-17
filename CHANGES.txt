@@ -1,6 +1,10 @@
 Version history
 ===============
 
+4.1 (2019-04-17):
+
+- added: function to check if the poll is closed
+
 4.0 (2019-03-27):
 
 - changed: always show custom legend
