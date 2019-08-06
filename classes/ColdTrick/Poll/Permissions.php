@@ -7,31 +7,23 @@ class Permissions {
 	/**
 	 * Check if a user can write a poll in a group
 	 *
-	 * @param string $hook         the name of the hook
-	 * @param string $type         the type of the hook
-	 * @param bool   $return_value current return value
-	 * @param array  $params       supplied params
+	 * @param \Elgg\Hook $hook 'container_permissions_check', 'all'
 	 *
 	 * @return void|bool
 	 */
-	public static function canWriteContainer($hook, $type, $return_value, $params) {
-		
-		if (empty($params) || !is_array($params)) {
+	public static function canWriteContainer(\Elgg\Hook $hook) {
+		$subtype = $hook->getParam('subtype');
+		if (($hook->getType() !== 'object') || ($subtype !== \Poll::SUBTYPE)) {
 			return;
 		}
 		
-		$subtype = elgg_extract('subtype', $params);
-		if (($type !== 'object') || ($subtype !== \Poll::SUBTYPE)) {
-			return;
-		}
-		
-		$user = elgg_extract('user', $params);
-		if (!($user instanceof \ElggUser)) {
+		$user = $hook->getUserParam();
+		if (!$user instanceof \ElggUser) {
 			return false;
 		}
 		
-		$container = elgg_extract('container', $params);
-		if (!($container instanceof \ElggGroup)) {
+		$container = $hook->getParam('container');
+		if (!$container instanceof \ElggGroup) {
 			return;
 		}
 		

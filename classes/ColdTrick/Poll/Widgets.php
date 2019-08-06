@@ -7,21 +7,17 @@ class Widgets {
 	/**
 	 * Set the widget title url
 	 *
-	 * @param string $hook         the name of the hook
-	 * @param string $type         the type of the hook
-	 * @param string $return_value current return value
-	 * @param array  $params       supplied params
+	 * @param \Elgg\Hook $hook 'entity:url', 'object'
 	 *
 	 * @return void|string
 	 */
-	public static function widgetUrls($hook, $type, $return_value, $params) {
-		
-		if (!empty($return_value)) {
+	public static function widgetUrls(\Elgg\Hook $hook) {
+		if (!empty($hook->getValue())) {
 			// someone already made an url
 			return;
 		}
 		
-		$entity = elgg_extract('entity', $params);
+		$entity = $hook->getEntityParam();
 		if (!$entity instanceof \ElggWidget) {
 			return;
 		}
@@ -63,24 +59,17 @@ class Widgets {
 	/**
 	 * Define a widget for a group tool option
 	 *
-	 * @param string $hook         the name of the hook
-	 * @param string $type         the type of the hook
-	 * @param array  $return_value current return value
-	 * @param array  $params       supplied params
+	 * @param \Elgg\Hook $hook 'group_tool_widgets', 'widget_manager'
 	 *
 	 * @return void|array
 	 */
-	public static function groupToolWidgets($hook, $type, $return_value, $params) {
-		
-		if (empty($params) || !is_array($params)) {
+	public static function groupToolWidgets(\Elgg\Hook $hook) {
+		$entity = $hook->getEntityParam();
+		if (!$entity instanceof \ElggGroup) {
 			return;
 		}
 		
-		$entity = elgg_extract('entity', $params);
-		if (!($entity instanceof \ElggGroup)) {
-			return;
-		}
-		
+		$return_value = $hook->getValue();
 		if (!is_array($return_value)) {
 			$return_value = [];
 		}
