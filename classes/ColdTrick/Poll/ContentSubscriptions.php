@@ -7,15 +7,12 @@ class ContentSubscriptions {
 	/**
 	 * Add poll as an supported type for content subscriptions
 	 *
-	 * @param string $hook         the name of the hook
-	 * @param string $type         the type of the hook
-	 * @param array  $return_value current return value
-	 * @param array  $params       supplied params
+	 * @param \Elgg\Hook $hook 'entity_types', 'content_subscriptions'
 	 *
 	 * @return void|array
 	 */
-	public static function registerEntityType($hook, $type, $return_value, $params) {
-		
+	public static function registerEntityType(\Elgg\Hook $hook) {
+		$return_value = $hook->getValue();
 		if (!is_array($return_value)) {
 			// someone removed all
 			return;
