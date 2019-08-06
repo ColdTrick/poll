@@ -297,21 +297,17 @@ class Poll extends \ElggObject {
 	
 		// this could take a while
 		set_time_limit(0);
-		
-		$owner = $this->getOwnerEntity();
-		
-		$annotation_options = [
-			'guid' => $this->getGUID(),
-			'limit' => false,
-			'annotation_name' => 'vote',
-			'callback' => function($row) {
-				return (int) $row->owner_guid;
-			},
-		];
-		
-		$ia = elgg_set_ignore_access(true);
-		$participants = elgg_get_annotations($annotation_options);
-		elgg_set_ignore_access($ia);
+				
+		$participants = elgg_call(ELGG_IGNORE_ACCESS, function() {
+			return elgg_get_annotations([
+				'guid' => $this->guid,
+				'limit' => false,
+				'annotation_name' => 'vote',
+				'callback' => function($row) {
+					return (int) $row->owner_guid;
+				},
+			]);
+		});
 		
 		if (empty($participants)) {
 			// nobody voted :(
@@ -334,7 +330,7 @@ class Poll extends \ElggObject {
 			'action' => 'close',
 			'summary' => $summary,
 		];
-		return notify_user($participants, $owner->getGUID(), $subject, $message, $params);
+		return notify_user($participants, $owner->getOwnerGUID(), $subject, $message, $params);
 	}
 	
 	/**
