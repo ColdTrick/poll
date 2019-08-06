@@ -9,13 +9,17 @@ if ($entity->canVote() && !$entity->getVote()) {
 	return;
 }
 
+// poll results
+$votes = $entity->getVotes();
+if (empty($votes)) {
+	echo elgg_view('page/components/no_results', ['no_results' => elgg_echo('poll:no_votes')]);
+	return;
+}
+
 elgg_require_js('poll/results');
 if (elgg_is_xhr()) {
 	echo elgg_format_element('script', [], 'require(["poll/results"], function(){elgg.poll.results.init();});');
 }
-
-// poll results
-$votes = $entity->getVotes();
 
 // convert votes result to be used in charts
 $results_output = $entity->results_output;

@@ -45,6 +45,7 @@ return [
 	
 	'poll:closed' => "This poll is closed since:",
 	'poll:closed:future' => "Poll closes:",
+	'poll:no_votes' => "No vote has been cast yet",
 	'poll:vote:title' => "Vote for this poll",
 	'poll:vote' => "Vote",
 	
