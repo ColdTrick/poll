@@ -216,7 +216,7 @@ class Poll extends \ElggObject {
 	/**
 	 * Get all the votes in a count array
 	 *
-	 * @return false|array
+	 * @return array
 	 */
 	public function getVotes() {
 		
@@ -245,7 +245,7 @@ class Poll extends \ElggObject {
 		]);
 		
 		if (empty($votes)) {
-			return false;
+			return [];
 		}
 		
 		foreach ($votes as $vote) {
