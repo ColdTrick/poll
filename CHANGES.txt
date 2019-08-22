@@ -1,6 +1,11 @@
 Version history
 ===============
 
+4.2 (2019-08-22):
+
+- changed: poll->getVotes now will always return an array
+- fixed: return a no results text if there are no votes on poll details
+
 4.1 (2019-04-17):
 
 - added: function to check if the poll is closed
