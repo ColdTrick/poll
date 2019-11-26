@@ -68,7 +68,7 @@ class Notifications {
 				],
 			];
 			
-			$batch = new \ElggBatch('elgg_get_entities_from_metadata', $options);
+			$batch = new \ElggBatch('elgg_get_entities', $options);
 			foreach ($batch as $poll) {
 				
 				if (!$poll instanceof \Poll) {
