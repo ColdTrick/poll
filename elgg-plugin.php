@@ -8,6 +8,8 @@ if (is_dir(__DIR__ . '/vendor')) {
 }
 
 use ColdTrick\Poll\Bootstrap;
+use ColdTrick\Poll\Middleware\ContainerGatekeeper;
+use Elgg\Router\Middleware\Gatekeeper;
 
 return [
 	'bootstrap' => Bootstrap::class,
@@ -52,15 +54,18 @@ return [
 			'resource' => 'poll/view',
 		],
 		'add:object:poll' => [
-			'path' => '/poll/add/{guid?}',
+			'path' => '/poll/add/{guid}',
 			'resource' => 'poll/add',
 			'middleware' => [
-				\ColdTrick\Poll\Middleware\ContainerGatekeeper::class,
+				ContainerGatekeeper::class,
 			],
 		],
 		'edit:object:poll' => [
 			'path' => '/poll/edit/{guid}',
 			'resource' => 'poll/edit',
+			'middleware' => [
+				Gatekeeper::class,
+			],
 		],
 		'default:object:poll' => [
 			'path' => '/poll',

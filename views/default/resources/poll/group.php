@@ -1,11 +1,10 @@
 <?php
 
-$page_owner = elgg_get_page_owner_entity();
-if (!$page_owner instanceof ElggGroup) {
-	forward(REFERER);
-}
-
+elgg_entity_gatekeeper(elgg_extract('guid', $vars), 'group');
 elgg_group_tool_gatekeeper('poll');
+
+/* @var $page_owner \ELggGroup */
+$page_owner = get_entity(elgg_extract('guid', $vars));
 
 // breadcrumb
 elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE, $page_owner);
@@ -25,12 +24,7 @@ $contents = elgg_list_entities([
 	'no_results' => elgg_echo('poll:none'),
 ]);
 
-// build page
-$page_data = elgg_view_layout('content', [
-	'title' => $title,
-	'content' => $contents,
-	'filter' => ''
-]);
-
 // draw page
-echo elgg_view_page($title, $page_data);
+echo elgg_view_page($title, [
+	'content' => $contents,
+]);

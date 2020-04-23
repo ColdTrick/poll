@@ -4,6 +4,7 @@ namespace ColdTrick\Poll\Middleware;
 
 use Elgg\HttpException;
 use Elgg\Request;
+use Elgg\GatekeeperException;
 
 /**
  * Protects a route from non-authenticated users
@@ -28,12 +29,10 @@ class ContainerGatekeeper extends \Elgg\Router\Middleware\Gatekeeper {
 			return;
 		}
 		
-		if ($container instanceof ElggUser) {
-			register_error(elgg_echo('poll:container_gatekeeper:user'));
-		} elseif ($container instanceof ElggGroup) {
-			register_error(elgg_echo('poll:container_gatekeeper:group'));
+		if ($container instanceof \ElggUser) {
+			throw new GatekeeperException(elgg_echo('poll:container_gatekeeper:user'));
+		} elseif ($container instanceof \ElggGroup) {
+			throw new GatekeeperException(elgg_echo('poll:container_gatekeeper:group'));
 		}
-		
-		forward(REFERER);
 	}
 }

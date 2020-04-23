@@ -1,8 +1,10 @@
 <?php
 
+use Elgg\EntityNotFoundException;
+
 $page_owner = elgg_get_page_owner_entity();
 if (!$page_owner instanceof ElggUser) {
-	forward(REFERER);
+	throw new EntityNotFoundException();
 }
 
 // breadcrumb
@@ -25,12 +27,8 @@ $contents = elgg_list_entities([
 	'preload_containers' => true,
 ]);
 
-// build page
-$page_data = elgg_view_layout('content', [
-	'title' => $title,
-	'content' => $contents,
-	'filter_context' => 'friends',
-]);
-
 // draw page
-echo elgg_view_page($title, $page_data);
+echo elgg_view_page($title, [
+	'content' => $contents,
+	'filter_value' => 'friends',
+]);

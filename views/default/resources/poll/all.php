@@ -17,11 +17,8 @@ $contents = elgg_list_entities([
 	'preload_containers' => true,
 ]);
 
-// build page
-$page_data = elgg_view_layout('content', [
-	'title' => $title,
-	'content' => $contents
-]);
-
 // draw page
-echo elgg_view_page($title, $page_data);
+echo elgg_view_page($title, [
+	'content' => $contents,
+	'filter_value' => 'all',
+]);

@@ -1,8 +1,12 @@
 <?php
 
-$page_owner = elgg_get_page_owner_entity();
+use Elgg\EntityNotFoundException;
+
+$username = elgg_extract('username', $vars);
+
+$page_owner = get_user_by_username($username);
 if (!$page_owner instanceof ElggUser) {
-	forward(REFERER);
+	throw new EntityNotFoundException();
 }
 
 // breadcrumb
@@ -23,12 +27,8 @@ $contents = elgg_list_entities([
 	'preload_containers' => true,
 ]);
 
-// build page
-$page_data = elgg_view_layout('content', [
-	'title' => $title,
-	'content' => $contents,
-	'filter_context' => ($page_owner->guid === elgg_get_logged_in_user_guid()) ? 'mine' : '',
-]);
-
 // draw page
-echo elgg_view_page($title, $page_data);
+echo elgg_view_page($title, [
+	'content' => $contents,
+	'filter_value' => ($page_owner->guid === elgg_get_logged_in_user_guid()) ? 'mine' : 'none',
+]);
