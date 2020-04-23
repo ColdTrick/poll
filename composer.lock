@@ -4,32 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "94ee02d229ba9ff83a14cf38cccc08c4",
+    "content-hash": "a339bade615759e724617aebac4c9f4f",
     "packages": [
         {
             "name": "composer/installers",
-            "version": "v1.6.0",
+            "version": "v1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b"
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/cfcca6b1b60bc4974324efb5783c13dca6932b5b",
-                "reference": "cfcca6b1b60bc4974324efb5783c13dca6932b5b",
+                "url": "https://api.github.com/repos/composer/installers/zipball/b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
+                "reference": "b93bcf0fa1fccb0b7d176b0967d969691cd74cca",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0"
+                "composer-plugin-api": "^1.0 || ^2.0"
             },
             "replace": {
                 "roundcube/plugin-installer": "*",
                 "shama/baton": "*"
             },
             "require-dev": {
-                "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "^4.8.36"
+                "composer/composer": "1.6.* || 2.0.*@dev",
+                "composer/semver": "1.0.* || 2.0.*@dev",
+                "phpunit/phpunit": "^4.8.36",
+                "sebastian/comparator": "^1.2.4",
+                "symfony/process": "^2.3"
             },
             "type": "composer-plugin",
             "extra": {
@@ -65,6 +68,7 @@
                 "Kanboard",
                 "Lan Management System",
                 "MODX Evo",
+                "MantisBT",
                 "Mautic",
                 "Maya",
                 "OXID",
@@ -73,6 +77,7 @@
                 "RadPHP",
                 "SMF",
                 "Thelia",
+                "Whmcs",
                 "WolfCMS",
                 "agl",
                 "aimeos",
@@ -95,6 +100,7 @@
                 "installer",
                 "itop",
                 "joomla",
+                "known",
                 "kohana",
                 "laravel",
                 "lavalite",
@@ -117,6 +123,7 @@
                 "shopware",
                 "silverstripe",
                 "sydes",
+                "sylius",
                 "symfony",
                 "typo3",
                 "wordpress",
@@ -124,7 +131,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2018-08-27T06:10:37+00:00"
+            "time": "2020-04-07T06:57:05+00:00"
         },
         {
             "name": "npm-asset/chart.js",
@@ -159,15 +166,15 @@
         },
         {
             "name": "npm-asset/chartjs-color",
-            "version": "2.3.0",
+            "version": "2.4.1",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.3.0.tgz",
-                "shasum": "0e7e1e8dba37eae8415fd3db38bf572007dd958f"
+                "url": "https://registry.npmjs.org/chartjs-color/-/chartjs-color-2.4.1.tgz",
+                "shasum": "6118bba202fe1ea79dd7f7c0f9da93467296c3b0"
             },
             "require": {
                 "npm-asset/chartjs-color-string": ">=0.6.0,<0.7.0",
-                "npm-asset/color-convert": ">=0.5.3,<0.6.0"
+                "npm-asset/color-convert": ">=1.9.3,<2.0.0"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -194,7 +201,7 @@
                 "colour",
                 "css"
             ],
-            "time": "2019-03-07T10:39:03+00:00"
+            "time": "2019-10-25T20:51:22+00:00"
         },
         {
             "name": "npm-asset/chartjs-color-string",
@@ -243,26 +250,39 @@
         },
         {
             "name": "npm-asset/color-convert",
-            "version": "0.5.3",
+            "version": "1.9.3",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/color-convert/-/color-convert-0.5.3.tgz",
-                "shasum": "bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
+                "url": "https://registry.npmjs.org/color-convert/-/color-convert-1.9.3.tgz",
+                "shasum": "bb71850690e1f136567de629d2d5471deda4c1e8"
+            },
+            "require": {
+                "npm-asset/color-name": "1.1.3"
             },
             "type": "npm-asset-library",
             "extra": {
                 "npm-asset-bugs": {
-                    "url": "https://github.com/harthur/color-convert/issues"
+                    "url": "https://github.com/Qix-/color-convert/issues"
                 },
+                "npm-asset-files": [
+                    "index.js",
+                    "conversions.js",
+                    "css-keywords.js",
+                    "route.js"
+                ],
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
                     "type": "git",
-                    "url": "git+ssh://git@github.com/harthur/color-convert.git"
+                    "url": "git+https://github.com/Qix-/color-convert.git"
                 },
                 "npm-asset-scripts": {
+                    "pretest": "xo",
                     "test": "node test/basic.js"
                 }
             },
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Heather Arthur",
@@ -270,31 +290,41 @@
                 }
             ],
             "description": "Plain color conversion functions",
-            "homepage": "https://github.com/harthur/color-convert#readme",
+            "homepage": "https://github.com/Qix-/color-convert#readme",
             "keywords": [
+                "ansi",
+                "ansi16",
+                "cmyk",
                 "color",
                 "colour",
+                "conversion",
+                "convert",
+                "converter",
+                "hsl",
+                "hsv",
+                "hwb",
                 "rgb"
-            ]
+            ],
+            "time": "2018-08-28T05:32:39+00:00"
         },
         {
             "name": "npm-asset/color-name",
-            "version": "1.1.4",
+            "version": "1.1.3",
             "dist": {
                 "type": "tar",
-                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz",
-                "shasum": "c2a09a87acbde69543de6f63fa3995c826c536a2"
+                "url": "https://registry.npmjs.org/color-name/-/color-name-1.1.3.tgz",
+                "shasum": "a7d0558bd89c42f795dd42328f740831ca53bc25"
             },
             "type": "npm-asset-library",
             "extra": {
                 "npm-asset-bugs": {
-                    "url": "https://github.com/colorjs/color-name/issues"
+                    "url": "https://github.com/dfcreative/color-name/issues"
                 },
                 "npm-asset-main": "index.js",
                 "npm-asset-directories": [],
                 "npm-asset-repository": {
                     "type": "git",
-                    "url": "git+ssh://git@github.com/colorjs/color-name.git"
+                    "url": "git+ssh://git@github.com/dfcreative/color-name.git"
                 },
                 "npm-asset-scripts": {
                     "test": "node test.js"
@@ -310,14 +340,14 @@
                 }
             ],
             "description": "A list of color names and its values",
-            "homepage": "https://github.com/colorjs/color-name",
+            "homepage": "https://github.com/dfcreative/color-name",
             "keywords": [
                 "color",
                 "color-keyword",
                 "color-name",
                 "keyword"
             ],
-            "time": "2018-09-21T10:48:56+00:00"
+            "time": "2017-07-15T22:17:08+00:00"
         },
         {
             "name": "npm-asset/moment",
@@ -405,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ColdTrick/releases.git",
-                "reference": "bc13aa2831343af35df21022a8458871908111b6"
+                "reference": "8fcc4cbc2c0a5156fce4283304deac6facec95f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/bc13aa2831343af35df21022a8458871908111b6",
-                "reference": "bc13aa2831343af35df21022a8458871908111b6",
+                "url": "https://api.github.com/repos/ColdTrick/releases/zipball/8fcc4cbc2c0a5156fce4283304deac6facec95f6",
+                "reference": "8fcc4cbc2c0a5156fce4283304deac6facec95f6",
                 "shasum": ""
             },
             "type": "library",
@@ -424,7 +454,7 @@
                 "release",
                 "travis"
             ],
-            "time": "2019-01-11T08:49:49+00:00"
+            "time": "2020-02-04T10:35:14+00:00"
         },
         {
             "name": "coldtrick/sniffs",
@@ -455,16 +485,16 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.4.1",
+            "version": "3.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/squizlabs/PHP_CodeSniffer.git",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa"
+                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/5b4333b4010625d29580eb4a41f1e53251be6baa",
-                "reference": "5b4333b4010625d29580eb4a41f1e53251be6baa",
+                "url": "https://api.github.com/repos/squizlabs/PHP_CodeSniffer/zipball/73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
+                "reference": "73e2e7f57d958e7228fce50dc0c61f58f017f9f6",
                 "shasum": ""
             },
             "require": {
@@ -502,7 +532,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2019-03-19T03:22:27+00:00"
+            "time": "2020-04-17T01:09:41+00:00"
         }
     ],
     "aliases": [],
@@ -514,5 +544,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
