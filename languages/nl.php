@@ -1,10 +1,11 @@
 <?php
 /**
- * This file was created by Translation Editor v7.0-beta
- * On 2018-12-14 15:35
+ * This file was created by Translation Editor v7.0.4
+ * On 2020-05-18 12:17
  */
 
 return array (
+  'poll:no_votes' => 'Er zijn nog geen stemmen uitgebracht',
   'collection:object:poll' => 'Peilingen',
   'poll:settings:vote_change_allowed' => 'Mag de gebruiker zijn stem aanpassen?',
   'poll:settings:vote_change_allowed:info' => 'Met deze instelling is het mogelijk dat de gebruiker zijn stem kan aanpassen nadat deze is uitgebracht.',
