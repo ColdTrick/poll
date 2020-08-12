@@ -1,14 +1,6 @@
 <?php
 
-// get supplied arguments
-$entity = elgg_extract('entity', $vars);
-
 elgg_require_js('poll/edit');
-
-$noyes_options = [
-	'no' => elgg_echo('option:no'),
-	'yes' => elgg_echo('option:yes'),
-];
 
 // build form elements
 // title
@@ -86,7 +78,7 @@ echo elgg_view_field([
 	'name' => 'access_id',
 	'value' => elgg_extract('access_id', $vars),
 	'id' => 'poll-access-id',
-	'entity' => $entity,
+	'entity' => elgg_extract('entity', $vars),
 	'entity_type' => 'object',
 	'entity_subtype' => Poll::SUBTYPE,
 ]);
@@ -94,12 +86,12 @@ echo elgg_view_field([
 echo elgg_view_field([
 	'#type' => 'hidden',
 	'name' => 'guid',
-	'value' => (int) elgg_extract('guid', $vars),
+	'value' => elgg_extract('guid', $vars),
 ]);
 echo elgg_view_field([
 	'#type' => 'hidden',
 	'name' => 'container_guid',
-	'value' => (int) elgg_extract('container_guid', $vars),
+	'value' => elgg_extract('container_guid', $vars),
 ]);
 
 // footer
