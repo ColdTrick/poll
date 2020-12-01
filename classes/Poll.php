@@ -330,7 +330,7 @@ class Poll extends \ElggObject {
 			'action' => 'close',
 			'summary' => $summary,
 		];
-		return notify_user($participants, $owner->getOwnerGUID(), $subject, $message, $params);
+		return notify_user($participants, $this->getOwnerGUID(), $subject, $message, $params);
 	}
 	
 	/**
