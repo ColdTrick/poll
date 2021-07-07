@@ -26,7 +26,7 @@ return array (
   'poll:settings:add_vote_to_river:info' => 'Diese Einstellung legt fest, ob das Abstimmen bei einer Umfrage zur Aktivitätenliste hinzugefügt wird.',
   'poll:none' => 'Keine Umfragen gefunden',
   'poll:group' => 'Gruppenumfragen',
-  'poll:add' => 'Eine neue Umfrage erstellen',
+  'add:object:poll' => 'Eine neue Umfrage erstellen',
   'poll:all:title' => 'Alle Site-Umfragen',
   'poll:owner:title' => 'Umfragen von %s',
   'poll:friends:title' => 'Umfragen der Freunde',
@@ -63,9 +63,7 @@ return array (
   'poll:container_gatekeeper:group' => 'Die Umfragefunktion wurde nicht für Gruppenumfragen aktiviert',
   'poll:notification:create:subject' => 'Eine neue Umfrage wurde erstellt: "%s"',
   'poll:notification:create:summary' => 'Neue Umfrage "%s"',
-  'poll:notification:create:body' => 'Hallo,
-
-%s hat eine neue Umfrage "%s" erstellt.
+  'poll:notification:create:body' => '%s hat eine neue Umfrage "%s" erstellt.
 
 %s
 
@@ -73,17 +71,13 @@ Um die Umfrage anzuzeigen, klicke auf diesen Link:
 %s',
   'poll:notification:close:owner:subject' => 'Deine Umfrage "%s" wurde nun geschlossen',
   'poll:notification:close:owner:summary' => 'Deine Umfrage "%s" wurde nun geschlossen',
-  'poll:notification:close:owner:body' => 'Hallo %s,
-
-Deine Umfrage "%s" ist nun geschlossen. Die Benutzer können nicht länger abstimmen.
+  'poll:notification:close:owner:body' => 'Deine Umfrage "%s" ist nun geschlossen. Die Benutzer können nicht länger abstimmen.
 
 Um die Ergebnisse anzuzeigen, gehe auf die Umfrageseite:
 %s',
   'poll:notification:close:participant:subject' => 'Die Umfrage "%s", bei der Du teilgenommen hast, ist geschlossen.',
   'poll:notification:close:participant:summary' => 'Die Umfrage "%s", bei der Du teilgenommen hast, ist geschlossen.',
-  'poll:notification:close:participant:body' => 'Hallo,
-
-Die Umfrage "%s", bei der Du teilgenommen hast ist nun geschlossen.
+  'poll:notification:close:participant:body' => 'Die Umfrage "%s", bei der Du teilgenommen hast ist nun geschlossen.
 
 Um die Umfrageergebnisse anzuzeigen, besuche die Umfrageseite:
 %s',

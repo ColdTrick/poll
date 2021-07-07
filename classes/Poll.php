@@ -15,16 +15,7 @@ class Poll extends \ElggObject {
 	}
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see ElggEntity::getURL()
-	 */
-	public function getURL() {
-		return elgg_normalize_url("poll/view/{$this->getGUID()}");
-	}
-	
-	/**
-	 * (non-PHPdoc)
-	 * @see ElggObject::canComment()
+	 * {@inheritDoc}
 	 */
 	public function canComment($user_guid = 0, $default = null) {
 		
@@ -49,7 +40,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return array
 	 */
-	public function getAnswersOptions() {
+	public function getAnswersOptions(): array {
 		
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
@@ -74,7 +65,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return false|string
 	 */
-	public function getAnswerLabel($answer) {
+	public function getAnswerLabel(string $answer) {
 		
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
@@ -100,9 +91,8 @@ class Poll extends \ElggObject {
 	 *
 	 * @return bool
 	 */
-	public function canVote($user_guid = 0) {
+	public function canVote(int $user_guid = 0): bool {
 		
-		$user_guid = sanitise_int($user_guid, false);
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
@@ -115,10 +105,10 @@ class Poll extends \ElggObject {
 			return false;
 		}
 		
-
 		if ($this->getVote() && (elgg_get_plugin_setting('vote_change_allowed', 'poll') !== 'yes')) {
 			return false;
 		}
+		
 		// check close date
 		if ($this->close_date) {
 			$close_date = (int) $this->close_date;
@@ -138,9 +128,8 @@ class Poll extends \ElggObject {
 	 *
 	 * @return bool
 	 */
-	public function vote($answer, $user_guid = 0) {
+	public function vote(string $answer, int $user_guid = 0): bool {
 		
-		$user_guid = sanitise_int($user_guid, false);
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
@@ -170,8 +159,8 @@ class Poll extends \ElggObject {
 				'view' => 'river/object/poll/vote',
 				'action_type' => 'vote',
 				'subject_guid' => $user_guid,
-				'object_guid' => $this->getGUID(),
-				'target_guid' => $this->getContainerGUID(),
+				'object_guid' => $this->guid,
+				'target_guid' => $this->container_guid,
 				'annotation_id' => $annotation_id,
 				'access_id' => $this->access_id,
 			]);
@@ -181,14 +170,14 @@ class Poll extends \ElggObject {
 	
 	/**
 	 * Get the vote of a user
-	 * @param int $user_guid the user to get the vote for, defaults to current user
+	 *
+	 * @param bool $value_only only return the value of the vote
+	 * @param int  $user_guid  the user to get the vote for, defaults to current user
 	 *
 	 * @return false|string|\ElggAnnotation
 	 */
-	public function getVote($value_only = true, $user_guid = 0) {
+	public function getVote(bool $value_only = true, int $user_guid = 0) {
 		
-		$value_only = (bool) $value_only;
-		$user_guid = sanitise_int($user_guid, false);
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
@@ -218,7 +207,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return array
 	 */
-	public function getVotes() {
+	public function getVotes(): array {
 		
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
@@ -271,11 +260,10 @@ class Poll extends \ElggObject {
 		$owner = $this->getOwnerEntity();
 		
 		// make notification subject / body
-		$subject = elgg_echo('poll:notification:close:owner:subject', [$this->title]);
-		$summary = elgg_echo('poll:notification:close:owner:summary', [$this->title]);
+		$subject = elgg_echo('poll:notification:close:owner:subject', [$this->getDisplayName()]);
+		$summary = elgg_echo('poll:notification:close:owner:summary', [$this->getDisplayName()]);
 		$message = elgg_echo('poll:notification:close:owner:body', [
-			$owner->name,
-			$this->title,
+			$this->getDisplayName(),
 			$this->getURL(),
 		]);
 		
@@ -285,7 +273,7 @@ class Poll extends \ElggObject {
 			'action' => 'close',
 			'summary' => $summary,
 		];
-		return notify_user($owner->getGUID(), $owner->getGUID(), $subject, $message, $params);
+		return notify_user($owner->guid, $owner->guid, $subject, $message, $params);
 	}
 	
 	/**
@@ -299,8 +287,7 @@ class Poll extends \ElggObject {
 		set_time_limit(0);
 				
 		$participants = elgg_call(ELGG_IGNORE_ACCESS, function() {
-			return elgg_get_annotations([
-				'guid' => $this->guid,
+			return $this->getAnnotations([
 				'limit' => false,
 				'annotation_name' => 'vote',
 				'callback' => function($row) {
@@ -317,10 +304,10 @@ class Poll extends \ElggObject {
 		$participants = array_unique($participants);
 		
 		// make notification subject / body
-		$subject = elgg_echo('poll:notification:close:participant:subject', [$this->title]);
-		$summary = elgg_echo('poll:notification:close:participant:summary', [$this->title]);
+		$subject = elgg_echo('poll:notification:close:participant:subject', [$this->getDisplayName()]);
+		$summary = elgg_echo('poll:notification:close:participant:summary', [$this->getDisplayName()]);
 		$message = elgg_echo('poll:notification:close:participant:body', [
-			$this->title,
+			$this->getDisplayName(),
 			$this->getURL(),
 		]);
 		
@@ -338,7 +325,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return bool
 	 */
-	public function isClosed() {
+	public function isClosed(): bool {
 		
 		$close_date = $this->close_date;
 		if (!isset($close_date)) {

@@ -7,12 +7,13 @@ if (is_dir(__DIR__ . '/vendor')) {
 	$composer_path = __DIR__ . '/';
 }
 
-use ColdTrick\Poll\Bootstrap;
 use ColdTrick\Poll\Middleware\ContainerGatekeeper;
 use Elgg\Router\Middleware\Gatekeeper;
 
 return [
-	'bootstrap' => Bootstrap::class,
+	'plugin' => [
+		'version' => '5.1',
+	],
 	'entities' => [
 		[
 			'type' => 'object',
@@ -28,6 +29,70 @@ return [
 		'close_date_required' => 'no',
 		'vote_change_allowed' => 'yes',
 		'add_vote_to_river' => 'yes',
+	],
+	'actions' => [
+		'poll/edit' => [],
+		'poll/export' => [],
+		'poll/vote' => [],
+	],
+	'hooks' => [
+		'container_permissions_check' => [
+			'all' => [
+				'\ColdTrick\Poll\Permissions::canWriteContainer' => [],
+			],
+		],
+		'cron' => [
+			'daily' => [
+				'\ColdTrick\Poll\Cron::sendCloseNotifications' => [],
+			],
+		],
+		'entity:url' => [
+			'object' => [
+				'\ColdTrick\Poll\Widgets::widgetUrls' => [],
+			],
+		],
+		'group_tool_widgets' => [
+			'widget_manager' => [
+				'\ColdTrick\Poll\Plugins\WidgetManager::groupToolWidgets' => [],
+			],
+		],
+		'likes:is_likable' => [
+			'object:poll' => [
+				'\Elgg\Values::getTrue' => [],
+			],
+		],
+		'register' => [
+			'menu:entity' => [
+				'\ColdTrick\Poll\Menus\Entity::register' => [],
+			],
+			'menu:owner_block' => [
+				'\ColdTrick\Poll\Menus\OwnerBlock::registerGroup' => [],
+				'\ColdTrick\Poll\Menus\OwnerBlock::registerUser' => [],
+			],
+			'menu:site' => [
+				'\ColdTrick\Poll\Menus\Site::register' => [],
+			],
+			'menu:title:object:poll' => [
+				\Elgg\Notifications\RegisterSubscriptionMenuItemsHandler::class => [],
+			],
+		],
+		'supported_types' => [
+			'entity_tools' => [
+				'\ColdTrick\Poll\Plugins\EntityTools::registerPoll' => [],
+			],
+		],
+		'tool_options' => [
+			'group' => [
+				'\ColdTrick\Poll\Plugins\Groups::registerTool' => [],
+			],
+		],
+	],
+	'notifications' => [
+		'object' => [
+			'poll' => [
+				'create' => \ColdTrick\Poll\CreatePollNotificationHandler::class,
+			],
+		],
 	],
 	'routes' => [
 		'collection:object:poll:all' => [
@@ -72,11 +137,18 @@ return [
 			'resource' => 'poll/all',
 		],
 	],
-	'actions' => [
-		'poll/edit' => [],
-		'poll/export' => [],
-		'poll/vote' => [],
-		'poll/group_settings' => [],
+	'views' => [
+		'default' => [
+			'chart.js/' => $composer_path . 'vendor/npm-asset/chart.js/dist/',
+		],
+	],
+	'view_extensions' => [
+		'elgg.css' => [
+			'poll/site.css' => [],
+		],
+		'groups/edit/settings' => [
+			'poll/group_settings' => [],
+		],
 	],
 	'widgets' => [
 		'recent_polls' => [
@@ -85,11 +157,6 @@ return [
 		'single_poll' => [
 			'context' => ['profile', 'groups', 'index'],
 			'multiple' => true,
-		],
-	],
-	'views' => [
-		'default' => [
-			'chartjs.js' => $composer_path . 'vendor/npm-asset/chart.js/dist/Chart.min.js',
 		],
 	],
 ];

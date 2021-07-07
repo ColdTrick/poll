@@ -3,8 +3,10 @@
 $guid = (int) get_input('guid');
 $vote = get_input('vote');
 
-elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 $entity = get_entity($guid);
+if (!$entity instanceof Poll) {
+	return elgg_error_response(elgg_echo('error:missing_data'));
+}
 
 if ($vote === null || $vote === '') {
 	return elgg_error_response(elgg_echo('poll:action:vote:error:input'));

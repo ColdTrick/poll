@@ -7,6 +7,7 @@ return [
 	'river:object:poll:create' => "%s created a new poll %s",
 	'river:object:poll:vote' => "%s voted on the poll %s",
 	'river:object:poll:comment' => "%s commented on the poll %s",
+	'add:object:poll' => "Add a new poll",
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
@@ -26,7 +27,6 @@ return [
 	
 	'poll:none' => "No polls found",
 	'poll:group' => "Group polls",
-	'poll:add' => "Add a new poll",
 	
 	'poll:all:title' => "All site polls",
 	'poll:owner:title' => "%s's polls",
@@ -73,9 +73,7 @@ return [
 	// notifications
 	'poll:notification:create:subject' => "A new poll \"%s\" was created",
 	'poll:notification:create:summary' => "New poll \"%s\"",
-	'poll:notification:create:body' => "Hi,
-
-%s created a new poll \"%s\".
+	'poll:notification:create:body' => "%s created a new poll \"%s\".
 
 %s
 
@@ -84,18 +82,14 @@ To view the poll click the link:
 
 	'poll:notification:close:owner:subject' => "Your poll \"%s\" is now closed",
 	'poll:notification:close:owner:summary' => "Your poll \"%s\" is now closed",
-	'poll:notification:close:owner:body' => "Hi %s,
-
-Your poll \"%s\" is now closed. Users can no longer vote.
+	'poll:notification:close:owner:body' => "Your poll \"%s\" is now closed. Users can no longer vote.
 
 To view the results check out the poll here:
 %s",
 	
 	'poll:notification:close:participant:subject' => "The poll \"%s\" you voted on is closed",
 	'poll:notification:close:participant:summary' => "The poll \"%s\" you voted on is closed",
-	'poll:notification:close:participant:body' => "Hi,
-
-The poll \"%s\" you voted on is now closed.
+	'poll:notification:close:participant:body' => "The poll \"%s\" you voted on is now closed.
 
 To view the results check out the poll here:
 %s",

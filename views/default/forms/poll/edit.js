@@ -1,6 +1,5 @@
-elgg.provide('elgg.poll');
+define(['jquery', 'jquery-ui/widgets/sortable'], function($) {
 
-elgg.poll.init_edit = function() {
 	$(document).on('click', '.poll-edit-answers-icon .elgg-icon-delete', function() {
 		$(this).parents('li').remove();		
 	});
@@ -30,7 +29,7 @@ elgg.poll.init_edit = function() {
 		$blank.removeClass('poll-edit-answers-blank');
 	});
 	
-	$('.elgg-form-poll-edit').submit(function() {
+	$(document).on('submit', '.elgg-form-poll-edit', function() {
 		// Prevent form submit if there are not at least 2 answers
 		
 		var count = 0;
@@ -68,7 +67,4 @@ elgg.poll.init_edit = function() {
 
 		return offset;
 	}});
-};
-
-//register init hook
-elgg.register_hook_handler('init', 'system', elgg.poll.init_edit);
+});

@@ -2,9 +2,9 @@
 
 namespace ColdTrick\Poll\Middleware;
 
-use Elgg\HttpException;
+use Elgg\Exceptions\HttpException;
+use Elgg\Exceptions\Http\GatekeeperException;
 use Elgg\Request;
-use Elgg\GatekeeperException;
 
 /**
  * Protects a route from non-authenticated users

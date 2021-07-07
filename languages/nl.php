@@ -29,17 +29,13 @@ return array (
   'poll:menu:poll_tabs:results' => 'Resultaten',
   'poll:notification:close:owner:subject' => 'Je peiling "%s" is nu gesloten',
   'poll:notification:close:owner:summary' => 'Je peiling "%s" is nu gesloten',
-  'poll:notification:close:owner:body' => 'Hallo %s,
-
-Je peiling "%s" is nu gesloten. Gebruikers kunnen niet langer hun stem uitbrengen.
+  'poll:notification:close:owner:body' => 'Je peiling "%s" is nu gesloten. Gebruikers kunnen niet langer hun stem uitbrengen.
 
 Om de resultaten van de peiling te bekijken, klik hier:
 %s',
   'poll:notification:close:participant:subject' => 'De peiling "%s" waarop je hebt gestemd is nu gesloten',
   'poll:notification:close:participant:summary' => 'De peiling "%s" waarop je hebt gestemd is nu gesloten',
-  'poll:notification:close:participant:body' => 'Hallo,
-
-De peiling "%s" waarop je hebt gestemd is nu gesloten.
+  'poll:notification:close:participant:body' => 'De peiling "%s" waarop je hebt gestemd is nu gesloten.
 
 Om de resultaten van de peiling te bekijken, klik hier:
 %s',
@@ -56,7 +52,7 @@ Om de resultaten van de peiling te bekijken, klik hier:
   'poll:settings:enable_group:info' => 'Mogen gebruikers peilingen aanmaken in groepen? Groepen moeten dit nog wel inschakelen om er gebruik van te kunnen maken.',
   'poll:none' => 'Geen peilingen gevonden',
   'poll:group' => 'Groepspeilingen',
-  'poll:add' => 'Maak een nieuwe peiling',
+  'add:object:poll' => 'Maak een nieuwe peiling',
   'poll:all:title' => 'Alle site peilingen',
   'poll:owner:title' => 'Peilingen van %s',
   'poll:friends:title' => 'Peilingen van vrienden',
@@ -80,9 +76,7 @@ Om de resultaten van de peiling te bekijken, klik hier:
   'poll:container_gatekeeper:group' => 'Peilingen is niet ingeschakeld voor gebruik in groepen',
   'poll:notification:create:subject' => 'Een nieuwe peiling \'%s\' is aangemaakt',
   'poll:notification:create:summary' => 'Nieuwe peiling \'%s\'',
-  'poll:notification:create:body' => 'Hallo,
-
-%s heeft de peiling \'%s\' aangemaakt.
+  'poll:notification:create:body' => '%s heeft de peiling \'%s\' aangemaakt.
 
 %s
 

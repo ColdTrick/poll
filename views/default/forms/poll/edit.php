@@ -1,8 +1,19 @@
 <?php
 
-elgg_require_js('poll/edit');
+elgg_require_js('forms/poll/edit');
 
-// build form elements
+echo elgg_view_field([
+	'#type' => 'hidden',
+	'name' => 'guid',
+	'value' => elgg_extract('guid', $vars),
+]);
+
+echo elgg_view_field([
+	'#type' => 'hidden',
+	'name' => 'container_guid',
+	'value' => elgg_extract('container_guid', $vars),
+]);
+
 // title
 echo elgg_view_field([
 	'#type' => 'text',
@@ -81,17 +92,6 @@ echo elgg_view_field([
 	'entity' => elgg_extract('entity', $vars),
 	'entity_type' => 'object',
 	'entity_subtype' => Poll::SUBTYPE,
-]);
-
-echo elgg_view_field([
-	'#type' => 'hidden',
-	'name' => 'guid',
-	'value' => elgg_extract('guid', $vars),
-]);
-echo elgg_view_field([
-	'#type' => 'hidden',
-	'name' => 'container_guid',
-	'value' => elgg_extract('container_guid', $vars),
 ]);
 
 // footer

@@ -12,19 +12,15 @@ class Permissions {
 	 * @return void|bool
 	 */
 	public static function canWriteContainer(\Elgg\Hook $hook) {
-		$subtype = $hook->getParam('subtype');
-		if (($hook->getType() !== 'object') || ($subtype !== \Poll::SUBTYPE)) {
+		
+		if ($hook->getType() !== 'object' || $hook->getParam('subtype') !== \Poll::SUBTYPE) {
 			return;
 		}
 		
 		$user = $hook->getUserParam();
-		if (!$user instanceof \ElggUser) {
-			return false;
-		}
-		
 		$container = $hook->getParam('container');
-		if (!$container instanceof \ElggGroup) {
-			return;
+		if (!$user instanceof \ElggUser || !$container instanceof \ElggGroup) {
+			return false;
 		}
 		
 		// poll enabled?
@@ -33,7 +29,7 @@ class Permissions {
 		}
 		
 		// site admin or group owner/admin?
-		if ($container->canEdit($user->getGUID())) {
+		if ($container->canEdit($user->guid)) {
 			return true;
 		}
 		
@@ -48,6 +44,7 @@ class Permissions {
 				$poll_enable_group_members = 'no';
 			}
 		}
+		
 		if ($poll_enable_group_members === 'no') {
 			// not for group members
 			return false;

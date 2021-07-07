@@ -13,7 +13,7 @@ echo elgg_list_entities([
 	'guids' => $poll_guid,
 	'type' => 'object',
 	'subtype' => Poll::SUBTYPE,
-	'no_results' => true,
+	'no_results' => elgg_echo('poll:none'),
 	'limit' => 1,
 	'pagination' => false,
 	'show_poll_tabs' => true,

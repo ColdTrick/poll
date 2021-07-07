@@ -22,7 +22,7 @@ return array (
   'poll:settings:add_vote_to_river:info' => 'Ce paramètre détermine si le vote sur un sondage est ajouté au flux d\'activité.',
   'poll:none' => 'Aucun sondage n\'a été trouvé',
   'poll:group' => 'Sondages du groupe',
-  'poll:add' => 'Ajouter un nouveau sondage',
+  'add:object:poll' => 'Ajouter un nouveau sondage',
   'poll:all:title' => 'Tous les sondages du site',
   'poll:edit:answers' => 'Réponses',
   'poll:owner:title' => 'Sondages de %s',
@@ -59,9 +59,7 @@ return array (
   'poll:container_gatekeeper:group' => 'La fonction sondage n\'est pas activé pour une utilisation dans les groupes',
   'poll:notification:create:subject' => 'Le nouveau sondage "%s" a été créé',
   'poll:notification:create:summary' => 'Nouveau sondage "%"',
-  'poll:notification:create:body' => 'Bonjour,
-
-%s a créé un nouveau sondage "%s".
+  'poll:notification:create:body' => '%s a créé un nouveau sondage "%s".
 
 %s
 
@@ -69,17 +67,13 @@ Pour consulter le sondage, cliquez sur le lien :
 %s',
   'poll:notification:close:owner:subject' => 'Votre sondage "%s" est maintenant clos',
   'poll:notification:close:owner:summary' => 'Votre sondage "%s" est maintenant clos',
-  'poll:notification:close:owner:body' => 'Bonjour %s,
-
-Votre sondage "%s" est maintenant clos. Les utilisateurs ne peuvent plus participer.
+  'poll:notification:close:owner:body' => 'Votre sondage "%s" est maintenant clos. Les utilisateurs ne peuvent plus participer.
 
 Pour voir les résultats, consultez le sondage ici :
 %s',
   'poll:notification:close:participant:subject' => 'Le sondage "%s" auquel vous avez participé est clos',
   'poll:notification:close:participant:summary' => 'Le sondage "%s" auquel vous avez participé est clos',
-  'poll:notification:close:participant:body' => 'Salut,
-
-Le sondage "%s" auquel vous avez participé est maintenant clos.
+  'poll:notification:close:participant:body' => 'Le sondage "%s" auquel vous avez participé est maintenant clos.
 
 Pour voir les résultats, consultez le sondage ici :
 %s',

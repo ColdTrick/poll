@@ -17,4 +17,5 @@ $title = $entity->getDisplayName();
 echo elgg_view_page($title, [
 	'content' => elgg_view_entity($entity),
 	'entity' => $entity,
+	'filter_id' => 'poll/view',
 ]);

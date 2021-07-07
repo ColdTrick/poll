@@ -1,7 +1,7 @@
 <?php
 
 $entity = elgg_extract('entity', $vars);
-if (!($entity instanceof Poll)) {
+if (!$entity instanceof Poll) {
 	return;
 }
 
@@ -16,10 +16,7 @@ if (empty($votes)) {
 	return;
 }
 
-elgg_require_js('poll/results');
-if (elgg_is_xhr()) {
-	echo elgg_format_element('script', [], 'require(["poll/results"], function(){elgg.poll.results.init();});');
-}
+elgg_require_js('poll/view/results');
 
 // convert votes result to be used in charts
 $results_output = $entity->results_output;
@@ -30,7 +27,6 @@ if ($results_output !== 'bar') {
 $results = [
 	'labels' => [],
 ];
-$dataset_values = [];
 foreach ($votes as $vote) {
 	$results['labels'][] = elgg_extract('label', $vote);
 	

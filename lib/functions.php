@@ -10,7 +10,7 @@
  *
  * @return bool
  */
-function poll_is_enabled_for_container(ElggEntity $container) {
+function poll_is_enabled_for_container(ElggEntity $container): bool {
 	
 	if ($container instanceof ElggUser) {
 		if (elgg_get_plugin_setting('enable_site', 'poll') === 'yes') {
@@ -32,7 +32,7 @@ function poll_is_enabled_for_container(ElggEntity $container) {
  *
  * @return bool
  */
-function poll_is_enabled_for_group(ElggGroup $group = null) {
+function poll_is_enabled_for_group(ElggGroup $group = null): bool {
 	
 	if (elgg_get_plugin_setting('enable_group', 'poll') === 'no') {
 		return false;
@@ -42,57 +42,5 @@ function poll_is_enabled_for_group(ElggGroup $group = null) {
 		return true;
 	}
 	
-	if ($group->isToolEnabled('poll')) {
-		return true;
-	}
-	
-	return false;
-}
-
-/**
- * Prepare form values for add/edit poll
- *
- * @param Poll $entity (optional) the entity to edit
- *
- * @return array
- */
-function poll_prepare_form_vars(Poll $entity = null) {
-	
-	$values = [
-		'title' => null,
-		'description' => null,
-		'access_id' => null,
-		'tags' => null,
-		'guid' => null,
-		'answers' => null,
-		'container_guid' => elgg_get_page_owner_guid(),
-		'comments_allowed' => 'no',
-		'close_date' => null,
-		'results_output' => 'pie',
-	];
-	
-	// edit form
-	if ($entity instanceof Poll) {
-		foreach ($values as $key => $value) {
-			$values[$key] = $entity->$key;
-		}
-		
-		if (!empty($values['answers'])) {
-			$values['answers'] = json_decode($values['answers'], true);
-		}
-		
-		$values['entity'] = $entity;
-	}
-	
-	// sticky form values
-	if (elgg_is_sticky_form('poll')) {
-		$sticky_values = elgg_get_sticky_values('poll');
-		foreach ($sticky_values as $key => $value) {
-			$values[$key] = $value;
-		}
-		
-		elgg_clear_sticky_form('poll');
-	}
-	
-	return $values;
+	return $group->isToolEnabled('poll');
 }

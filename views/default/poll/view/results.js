@@ -1,10 +1,6 @@
+define(['jquery', 'elgg', 'chart.js/chart.min'], function($, elgg, Chart) {
 
-elgg.provide('elgg.poll.results');
-
-elgg.poll.results.init_chart = function (elem) {
-	
-	require(['jquery', 'elgg', 'chartjs'], function($, elgg, Chart){
-
+	init_chart = function (elem) {
 		var data = $(elem).data();
 		if (data.initialized) {
 			return;
@@ -20,15 +16,17 @@ elgg.poll.results.init_chart = function (elem) {
 		if (maxWidth < 500) {
 			ctx.canvas.width = maxWidth;
 		}
-
+	
 		switch (data.chartType) {
 			case 'pie':
 				var chart = new Chart(ctx, {
 					type: data.chartType,
 					data: data.chartData,
 					options: {
-						legend: {
-							display: false,
+						plugins: {
+							legend: {
+								display: false,
+							},
 						},
 					}
 				});
@@ -38,31 +36,25 @@ elgg.poll.results.init_chart = function (elem) {
 					type: data.chartType,
 					data: data.chartData,
 					options: {
-						legend: {
-							display: false,
+						plugins: {
+							legend: {
+								display: false,
+							},
 						},
 						scales: {
-				            yAxes: [{
-				                ticks: {
-				                    beginAtZero: true
-				                }
-				            }]
-				        }
+							y: {
+								beginAtZero: true,
+							},
+						}
 					},
 				});
 				break;
 		}
 		
 		$(elem).data('initialized', true);
-	});
-};
-
-elgg.poll.results.init = function() {
+	};
 	
 	$('.poll-result-chart').each(function(index, elem) {
-
-		elgg.poll.results.init_chart(elem);
+		init_chart(elem);
 	});
-};
-
-elgg.register_hook_handler('init', 'system', elgg.poll.results.init);
+});

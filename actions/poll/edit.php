@@ -5,7 +5,7 @@ elgg_make_sticky_form('poll');
 $guid = (int) get_input('guid');
 $container_guid = (int) get_input('container_guid');
 
-$title = get_input('title');
+$title = elgg_get_title_input();
 $description = get_input('description');
 $access_id = (int) get_input('access_id');
 
@@ -26,10 +26,8 @@ if (empty($title)) {
 
 $new_entity = true;
 if (!empty($guid)) {
-	elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
-	
 	$entity = get_entity($guid);
-	if (!$entity->canEdit()) {
+	if (!$entity instanceof Poll || !$entity->canEdit()) {
 		return elgg_error_response(elgg_echo('poll:edit:error:cant_edit'));
 	}
 	$new_entity = false;
@@ -54,9 +52,10 @@ $entity->results_output = $results_output;
 if (empty($close_date)) {
 	unset($entity->close_date);
 } else {
-	$date = getdate($close_date);
-	$new_close_date = mktime(23, 59, 59, $date['mon'], $date['mday'], $date['year']);
-	$entity->close_date = $new_close_date;
+	$date = \Elgg\Values::normalizeTime($close_date);
+	$date->setTime(23, 59, 59);
+	
+	$entity->close_date = $date->getTimestamp();
 }
 
 foreach ($answers as $index => $answer) {
@@ -82,8 +81,8 @@ if ($new_entity) {
 		'view' => 'river/object/poll/create',
 		'action_type' => 'create',
 		'subject_guid' => elgg_get_logged_in_user_guid(),
-		'object_guid' => $entity->getGUID(),
-		'target_guid' => $entity->getContainerGUID(),
+		'object_guid' => $entity->guid,
+		'target_guid' => $entity->container_guid,
 		'access_id' => $entity->access_id,
 	]);
 }

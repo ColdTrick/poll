@@ -2,7 +2,7 @@
 
 $item = elgg_extract('item', $vars);
 $entity = $item->getObjectEntity();
-if (!($entity instanceof Poll)) {
+if (!$entity instanceof Poll) {
 	return;
 }
 

@@ -1,24 +1,10 @@
 <?php
 
-namespace ColdTrick\Poll;
+namespace ColdTrick\Poll\Plugins\EntityTools;
 
 use ColdTrick\EntityTools\Migrate;
 
 class MigratePoll extends Migrate {
-	
-	/**
-	 * Add questions to the supported types for EntityTools
-	 *
-	 * @param \Elgg\Hook $hook 'supported_types', 'entity_tools'
-	 *
-	 * @return array
-	 */
-	public static function supportedSubtypes(\Elgg\Hook $hook) {
-		
-		$return_value = $hook->getValue();
-		$return_value[\Poll::SUBTYPE] = self::class;
-		return $return_value;
-	}
 	
 	/**
 	 * {@inheritDoc}

@@ -26,7 +26,7 @@ return array (
   'poll:settings:add_vote_to_river:info' => 'Esta configuración determina si se añade la votación de una encuesta para el flujo de actividad.',
   'poll:none' => 'Encuesta no encontrada',
   'poll:group' => 'Encuesta de grupo',
-  'poll:add' => 'Añadir encuesta',
+  'add:object:poll' => 'Añadir encuesta',
   'poll:all:title' => 'Todas las encuestas del sitio',
   'poll:owner:title' => 'Encuestas de %s',
   'poll:friends:title' => 'Encuestas de amigos',
@@ -60,9 +60,7 @@ return array (
   'poll:container_gatekeeper:group' => 'Encuesta no está habilitado para uso en grupos',
   'poll:notification:create:subject' => 'Una nueva encuesta "%s" se ha creado',
   'poll:notification:create:summary' => 'Nueva encuesta "%s"',
-  'poll:notification:create:body' => 'Hola,
-
-%s Creada nueva encuesta "%s".
+  'poll:notification:create:body' => '%s Creada nueva encuesta "%s".
 
 %s
 
@@ -70,17 +68,13 @@ Para ver la encuesta pulse el enlace:
 %s',
   'poll:notification:close:owner:subject' => 'Su encuesta "%s" está cerrada',
   'poll:notification:close:owner:summary' => 'Su encuesta "%s" está cerrada',
-  'poll:notification:close:owner:body' => 'Hola %s,
-
-Su encuesta "%s" esta cerrada. Los usuarios ya no pueden votar.
+  'poll:notification:close:owner:body' => 'Su encuesta "%s" esta cerrada. Los usuarios ya no pueden votar.
 
 Para ver los resultados echa un vistazo a la encuesta aquí:
 %s',
   'poll:notification:close:participant:subject' => 'La encuesta "%s" en la que ha votado esta cerrada',
   'poll:notification:close:participant:summary' => 'La encuesta "%s" en la que ha votado esta cerrada',
-  'poll:notification:close:participant:body' => 'Hola,
-
-La encuesta "%s" en la que ha votado esta cerrada.
+  'poll:notification:close:participant:body' => 'La encuesta "%s" en la que ha votado esta cerrada.
 
 Para ver los resultados echa un vistazo a la encuesta aquí:
 %s',

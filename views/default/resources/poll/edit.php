@@ -1,12 +1,15 @@
 <?php
 
+use Elgg\Exceptions\Http\EntityPermissionsException;
+use ColdTrick\Poll\EditForm;
+
 // verify input
 $guid = (int) elgg_extract('guid', $vars);
 elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
 
 $entity = get_entity($guid);
 if (!$entity->canEdit()) {
-	throw new \Elgg\EntityPermissionsException();
+	throw new EntityPermissionsException();
 }
 
 // breadcrumb
@@ -15,10 +18,11 @@ elgg_push_entity_breadcrumbs($entity);
 // build page elements
 $title = elgg_echo('poll:edit:title', [$entity->getDisplayName()]);
 
-$body_vars = poll_prepare_form_vars($entity);
-$content = elgg_view_form('poll/edit', [], $body_vars);
+$edit = new EditForm($entity);
+$content = elgg_view_form('poll/edit', [], $edit());
 
 // draw page
 echo elgg_view_page($title, [
 	'content' => $content,
+	'filter_id' => 'poll/edit',
 ]);

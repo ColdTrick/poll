@@ -15,8 +15,8 @@ if (empty($votes)) {
 	return elgg_error_response(elgg_echo('poll:action:export:error:no_votes'));
 }
 
-$tmp_name = tempnam(rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR, 'poll');
-$tmp_file = fopen($tmp_name, 'w');
+$temp_file = new ElggTempFile();
+$tmp_file = $temp_file->open('write');
 
 fputcsv($tmp_file, [
 	elgg_echo('poll:edit:answers'),
@@ -30,10 +30,10 @@ foreach ($votes as $vote) {
 	], ';', '"');
 }
 
-fclose($tmp_file);
+$temp_file->close();
 
-$content = file_get_contents($tmp_name);
-unlink($tmp_name);
+$content = $temp_file->grabFile();
+$temp_file->delete();
 
 $filename = 'poll-results-' . elgg_get_friendly_title($entity->getDisplayName()) . '-' .  date('Y-m-d-Hi') . '.csv';
 
