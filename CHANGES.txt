@@ -1,6 +1,10 @@
 Version history
 ===============
 
+5.1 (2021-07-07):
+
+- added: French translation
+
 5.0.2 (2020-12-08):
 
 - fixed: use correct sender during notification
