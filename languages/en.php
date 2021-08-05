@@ -8,6 +8,7 @@ return [
 	'river:object:poll:vote' => "%s voted on the poll %s",
 	'river:object:poll:comment' => "%s commented on the poll %s",
 	'add:object:poll' => "Add a new poll",
+	'notification:object:poll:create' => 'Send a notification when a Poll is created',
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
