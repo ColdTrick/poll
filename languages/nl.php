@@ -1,10 +1,11 @@
 <?php
 /**
- * This file was created by Translation Editor v7.0.4
- * On 2020-05-18 12:17
+ * This file was created by Translation Editor v8.0
+ * On 2021-08-06 10:33
  */
 
 return array (
+  'notification:object:poll:create' => 'Verstuur een notificatie als een peiling wordt aangemaakt',
   'poll:no_votes' => 'Er zijn nog geen stemmen uitgebracht',
   'collection:object:poll' => 'Peilingen',
   'poll:settings:vote_change_allowed' => 'Mag de gebruiker zijn stem aanpassen?',
