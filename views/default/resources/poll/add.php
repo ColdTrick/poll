@@ -15,7 +15,9 @@ elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE, $page_owner);
 
 // build page elements
 $edit = new EditForm();
-$content = elgg_view_form('poll/edit', [], $edit());
+$content = elgg_view_form('poll/edit', [
+	'prevent_double_submit' => false,
+], $edit());
 
 // draw page
 echo elgg_view_page(elgg_echo('add:object:poll'), [

@@ -19,7 +19,9 @@ elgg_push_entity_breadcrumbs($entity);
 $title = elgg_echo('poll:edit:title', [$entity->getDisplayName()]);
 
 $edit = new EditForm($entity);
-$content = elgg_view_form('poll/edit', [], $edit());
+$content = elgg_view_form('poll/edit', [
+	'prevent_double_submit' => false,
+], $edit());
 
 // draw page
 echo elgg_view_page($title, [
