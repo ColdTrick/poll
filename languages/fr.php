@@ -58,7 +58,6 @@ return array (
   'poll:container_gatekeeper:user' => 'La fonction sondage n\'est pas activé pour un usage personnel',
   'poll:container_gatekeeper:group' => 'La fonction sondage n\'est pas activé pour une utilisation dans les groupes',
   'poll:notification:create:subject' => 'Le nouveau sondage "%s" a été créé',
-  'poll:notification:create:summary' => 'Nouveau sondage "%"',
   'poll:notification:create:body' => '%s a créé un nouveau sondage "%s".
 
 %s
