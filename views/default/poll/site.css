@@ -26,6 +26,11 @@
 
 .poll-result-chart-wrapper {
 	position: relative;
+	max-height: 200px;
+	
+	&.poll-result-bar {
+		max-height: 400px;
+	}
 }
 
 .poll-bar-legend .elgg-image-block {
@@ -35,10 +40,4 @@
 	width: 1em;
 	height: 1em;
 	display: inline-block;
-}
-
-.poll-result-chart {
-	max-width: 600px;
-	max-height: 300px;
-	margin: 0 auto;
 }

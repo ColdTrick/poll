@@ -19,14 +19,15 @@ if (empty($votes)) {
 elgg_require_js('poll/view/results');
 
 // convert votes result to be used in charts
-$results_output = $entity->results_output;
-if ($results_output !== 'bar') {
-	$results_output = 'pie';
+$poll_type = $entity->results_output;
+if ($poll_type !== 'bar') {
+	$poll_type = 'pie';
 }
 
 $results = [
 	'labels' => [],
 ];
+
 foreach ($votes as $vote) {
 	$results['labels'][] = elgg_extract('label', $vote);
 	
@@ -34,22 +35,12 @@ foreach ($votes as $vote) {
 	$results['datasets'][0]['backgroundColor'][] = elgg_extract('color', $vote);
 }
 
-// chart canvas (default options for pie)
-$canvas_options = [
+$poll_content = elgg_format_element('canvas', [
 	'id' => 'poll-result-chart',
 	'class' => ['poll-result-chart'],
-	'data-chart-type' => $results_output,
+	'data-chart-type' => $poll_type,
 	'data-chart-data' => json_encode($results),
-	'width' => '100%',
-	'height' => '200px',
-];
-
-if ($results_output === 'bar') {
-	$canvas_options['class'][] = 'poll-bar';
-	$canvas_options['height'] = '400px';
-}
-
-$poll_content = elgg_format_element('canvas', $canvas_options);
+]);
 
 // custom legend
 $legend = '';
@@ -63,4 +54,4 @@ foreach ($votes as $vote) {
 }
 $poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
 
-echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper']], $poll_content);
+echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper', "poll-result-{$poll_type}"]], $poll_content);
