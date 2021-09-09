@@ -26,9 +26,12 @@
 
 .poll-result-chart-wrapper {
 	position: relative;
-	max-height: 200px;
 	
-	&.poll-result-bar {
+	.poll-result-chart {
+		max-height: 200px;
+	}
+	
+	&.poll-result-bar .poll-result-chart {
 		max-height: 400px;
 	}
 }
