@@ -36,6 +36,12 @@ return [
 		'poll/vote' => [],
 	],
 	'hooks' => [
+		'container_logic_check' => [
+			'object' => [
+				'\ColdTrick\Poll\Permissions::enabledForSite' => [],
+				'\ColdTrick\Poll\Permissions::enabledForGroups' => [],
+			],
+		],
 		'container_permissions_check' => [
 			'all' => [
 				'\ColdTrick\Poll\Permissions::canWriteContainer' => [],
