@@ -19,7 +19,11 @@ return [
 			'type' => 'object',
 			'subtype' => 'poll',
 			'class' => 'Poll',
-			'searchable' => true,
+			'capabilities' => [
+				'commentable' => true,
+				'searchable' => true,
+				'likable' => true,
+			],
 		],
 	],
 	'settings' => [
@@ -60,11 +64,6 @@ return [
 		'group_tool_widgets' => [
 			'widget_manager' => [
 				'\ColdTrick\Poll\Plugins\WidgetManager::groupToolWidgets' => [],
-			],
-		],
-		'likes:is_likable' => [
-			'object:poll' => [
-				'\Elgg\Values::getTrue' => [],
 			],
 		],
 		'register' => [
