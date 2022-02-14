@@ -34,4 +34,11 @@ class CreatePollNotificationHandler extends NotificationEventHandler {
 			$entity->getURL(),
 		], $recipient->getLanguage());
 	}
+		
+	/**
+	 * {@inheritDoc}
+	 */
+	protected static function isConfigurableForGroup(\ElggGroup $group): bool {
+		return $group->isToolEnabled('poll');
+	}
 }
