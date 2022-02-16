@@ -1,6 +1,11 @@
 Version history
 ===============
 
+7.0 (2022-02-16):
+
+- changed: create poll notification is now group tool dependent
+- changed: updated entity configuration for new capabilities
+
 6.0.1 (2021-10-12):
 
 - fixed: poll permissions checks prevented personal polls
