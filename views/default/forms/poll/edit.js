@@ -1,4 +1,4 @@
-define(['jquery', 'jquery-ui/widgets/sortable'], function($) {
+define(['jquery', 'elgg/system_messages', 'elgg/i18n', 'jquery-ui/widgets/sortable'], function($, system_messages, i18n) {
 
 	$(document).on('click', '.poll-edit-answers-icon .elgg-icon-delete', function() {
 		$(this).parents('li').remove();		
@@ -43,7 +43,7 @@ define(['jquery', 'jquery-ui/widgets/sortable'], function($) {
 			return;
 		}
 		
-		elgg.register_error(elgg.echo('poll:edit:error:answer_count'));
+		system_messages.error(i18n.echo('poll:edit:error:answer_count'));
 		
 		return false;
 	});
