@@ -8,12 +8,6 @@ echo elgg_view_field([
 	'value' => elgg_extract('guid', $vars),
 ]);
 
-echo elgg_view_field([
-	'#type' => 'hidden',
-	'name' => 'container_guid',
-	'value' => elgg_extract('container_guid', $vars),
-]);
-
 // title
 echo elgg_view_field([
 	'#type' => 'text',
@@ -92,6 +86,13 @@ echo elgg_view_field([
 	'entity' => elgg_extract('entity', $vars),
 	'entity_type' => 'object',
 	'entity_subtype' => Poll::SUBTYPE,
+]);
+
+echo elgg_view_field([
+	'#type' => 'container_guid',
+	'entity_type' => 'object',
+	'entity_subtype' => \Poll::SUBTYPE,
+	'value' => elgg_extract('container_guid', $vars),
 ]);
 
 // footer

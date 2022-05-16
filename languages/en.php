@@ -9,6 +9,7 @@ return [
 	'river:object:poll:comment' => "%s commented on the poll %s",
 	'add:object:poll' => "Add a new poll",
 	'notification:object:poll:create' => 'Send a notification when a poll is created',
+	'input:container_guid:object:poll:info' => 'This poll will be created in %s',
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
