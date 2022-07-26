@@ -9,7 +9,7 @@ $title = elgg_get_title_input();
 $description = get_input('description');
 $access_id = (int) get_input('access_id');
 
-$tags = string_to_tag_array(get_input('tags'));
+$tags = elgg_string_to_array((string) get_input('tags', ''));
 $comments_allowed = get_input('comments_allowed', 'no');
 $close_date = get_input('close_date');
 $results_output = get_input('results_output');

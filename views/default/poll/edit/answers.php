@@ -1,5 +1,7 @@
 <?php
 
+elgg_require_js('elgg/toggle');
+
 $answers = (array) elgg_extract('answers', $vars);
 $answers[] = []; // add a blank option
 
@@ -42,8 +44,7 @@ foreach ($answers as $index => $answer) {
 	
 	$answer_fields .= '</td><td class="poll-edit-answers-icon">';
 	$answer_fields .= elgg_view_icon('settings-alt', [
-		'class' => 'elgg-discoverable',
-		'rel' => 'toggle',
+		'class' => ['elgg-discoverable', 'elgg-toggle'],
 		'data-toggle-selector' => '.poll-edit-answers-name',
 		'title' => elgg_echo('poll:edit:answers:show_internal_names'),
 	]);
