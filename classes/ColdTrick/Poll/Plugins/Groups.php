@@ -22,7 +22,6 @@ class Groups {
 		$result = $hook->getValue();
 		
 		$result[] = new Tool('poll', [
-			'label' => elgg_echo('poll:group_tool:title'),
 			'default_on' => false,
 		]);
 		

@@ -50,7 +50,7 @@ return array (
   'poll:menu:owner_block:group' => 'Gruppenumfragen',
   'poll:menu:poll_tabs:vote' => 'Abstimmen',
   'poll:menu:poll_tabs:results' => 'Ergebnisse',
-  'poll:group_tool:title' => 'Gruppenumfragen aktivieren',
+  'groups:tool:poll' => 'Gruppenumfragen aktivieren',
   'poll:group_settings:title' => 'Einstellungen für Mitglieder bei Gruppenumfragen',
   'poll:group_settings:members' => 'Gruppenmitgliedern erlauben, Umfragen zu erzeugen',
   'poll:group_settings:members:description' => 'Wenn diese Einstellung auf "nein" gesetzt ist, können nur Gruppenbesitzer und Admins Umfragen in dieser Gruppe erstellen.',

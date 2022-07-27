@@ -46,7 +46,7 @@ return array (
   'poll:vote' => 'Participer',
   'poll:menu:poll_tabs:vote' => 'Participation',
   'poll:menu:poll_tabs:results' => 'Résultats',
-  'poll:group_tool:title' => 'Activer les sondages pour le groupe',
+  'groups:tool:poll' => 'Activer les sondages pour le groupe',
   'poll:group_settings:title' => 'Paramètres des sondages pour les membres du groupe',
   'poll:group_settings:members' => 'Permettre aux membres du groupe de créer des sondages',
   'poll:group_settings:members:description' => 'Lorsque ce paramètre est réglé sur "non", seuls les administrateurs peuvent créer des sondages dans ce groupe.',

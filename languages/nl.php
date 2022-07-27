@@ -69,7 +69,7 @@ Om de resultaten van de peiling te bekijken, klik hier:
   'poll:menu:site' => 'Peilingen',
   'poll:menu:owner_block:group' => 'Groepspeilingen',
   'poll:menu:poll_tabs:vote' => 'Stem',
-  'poll:group_tool:title' => 'Groepspeilingen inschakelen',
+  'groups:tool:poll' => 'Groepspeilingen inschakelen',
   'widgets:single_poll:name' => 'Uitgelichte peiling',
   'widgets:single_poll:description' => 'Toon een enkele peiling',
   'widgets:recent_polls:name' => 'Recente peilingen',

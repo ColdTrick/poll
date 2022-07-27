@@ -7,7 +7,7 @@
 return array (
   'poll:settings:group_create:info' => 'Al habilitar encuestas del grupo, este ajuste controla quién puede crear encuestas de forma predeterminada. Los propietarios de grupos pueden configurar de otra manera.',
   'poll:menu:owner_block:group' => 'Encuestas del grupo',
-  'poll:group_tool:title' => 'Habilitar encuestas del grupo',
+  'groups:tool:poll' => 'Habilitar encuestas del grupo',
   'item:object:poll' => 'Encuesta',
   'river:object:poll:create' => '%s se ha creado una nueva encuesta %s',
   'river:object:poll:vote' => '%s votado en la encuesta %s',
