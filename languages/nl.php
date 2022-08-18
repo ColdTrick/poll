@@ -1,10 +1,11 @@
 <?php
 /**
- * This file was created by Translation Editor v9.0.2
- * On 2022-05-31 11:57
+ * This file was created by Translation Editor v10.1.1
+ * On 2022-08-18 12:40
  */
 
 return array (
+  'groups:tool:poll:description' => 'Laat groepsleden peilingen aanmaken in deze groep.',
   'input:container_guid:object:poll:info' => 'Deze peiling zal worden aangemaakt in %s',
   'notification:object:poll:create' => 'Verstuur een notificatie als een peiling wordt aangemaakt',
   'poll:no_votes' => 'Er zijn nog geen stemmen uitgebracht',
