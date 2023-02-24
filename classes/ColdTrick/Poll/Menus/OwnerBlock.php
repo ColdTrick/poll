@@ -2,22 +2,29 @@
 
 namespace ColdTrick\Poll\Menus;
 
+use Elgg\Menu\MenuItems;
+
+/**
+ * Add menu items to the owner_block menu
+ */
 class OwnerBlock {
 	
 	/**
 	 * Add a menu item to user owner block menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:owner_block'
+	 * @param \Elgg\Event $event 'register', 'menu:owner_block'
 	 *
-	 * @return void|\ElggMenuItem[]
+	 * @return null|MenuItems
 	 */
-	public static function registerUser(\Elgg\Hook $hook) {
-		$entity = $hook->getEntityParam();
+	public static function registerUser(\Elgg\Event $event): ?MenuItems {
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \ElggUser) {
-			return;
+			return null;
 		}
 		
-		$return_value = $hook->getValue();
+		/* @var $return_value MenuItems */
+		$return_value = $event->getValue();
+		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:site'),
@@ -32,22 +39,23 @@ class OwnerBlock {
 	/**
 	 * Add a menu item to group owner block menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:owner_block'
+	 * @param \Elgg\Event $event 'register', 'menu:owner_block'
 	 *
-	 * @return void|\ElggMenuItem[]
+	 * @return null|MenuItems
 	 */
-	public static function registerGroup(\Elgg\Hook $hook) {
-		
-		$entity = $hook->getEntityParam();
+	public static function registerGroup(\Elgg\Event $event): ?MenuItems {
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \ElggGroup) {
-			return;
+			return null;
 		}
 		
 		if (!poll_is_enabled_for_group($entity)) {
-			return;
+			return null;
 		}
 		
-		$return_value = $hook->getValue();
+		/* @var $return_value MenuItems */
+		$return_value = $event->getValue();
+		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
 			'text' => elgg_echo('poll:menu:owner_block:group'),

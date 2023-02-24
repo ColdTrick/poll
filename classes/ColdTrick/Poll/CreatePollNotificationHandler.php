@@ -4,6 +4,9 @@ namespace ColdTrick\Poll;
 
 use Elgg\Notifications\NotificationEventHandler;
 
+/**
+ * Notification handler for the creation of a Poll
+ */
 class CreatePollNotificationHandler extends NotificationEventHandler {
 	
 	/**

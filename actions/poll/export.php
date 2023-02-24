@@ -2,7 +2,7 @@
 
 $guid = (int) get_input('guid');
 $entity = get_entity($guid);
-if (!$entity instanceof Poll) {
+if (!$entity instanceof \Poll) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
 }
 
@@ -15,7 +15,7 @@ if (empty($votes)) {
 	return elgg_error_response(elgg_echo('poll:action:export:error:no_votes'));
 }
 
-$temp_file = new ElggTempFile();
+$temp_file = new \ElggTempFile();
 $tmp_file = $temp_file->open('write');
 
 fputcsv($tmp_file, [

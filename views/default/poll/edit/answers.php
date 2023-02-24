@@ -11,7 +11,6 @@ $answers = array_values($answers);
 $answers_list = '';
 
 foreach ($answers as $index => $answer) {
-	
 	$name = elgg_extract('name', $answer);
 	$label = elgg_extract('label', $answer);
 	
@@ -19,9 +18,7 @@ foreach ($answers as $index => $answer) {
 		continue;
 	}
 	
-	$answer_fields = '';
-	
-	$answer_fields .= '<table class="elgg-discover"><tr><td class="poll-edit-answers-icon">';
+	$answer_fields = '<table class="elgg-discover"><tr><td class="poll-edit-answers-icon">';
 	
 	$answer_fields .= elgg_view_icon('drag-arrow', ['class' => 'elgg-discoverable']);
 
@@ -33,7 +30,6 @@ foreach ($answers as $index => $answer) {
 		'value' => $label,
 	]);
 	
-
 	$answer_fields .= '</td><td class="poll-edit-answers-name hidden pls">';
 	
 	$answer_fields .= elgg_view('input/text', [
@@ -56,6 +52,7 @@ foreach ($answers as $index => $answer) {
 	if ($index == (count($answers) - 1)) {
 		$li_options['class'] = 'poll-edit-answers-blank';
 	}
+	
 	$answers_list .= elgg_format_element('li', $li_options, $answer_fields);
 }
 

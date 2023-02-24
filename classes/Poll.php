@@ -1,12 +1,14 @@
 <?php
 
+/**
+ * Poll entity class
+ */
 class Poll extends \ElggObject {
 	
 	const SUBTYPE = 'poll';
 	
 	/**
-	 * (non-PHPdoc)
-	 * @see ElggObject::initializeAttributes()
+	 * {@inheritdoc}
 	 */
 	protected function initializeAttributes() {
 		parent::initializeAttributes();
@@ -17,8 +19,7 @@ class Poll extends \ElggObject {
 	/**
 	 * {@inheritDoc}
 	 */
-	public function canComment($user_guid = 0, $default = null) {
-		
+	public function canComment($user_guid = 0, $default = null): bool {
 		if ($this->comments_allowed !== 'yes') {
 			return false;
 		}
@@ -29,9 +30,9 @@ class Poll extends \ElggObject {
 	/**
 	 * Get the stored answers
 	 *
-	 * @return void|array
+	 * @return null|array
 	 */
-	public function getAnswers() {
+	public function getAnswers(): ?array {
 		return @json_decode($this->answers, true);
 	}
 	
@@ -41,7 +42,6 @@ class Poll extends \ElggObject {
 	 * @return array
 	 */
 	public function getAnswersOptions(): array {
-		
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
 			return [];
@@ -59,21 +59,20 @@ class Poll extends \ElggObject {
 	}
 	
 	/**
-	 * Get the label assosiated with a answer-name
+	 * Get the label associated with an answer-name
 	 *
 	 * @param string $answer the answer name
 	 *
-	 * @return false|string
+	 * @return string
 	 */
-	public function getAnswerLabel(string $answer) {
-		
+	public function getAnswerLabel(string $answer): string {
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
-			return false;
+			return '';
 		}
 		
 		foreach ($answers as $stored_answer) {
-			$name = elgg_extract('name' , $stored_answer);
+			$name = elgg_extract('name', $stored_answer);
 			if ($name !== $answer) {
 				continue;
 			}
@@ -92,7 +91,6 @@ class Poll extends \ElggObject {
 	 * @return bool
 	 */
 	public function canVote(int $user_guid = 0): bool {
-		
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
@@ -129,7 +127,6 @@ class Poll extends \ElggObject {
 	 * @return bool
 	 */
 	public function vote(string $answer, int $user_guid = 0): bool {
-		
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
@@ -165,6 +162,7 @@ class Poll extends \ElggObject {
 				'access_id' => $this->access_id,
 			]);
 		}
+		
 		return true;
 	}
 	
@@ -174,16 +172,15 @@ class Poll extends \ElggObject {
 	 * @param bool $value_only only return the value of the vote
 	 * @param int  $user_guid  the user to get the vote for, defaults to current user
 	 *
-	 * @return false|string|\ElggAnnotation
+	 * @return null|string|\ElggAnnotation
 	 */
 	public function getVote(bool $value_only = true, int $user_guid = 0) {
-		
 		if (empty($user_guid)) {
 			$user_guid = elgg_get_logged_in_user_guid();
 		}
 		
 		if (empty($user_guid)) {
-			return false;
+			return null;
 		}
 		
 		$annotations = $this->getAnnotations([
@@ -192,7 +189,7 @@ class Poll extends \ElggObject {
 			'limit' => 1,
 		]);
 		if (empty($annotations)) {
-			return false;
+			return null;
 		}
 		
 		if ($value_only) {
@@ -208,7 +205,6 @@ class Poll extends \ElggObject {
 	 * @return array
 	 */
 	public function getVotes(): array {
-		
 		$answers = $this->getAnswers();
 		if (empty($answers)) {
 			return [];
@@ -255,8 +251,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return array
 	 */
-	public function notifyOwnerOnClose() {
-		
+	public function notifyOwnerOnClose(): array {
 		$owner = $this->getOwnerEntity();
 		
 		// make notification subject / body
@@ -281,8 +276,7 @@ class Poll extends \ElggObject {
 	 *
 	 * @return array
 	 */
-	public function notifyParticipantsOnClose() {
-	
+	public function notifyParticipantsOnClose(): array {
 		// this could take a while
 		set_time_limit(0);
 				
@@ -326,7 +320,6 @@ class Poll extends \ElggObject {
 	 * @return bool
 	 */
 	public function isClosed(): bool {
-		
 		$close_date = $this->close_date;
 		if (!isset($close_date)) {
 			// no close date

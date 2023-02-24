@@ -2,28 +2,31 @@
 
 namespace ColdTrick\Poll;
 
+/**
+ * Change widget settings
+ */
 class Widgets {
 	
 	/**
 	 * Set the widget title url
 	 *
-	 * @param \Elgg\Hook $hook 'entity:url', 'object'
+	 * @param \Elgg\Event $event 'entity:url', 'object'
 	 *
-	 * @return void|string
+	 * @return null|string
 	 */
-	public static function widgetUrls(\Elgg\Hook $hook) {
-		if (!empty($hook->getValue())) {
+	public static function widgetUrls(\Elgg\Event $event): ?string {
+		if (!empty($event->getValue())) {
 			// someone already made an url
-			return;
+			return null;
 		}
 		
-		$entity = $hook->getEntityParam();
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \ElggWidget) {
-			return;
+			return null;
 		}
 		
 		switch ($entity->handler) {
-			case 'recent_polls';
+			case 'recent_polls':
 				$owner = $entity->getOwnerEntity();
 				
 				if ($owner instanceof \ElggUser) {
@@ -35,10 +38,8 @@ class Widgets {
 						'guid' => $owner->guid,
 					]);
 				}
-				
 				return elgg_generate_url('collection:object:poll:all');
-			
-				break;
+				
 			case 'single_poll':
 				$poll_guid = (int) $entity->poll_guid;
 				if (empty($poll_guid)) {
@@ -49,10 +50,9 @@ class Widgets {
 				if (!$poll instanceof \Poll) {
 					break;
 				}
-				
 				return $poll->getURL();
-				
-				break;
 		}
+		
+		return null;
 	}
 }

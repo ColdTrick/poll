@@ -2,9 +2,9 @@
 
 // verify input
 $guid = (int) elgg_extract('guid', $vars);
-elgg_entity_gatekeeper($guid, 'object', Poll::SUBTYPE);
+elgg_entity_gatekeeper($guid, 'object', \Poll::SUBTYPE);
 
-/* @var $entity Poll */
+/* @var $entity \Poll */
 $entity = get_entity($guid);
 
 // breadcrumb

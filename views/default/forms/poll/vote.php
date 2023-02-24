@@ -1,7 +1,7 @@
 <?php
 
 $entity = elgg_extract('entity', $vars);
-if (!$entity instanceof Poll) {
+if (!$entity instanceof \Poll) {
 	return;
 }
 
@@ -10,20 +10,13 @@ if (empty($answer_options)) {
 	return;
 }
 
-// in case the user already voted
-$answer_value = null;
-$vote = $entity->getVote();
-if ($vote !== false) {
-	$answer_value = $vote;
-}
-
 // voting options
 echo elgg_view_field([
 	'#type' => 'radio',
 	'#label' => elgg_echo('poll:vote:title'),
 	'name' => 'vote',
 	'options' => $answer_options,
-	'value' => $answer_value,
+	'value' => $entity->getVote(),
 ]);
 
 echo elgg_view_field([

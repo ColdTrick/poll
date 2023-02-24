@@ -39,7 +39,59 @@ return [
 		'poll/export' => [],
 		'poll/vote' => [],
 	],
-	'hooks' => [
+	'routes' => [
+		'collection:object:poll:all' => [
+			'path' => '/poll/all',
+			'resource' => 'poll/all',
+		],
+		'collection:object:poll:owner' => [
+			'path' => '/poll/owner/{username}',
+			'resource' => 'poll/owner',
+			'middleware' => [
+				\Elgg\Router\Middleware\UserPageOwnerGatekeeper::class,
+			],
+		],
+		'collection:object:poll:group' => [
+			'path' => '/poll/group/{guid}/{subpage?}',
+			'resource' => 'poll/group',
+			'defaults' => [
+				'subpage' => 'all',
+			],
+			'middleware' => [
+				\Elgg\Router\Middleware\GroupPageOwnerGatekeeper::class,
+			],
+		],
+		'collection:object:poll:friends' => [
+			'path' => '/poll/friends/{username}',
+			'resource' => 'poll/friends',
+			'middleware' => [
+				\Elgg\Router\Middleware\UserPageOwnerGatekeeper::class,
+			],
+		],
+		'view:object:poll' => [
+			'path' => '/poll/view/{guid}/{title?}',
+			'resource' => 'poll/view',
+		],
+		'add:object:poll' => [
+			'path' => '/poll/add/{guid}',
+			'resource' => 'poll/add',
+			'middleware' => [
+				ContainerGatekeeper::class,
+			],
+		],
+		'edit:object:poll' => [
+			'path' => '/poll/edit/{guid}',
+			'resource' => 'poll/edit',
+			'middleware' => [
+				Gatekeeper::class,
+			],
+		],
+		'default:object:poll' => [
+			'path' => '/poll',
+			'resource' => 'poll/all',
+		],
+	],
+	'events' => [
 		'container_logic_check' => [
 			'object' => [
 				'\ColdTrick\Poll\Permissions::enabledForSite' => [],
@@ -59,6 +111,11 @@ return [
 		'entity:url' => [
 			'object' => [
 				'\ColdTrick\Poll\Widgets::widgetUrls' => [],
+			],
+		],
+		'form:prepare:fields' => [
+			'poll/edit' => [
+				\ColdTrick\Poll\Forms\PrepareFields::class => [],
 			],
 		],
 		'group_tool_widgets' => [
@@ -97,49 +154,6 @@ return [
 			'poll' => [
 				'create' => \ColdTrick\Poll\CreatePollNotificationHandler::class,
 			],
-		],
-	],
-	'routes' => [
-		'collection:object:poll:all' => [
-			'path' => '/poll/all',
-			'resource' => 'poll/all',
-		],
-		'collection:object:poll:owner' => [
-			'path' => '/poll/owner/{username}',
-			'resource' => 'poll/owner',
-		],
-		'collection:object:poll:group' => [
-			'path' => '/poll/group/{guid}/{subpage?}',
-			'resource' => 'poll/group',
-			'defaults' => [
-				'subpage' => 'all',
-			],
-		],
-		'collection:object:poll:friends' => [
-			'path' => '/poll/friends/{username}',
-			'resource' => 'poll/friends',
-		],
-		'view:object:poll' => [
-			'path' => '/poll/view/{guid}/{title?}',
-			'resource' => 'poll/view',
-		],
-		'add:object:poll' => [
-			'path' => '/poll/add/{guid}',
-			'resource' => 'poll/add',
-			'middleware' => [
-				ContainerGatekeeper::class,
-			],
-		],
-		'edit:object:poll' => [
-			'path' => '/poll/edit/{guid}',
-			'resource' => 'poll/edit',
-			'middleware' => [
-				Gatekeeper::class,
-			],
-		],
-		'default:object:poll' => [
-			'path' => '/poll',
-			'resource' => 'poll/all',
 		],
 	],
 	'views' => [

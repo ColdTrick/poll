@@ -1,7 +1,5 @@
 <?php
 
-elgg_make_sticky_form('poll');
-
 $guid = (int) get_input('guid');
 $container_guid = (int) get_input('container_guid');
 
@@ -27,12 +25,13 @@ if (empty($title)) {
 $new_entity = true;
 if (!empty($guid)) {
 	$entity = get_entity($guid);
-	if (!$entity instanceof Poll || !$entity->canEdit()) {
+	if (!$entity instanceof \Poll || !$entity->canEdit()) {
 		return elgg_error_response(elgg_echo('poll:edit:error:cant_edit'));
 	}
+	
 	$new_entity = false;
 } else {
-	$entity = new Poll();
+	$entity = new \Poll();
 	$entity->container_guid = $container_guid;
 	$entity->access_id = $access_id;
 	
@@ -66,14 +65,13 @@ foreach ($answers as $index => $answer) {
 		unset($answers[$index]);
 	}
 }
+
 $answers = json_encode(array_values($answers));
 $entity->answers = $answers;
 
 if (!$entity->save()) {
 	return elgg_error_response(elgg_echo('save:fail'));
 }
-
-elgg_clear_sticky_form('poll');
 
 // only add river item for new polls
 if ($new_entity) {

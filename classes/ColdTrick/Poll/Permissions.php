@@ -2,20 +2,23 @@
 
 namespace ColdTrick\Poll;
 
+/**
+ * Change user permissions
+ */
 class Permissions {
 	
 	/**
 	 * Is the poll feature enabled for site/personal use
 	 *
-	 * @param \Elgg\Hook $hook 'container_logic_check', 'object'
+	 * @param \Elgg\Event $event 'container_logic_check', 'object'
 	 *
-	 * @return void|bool
+	 * @return null|bool
 	 */
-	public static function enabledForSite(\Elgg\Hook $hook) {
-		$container = $hook->getParam('container');
-		$subtype = $hook->getParam('subtype');
+	public static function enabledForSite(\Elgg\Event $event): ?bool {
+		$container = $event->getParam('container');
+		$subtype = $event->getParam('subtype');
 		if (!$container instanceof \ElggUser || $subtype !== \Poll::SUBTYPE) {
-			return;
+			return null;
 		}
 		
 		return elgg_get_plugin_setting('enable_site', 'poll') === 'yes';
@@ -24,15 +27,15 @@ class Permissions {
 	/**
 	 * Is the poll feature enabled for groups
 	 *
-	 * @param \Elgg\Hook $hook 'container_logic_check', 'object'
+	 * @param \Elgg\Event $event 'container_logic_check', 'object'
 	 *
-	 * @return void|bool
+	 * @return null|bool
 	 */
-	public static function enabledForGroups(\Elgg\Hook $hook) {
-		$container = $hook->getParam('container');
-		$subtype = $hook->getParam('subtype');
+	public static function enabledForGroups(\Elgg\Event $event): ?bool {
+		$container = $event->getParam('container');
+		$subtype = $event->getParam('subtype');
 		if (!$container instanceof \ElggGroup || $subtype !== \Poll::SUBTYPE) {
-			return;
+			return null;
 		}
 		
 		return poll_is_enabled_for_group($container);
@@ -41,20 +44,19 @@ class Permissions {
 	/**
 	 * Check if a user can write a poll in a group
 	 *
-	 * @param \Elgg\Hook $hook 'container_permissions_check', 'all'
+	 * @param \Elgg\Event $event 'container_permissions_check', 'all'
 	 *
-	 * @return void|bool
+	 * @return null|bool
 	 */
-	public static function canWriteContainer(\Elgg\Hook $hook) {
-		
-		if ($hook->getType() !== 'object' || $hook->getParam('subtype') !== \Poll::SUBTYPE) {
-			return;
+	public static function canWriteContainer(\Elgg\Event $event): ?bool {
+		if ($event->getType() !== 'object' || $event->getParam('subtype') !== \Poll::SUBTYPE) {
+			return null;
 		}
 		
-		$user = $hook->getUserParam();
-		$container = $hook->getParam('container');
+		$user = $event->getUserParam();
+		$container = $event->getParam('container');
 		if (!$user instanceof \ElggUser || !$container instanceof \ElggGroup) {
-			return;
+			return null;
 		}
 		
 		// site admin or group owner/admin?
@@ -73,8 +75,6 @@ class Permissions {
 		}
 		
 		// check group setting
-		$poll_enable_group_members = $container->getPluginSetting('poll', 'enable_group_members', $default_setting);
-		
-		return $poll_enable_group_members === 'yes';
+		return $container->getPluginSetting('poll', 'enable_group_members', $default_setting) === 'yes';
 	}
 }

@@ -4,22 +4,24 @@ namespace ColdTrick\Poll\Plugins;
 
 use Elgg\Groups\Tool;
 
+/**
+ * Support for the groups plugin
+ */
 class Groups {
 	
 	/**
 	 * Register a group tool
 	 *
-	 * @param \Elgg\Hook $hook 'tool_options', 'group'
+	 * @param \Elgg\Event $event 'tool_options', 'group'
 	 *
-	 * @return void|Tool[]
+	 * @return null|Tool[]
 	 */
-	public static function registerTool(\Elgg\Hook $hook) {
-		
+	public static function registerTool(\Elgg\Event $event): ?array {
 		if (!poll_is_enabled_for_group()) {
-			return;
+			return null;
 		}
 		
-		$result = $hook->getValue();
+		$result = $event->getValue();
 		
 		$result[] = new Tool('poll', [
 			'default_on' => false,

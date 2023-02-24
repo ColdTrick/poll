@@ -4,23 +4,27 @@ namespace ColdTrick\Poll\Menus;
 
 use Elgg\Menu\MenuItems;
 
+/**
+ * Add menu items to the entity menu
+ */
 class Entity {
 	
 	/**
 	 * Add a menu item to poll entity menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:entity'
+	 * @param \Elgg\Event $event 'register', 'menu:entity'
 	 *
-	 * @return void|MenuItems
+	 * @return null|MenuItems
 	 */
-	public static function register(\Elgg\Hook $hook) {
-		
-		$entity = $hook->getEntityParam();
+	public static function register(\Elgg\Event $event): ?MenuItems {
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \Poll || !$entity->canEdit()) {
-			return;
+			return null;
 		}
 		
-		$return_value = $hook->getValue();
+		/* @var $return_value MenuItems */
+		$return_value = $event->getValue();
+		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'export',
 			'icon' => 'download',

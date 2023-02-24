@@ -19,7 +19,7 @@ class ContainerGatekeeper extends \Elgg\Router\Middleware\Gatekeeper {
 	 * @return void
 	 * @throws HttpException
 	 */
-	public function __invoke(Request $request) {
+	public function __invoke(Request $request): void {
 		
 		parent::__invoke($request);
 		

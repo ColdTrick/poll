@@ -12,7 +12,7 @@ if (empty($poll_guid)) {
 echo elgg_list_entities([
 	'guids' => $poll_guid,
 	'type' => 'object',
-	'subtype' => Poll::SUBTYPE,
+	'subtype' => \Poll::SUBTYPE,
 	'no_results' => elgg_echo('poll:none'),
 	'limit' => 1,
 	'pagination' => false,

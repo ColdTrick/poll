@@ -1,6 +1,5 @@
 define(['jquery', 'elgg', 'chart.js/chart.min'], function($, elgg, Chart) {
-
-	init_chart = function (elem) {
+	function init_chart(elem) {
 		var data = $(elem).data();
 		if (data.initialized) {
 			return;
@@ -11,7 +10,7 @@ define(['jquery', 'elgg', 'chart.js/chart.min'], function($, elgg, Chart) {
 		}
 		
 		var ctx = elem.getContext('2d');
-			
+		
 		switch (data.chartType) {
 			case 'pie':
 				var chart = new Chart(ctx, {

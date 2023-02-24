@@ -1,11 +1,16 @@
 <?php
+
 $entity = elgg_extract('entity', $vars);
+if (!$entity instanceof \Poll) {
+	return;
+}
 
 // show optional close date
 $close_date = (int) $entity->close_date;
 if (empty($close_date)) {
 	return;
 }
+
 $close_translation_key = 'poll:closed';
 if ($close_date > time()) {
 	$close_translation_key = 'poll:closed:future';

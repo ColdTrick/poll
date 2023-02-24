@@ -13,14 +13,11 @@ if (!$page_owner->canWriteToContainer(0, 'object', Poll::SUBTYPE)) {
 //breadcrumb
 elgg_push_collection_breadcrumbs('object', Poll::SUBTYPE, $page_owner);
 
-// build page elements
-$edit = new EditForm();
-$content = elgg_view_form('poll/edit', [
-	'prevent_double_submit' => false,
-], $edit());
-
 // draw page
 echo elgg_view_page(elgg_echo('add:object:poll'), [
-	'content' => $content,
+	'content' => elgg_view_form('poll/edit', [
+		'prevent_double_submit' => false,
+		'sticky_enabled' => true,
+	]),
 	'filter_id' => 'poll/edit',
 ]);

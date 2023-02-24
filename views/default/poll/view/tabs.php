@@ -10,7 +10,6 @@ $tabs = [];
 
 // add answers form
 if ($entity->canVote()) {
-	
 	$form_vars = [
 		'class' => 'mvm poll-content',
 		'id' => 'poll-vote-form',

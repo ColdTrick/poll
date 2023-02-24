@@ -14,7 +14,6 @@ echo elgg_view_field([
 	'#label' => elgg_echo('title'),
 	'name' => 'title',
 	'value' => elgg_extract('title', $vars),
-	'id' => 'poll-title',
 	'required' => true,
 ]);
 
@@ -24,11 +23,13 @@ echo elgg_view_field([
 	'#label' => elgg_echo('description'),
 	'name' => 'description',
 	'value' => elgg_extract('description', $vars),
-	'id' => 'poll-description',
 ]);
 
 // answers
-$answers = elgg_view('elements/forms/label', ['label' => elgg_echo('poll:edit:answers'), 'required' => true]);;
+$answers = elgg_view('elements/forms/label', [
+	'label' => elgg_echo('poll:edit:answers'),
+	'required' => true,
+]);
 $answers .= elgg_view('poll/edit/answers', $vars);
 echo elgg_format_element('div', [], $answers);
 
@@ -46,7 +47,6 @@ echo elgg_view_field([
 echo elgg_view_field([
 	'#type' => 'tags',
 	'#label' => elgg_echo('tags'),
-	'id' => 'poll-tags',
 	'name' => 'tags',
 	'value' => elgg_extract('tags', $vars),
 ]);
@@ -55,7 +55,6 @@ echo elgg_view_field([
 echo elgg_view_field([
 	'#type' => 'select',
 	'#label' => elgg_echo('poll:edit:results_output'),
-	'id' => 'poll-results-output',
 	'name' => 'results_output',
 	'options_values' => [
 		'pie' => elgg_echo('poll:edit:results_output:pie'),
@@ -68,7 +67,6 @@ echo elgg_view_field([
 echo elgg_view_field([
 	'#type' => 'checkbox',
 	'#label' => elgg_echo('comments'),
-	'id' => 'poll-comments',
 	'name' => 'comments_allowed',
 	'checked' => elgg_extract('comments_allowed', $vars) === 'yes',
 	'switch' => true,
@@ -82,10 +80,9 @@ echo elgg_view_field([
 	'#label' => elgg_echo('access'),
 	'name' => 'access_id',
 	'value' => elgg_extract('access_id', $vars),
-	'id' => 'poll-access-id',
 	'entity' => elgg_extract('entity', $vars),
 	'entity_type' => 'object',
-	'entity_subtype' => Poll::SUBTYPE,
+	'entity_subtype' => \Poll::SUBTYPE,
 ]);
 
 echo elgg_view_field([

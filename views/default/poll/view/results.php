@@ -1,7 +1,7 @@
 <?php
 
 $entity = elgg_extract('entity', $vars);
-if (!$entity instanceof Poll) {
+if (!$entity instanceof \Poll) {
 	return;
 }
 
@@ -52,6 +52,7 @@ foreach ($votes as $vote) {
 	$text = elgg_extract('full_label', $vote);
 	$legend .= elgg_format_element('div', [], elgg_view_image_block($icon, $text));
 }
+
 $poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
 
 echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper', "poll-result-{$poll_type}"]], $poll_content);

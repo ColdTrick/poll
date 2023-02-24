@@ -4,29 +4,29 @@ namespace ColdTrick\Poll\Plugins\EntityTools;
 
 use ColdTrick\EntityTools\Migrate;
 
+/**
+ * Support entity_tools migration
+ */
 class MigratePoll extends Migrate {
 	
 	/**
 	 * {@inheritDoc}
-	 * @see \ColdTrick\EntityTools\Migrate::canBackDate()
 	 */
-	public function canBackDate() {
+	public function canBackDate(): bool {
 		return true;
 	}
 	
 	/**
 	 * {@inheritDoc}
-	 * @see \ColdTrick\EntityTools\Migrate::canChangeOwner()
 	 */
-	public function canChangeOwner() {
+	public function canChangeOwner(): bool {
 		return true;
 	}
 	
 	/**
 	 * {@inheritDoc}
-	 * @see \ColdTrick\EntityTools\Migrate::canChangeContainer()
 	 */
-	public function canChangeContainer() {
+	public function canChangeContainer(): bool {
 		return true;
 	}
 }

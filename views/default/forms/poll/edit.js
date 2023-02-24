@@ -1,12 +1,11 @@
 define(['jquery', 'elgg/system_messages', 'elgg/i18n', 'jquery-ui/widgets/sortable'], function($, system_messages, i18n) {
-
 	$(document).on('click', '.poll-edit-answers-icon .elgg-icon-delete', function() {
-		$(this).parents('li').remove();		
+		$(this).parents('li').remove();
 	});
 	
 	$('.poll-edit-answers').sortable({
-		handle: '.elgg-icon-drag-arrow', 
-		items: '> li:not(.poll-edit-answers-blank)', 
+		handle: '.elgg-icon-drag-arrow',
+		items: '> li:not(.poll-edit-answers-blank)',
 	});
 	
 	$('.poll-edit-answers-blank input').focus(function() {
@@ -19,7 +18,7 @@ define(['jquery', 'elgg/system_messages', 'elgg/i18n', 'jquery-ui/widgets/sortab
 			index = $blank.data().index + 1;
 
 			$(this).attr('name', $(this).attr('name').replace($(this).attr('name').match(/\[[0-9]+\]/), '[' + index + ']'));
-			$clone.data('index', index);    
+			$clone.data('index', index);
 		});
 		
 		// generate internal name value
@@ -48,7 +47,7 @@ define(['jquery', 'elgg/system_messages', 'elgg/i18n', 'jquery-ui/widgets/sortab
 		return false;
 	});
 	
-	$.extend($.datepicker,{_checkOffset:function(inst,offset,isFixed) {
+	$.extend($.datepicker, {_checkOffset: function(inst, offset, isFixed) {
 		var dpWidth = inst.dpDiv.outerWidth();
 		var dpHeight = inst.dpDiv.outerHeight();
 		var inputWidth = inst.input ? inst.input.outerWidth() : 0;
@@ -61,8 +60,7 @@ define(['jquery', 'elgg/system_messages', 'elgg/i18n', 'jquery-ui/widgets/sortab
 		offset.top -= (isFixed && offset.top == (inst.input.offset().top + inputHeight)) ? $(document).scrollTop() : 0;
 
 		// now check if datepicker is showing outside window viewport - move to a better place if so.
-		offset.left -= Math.min(offset.left, (offset.left + dpWidth > viewWidth && viewWidth > dpWidth) ?
-			Math.abs(offset.left + dpWidth - viewWidth) : 0);
+		offset.left -= Math.min(offset.left, (offset.left + dpWidth > viewWidth && viewWidth > dpWidth) ? Math.abs(offset.left + dpWidth - viewWidth) : 0);
 		offset.top -= Math.abs(dpHeight + inputHeight);
 
 		return offset;

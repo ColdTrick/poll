@@ -1,8 +1,12 @@
 <?php
 
 $item = elgg_extract('item', $vars);
+if (!$item instanceof \ElggRiverItem) {
+	return;
+}
+
 $entity = $item->getObjectEntity();
-if (!$entity instanceof Poll) {
+if (!$entity instanceof \Poll) {
 	return;
 }
 

@@ -4,7 +4,7 @@ $guid = (int) get_input('guid');
 $vote = get_input('vote');
 
 $entity = get_entity($guid);
-if (!$entity instanceof Poll) {
+if (!$entity instanceof \Poll) {
 	return elgg_error_response(elgg_echo('error:missing_data'));
 }
 

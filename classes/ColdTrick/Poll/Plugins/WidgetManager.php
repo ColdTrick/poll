@@ -2,22 +2,25 @@
 
 namespace ColdTrick\Poll\Plugins;
 
+/**
+ * Support for the widget_manager plugin
+ */
 class WidgetManager {
 	
 	/**
 	 * Define a widget for a group tool option
 	 *
-	 * @param \Elgg\Hook $hook 'group_tool_widgets', 'widget_manager'
+	 * @param \Elgg\Event $event 'group_tool_widgets', 'widget_manager'
 	 *
-	 * @return void|array
+	 * @return null|array
 	 */
-	public static function groupToolWidgets(\Elgg\Hook $hook) {
-		$entity = $hook->getEntityParam();
+	public static function groupToolWidgets(\Elgg\Event $event): ?array {
+		$entity = $event->getEntityParam();
 		if (!$entity instanceof \ElggGroup) {
-			return;
+			return null;
 		}
 		
-		$return_value = $hook->getValue();
+		$return_value = $event->getValue();
 		if (!is_array($return_value)) {
 			$return_value = [];
 		}
@@ -25,6 +28,7 @@ class WidgetManager {
 		if (!isset($return_value['enable'])) {
 			$return_value['enable'] = [];
 		}
+		
 		if (!isset($return_value['disable'])) {
 			$return_value['disable'] = [];
 		}

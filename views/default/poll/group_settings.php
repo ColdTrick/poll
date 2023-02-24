@@ -10,7 +10,7 @@ if (elgg_get_plugin_setting('group_create', 'poll') === 'owners') {
 }
 
 $group = elgg_extract('entity', $vars);
-if ($group instanceof ElggGroup) {
+if ($group instanceof \ElggGroup) {
 	$value = $group->getPluginSetting('poll', 'enable_group_members', $value);
 }
 

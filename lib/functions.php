@@ -6,17 +6,16 @@
 /**
  * Check if poll is enabled for a container
  *
- * @param ElggEntity $container the container entity to check
+ * @param \ElggEntity $container the container entity to check
  *
  * @return bool
  */
-function poll_is_enabled_for_container(ElggEntity $container): bool {
-	
-	if ($container instanceof ElggUser) {
+function poll_is_enabled_for_container(\ElggEntity $container): bool {
+	if ($container instanceof \ElggUser) {
 		if (elgg_get_plugin_setting('enable_site', 'poll') === 'yes') {
 			return true;
 		}
-	} elseif ($container instanceof ElggGroup) {
+	} elseif ($container instanceof \ElggGroup) {
 		if (poll_is_enabled_for_group($container)) {
 			return true;
 		}
@@ -28,17 +27,16 @@ function poll_is_enabled_for_container(ElggEntity $container): bool {
 /**
  * Check if poll is enabled for groups
  *
- * @param ElggGroup $group (optional) the group to check for
+ * @param \ElggGroup $group (optional) the group to check for
  *
  * @return bool
  */
-function poll_is_enabled_for_group(ElggGroup $group = null): bool {
-	
+function poll_is_enabled_for_group(\ElggGroup $group = null): bool {
 	if (elgg_get_plugin_setting('enable_group', 'poll') === 'no') {
 		return false;
 	}
 	
-	if (!$group instanceof ElggGroup) {
+	if (!$group instanceof \ElggGroup) {
 		return true;
 	}
 	

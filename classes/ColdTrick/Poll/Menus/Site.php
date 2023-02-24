@@ -4,17 +4,22 @@ namespace ColdTrick\Poll\Menus;
 
 use Elgg\Menu\MenuItems;
 
+/**
+ * Add menu items to the site menu
+ */
 class Site {
 	
 	/**
 	 * Add a menu item to the site menu
 	 *
-	 * @param \Elgg\Hook $hook 'register', 'menu:site'
+	 * @param \Elgg\Event $event 'register', 'menu:site'
 	 *
-	 * @return void|MenuItems
+	 * @return MenuItems
 	 */
-	public static function register(\Elgg\Hook $hook) {
-		$return_value = $hook->getValue();
+	public static function register(\Elgg\Event $event): MenuItems {
+		/* @var $return_value MenuItems */
+		$return_value = $event->getValue();
+		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
 			'icon' => 'chart-pie',
