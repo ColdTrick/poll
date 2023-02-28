@@ -2,6 +2,7 @@
 
 namespace ColdTrick\Poll\Plugins;
 
+use Elgg\Collections\Collection;
 use Elgg\Groups\Tool;
 
 /**
@@ -14,9 +15,9 @@ class Groups {
 	 *
 	 * @param \Elgg\Event $event 'tool_options', 'group'
 	 *
-	 * @return null|Tool[]
+	 * @return null|Collection
 	 */
-	public static function registerTool(\Elgg\Event $event): ?array {
+	public static function registerTool(\Elgg\Event $event): ?Collection {
 		if (!poll_is_enabled_for_group()) {
 			return null;
 		}
