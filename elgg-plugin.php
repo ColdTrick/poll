@@ -94,8 +94,8 @@ return [
 	'events' => [
 		'container_logic_check' => [
 			'object' => [
+				\ColdTrick\Poll\GroupToolContainerLogicCheck::class => [],
 				'\ColdTrick\Poll\Permissions::enabledForSite' => [],
-				'\ColdTrick\Poll\Permissions::enabledForGroups' => [],
 			],
 		],
 		'container_permissions_check' => [

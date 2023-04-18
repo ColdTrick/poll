@@ -25,23 +25,6 @@ class Permissions {
 	}
 	
 	/**
-	 * Is the poll feature enabled for groups
-	 *
-	 * @param \Elgg\Event $event 'container_logic_check', 'object'
-	 *
-	 * @return null|bool
-	 */
-	public static function enabledForGroups(\Elgg\Event $event): ?bool {
-		$container = $event->getParam('container');
-		$subtype = $event->getParam('subtype');
-		if (!$container instanceof \ElggGroup || $subtype !== \Poll::SUBTYPE) {
-			return null;
-		}
-		
-		return poll_is_enabled_for_group($container);
-	}
-	
-	/**
 	 * Check if a user can write a poll in a group
 	 *
 	 * @param \Elgg\Event $event 'container_permissions_check', 'all'
