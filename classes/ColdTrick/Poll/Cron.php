@@ -31,13 +31,13 @@ class Cron {
 						'name' => 'close_date',
 						'value' => $time - (24 * 60 * 60), // past 24 hours
 						'operand' => '>',
-						'as' => 'integer',
+						'type' => ELGG_VALUE_INTEGER,
 					],
 					[
 						'name' => 'close_date',
 						'value' => $time, // today 0h:0m:0s
 						'operand' => '<=',
-						'as' => 'integer',
+						'type' => ELGG_VALUE_INTEGER,
 					],
 				],
 			];
