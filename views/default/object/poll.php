@@ -28,7 +28,7 @@ if (elgg_extract('full_view', $vars)) {
 	
 	echo elgg_view('object/elements/full', $params);
 } else {
-	$content = elgg_get_excerpt($entity->description);
+	$content = elgg_get_excerpt((string) $entity->description);
 	
 	if (elgg_extract('show_poll_tabs', $vars, false)) {
 		$content .= elgg_view('poll/view/tabs', $vars);
