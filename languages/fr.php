@@ -1,4 +1,8 @@
 <?php
+/**
+ * This file was created by Translation Editor v11.1
+ * On 2023-05-17 15:04
+ */
 
 return array (
   'item:object:poll' => 'Sondage',
