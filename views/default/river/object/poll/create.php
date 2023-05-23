@@ -10,6 +10,6 @@ if (!$entity instanceof \Poll) {
 	return;
 }
 
-$vars['message'] = elgg_get_excerpt($entity->description);
+$vars['message'] = elgg_get_excerpt((string) $entity->description);
 
 echo elgg_view('river/elements/layout', $vars);

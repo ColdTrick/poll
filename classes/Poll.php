@@ -214,7 +214,7 @@ class Poll extends \ElggObject {
 		foreach ($answers as $answer) {
 			$name = elgg_extract('name', $answer);
 			$label = elgg_extract('label', $answer);
-			$short_label = elgg_get_excerpt($label, 20);
+			$short_label = elgg_get_excerpt((string) $label, 20);
 			
 			$results[$name] = [
 				'label' => $short_label,

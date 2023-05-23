@@ -33,7 +33,7 @@ class CreatePollNotificationHandler extends NotificationEventHandler {
 		return elgg_echo('poll:notification:create:body', [
 			$actor->getDisplayName(),
 			$entity->getDisplayName(),
-			elgg_get_excerpt($entity->description),
+			elgg_get_excerpt((string) $entity->description),
 			$entity->getURL(),
 		], $recipient->getLanguage());
 	}
