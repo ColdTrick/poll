@@ -138,6 +138,11 @@ return [
 				\Elgg\Notifications\RegisterSubscriptionMenuItemsHandler::class => [],
 			],
 		],
+		'seeds' => [
+			'database' => [
+				'\ColdTrick\Poll\Seeder::register' => [],
+			],
+		],
 		'supported_types' => [
 			'entity_tools' => [
 				'\ColdTrick\Poll\Plugins\EntityTools::registerPoll' => [],
