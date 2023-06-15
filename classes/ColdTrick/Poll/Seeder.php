@@ -4,6 +4,7 @@ namespace ColdTrick\Poll;
 
 use Elgg\Database\Seeds\Seed;
 use Elgg\Database\Update;
+use Elgg\Exceptions\Seeding\MaxAttemptsException;
 use Elgg\Values;
 
 /**
@@ -17,8 +18,33 @@ class Seeder extends Seed {
 	public function seed() {
 		$this->advance($this->getCount());
 		
+		$allow_personal_poll = elgg_get_plugin_setting('enable_site', 'poll') === 'yes';
+		$allow_group_poll = elgg_get_plugin_setting('enable_group', 'poll') === 'yes';
+		
+		$session_manager = elgg()->session_manager;
+		$logger = elgg()->logger;
+		$logged_in = $session_manager->getLoggedInUser();
+		
 		while ($this->getCount() < $this->limit) {
 			$created = $this->getRandomCreationTimestamp();
+			$owner = $this->getRandomUser();
+			
+			$session_manager->setLoggedInUser($owner);
+			
+			// where to create the poll
+			$container_guid = $owner->guid;
+			if ($allow_personal_poll && $allow_group_poll) {
+				if ($this->faker()->boolean()) {
+					$container_guid = $this->getRandomGroup()->guid;
+				}
+			} elseif ($allow_group_poll) {
+				$container_guid = $this->getRandomGroup()->guid;
+			} else {
+				// unable to seed
+				break;
+			}
+			
+			// make poll close date
 			$close_date = null;
 			if ($this->faker()->boolean(30)) {
 				$max_close = $this->create_until ?? time();
@@ -29,6 +55,8 @@ class Seeder extends Seed {
 			
 			$properties = [
 				'subtype' => \Poll::SUBTYPE,
+				'owner_guid' => $owner->guid,
+				'container_guid' => $container_guid,
 				'time_created' => $created,
 				'comments_allowed' => $this->faker()->boolean() ? 'yes' : 'no',
 				'results_output' => $this->faker()->boolean(70) ? 'pie' : 'bar',
@@ -36,7 +64,17 @@ class Seeder extends Seed {
 			];
 			
 			/* @var $entity \Poll */
-			$entity = $this->createObject($properties);
+			try {
+				$logger->disable();
+				
+				$entity = $this->createObject($properties);
+				
+				$logger->enable();
+			} catch (MaxAttemptsException $e) {
+				// unable to create with the given options
+				$logger->enable();
+				continue;
+			}
 			
 			$this->createComments($entity);
 			$this->createLikes($entity);
@@ -56,6 +94,12 @@ class Seeder extends Seed {
 			$entity->save();
 			
 			$this->advance();
+		}
+		
+		if ($logged_in) {
+			$session_manager->setLoggedInUser($logged_in);
+		} else {
+			$session_manager->removeLoggedInUser();
 		}
 	}
 	
