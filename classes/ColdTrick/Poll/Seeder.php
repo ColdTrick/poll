@@ -33,15 +33,22 @@ class Seeder extends Seed {
 			
 			// where to create the poll
 			$container_guid = $owner->guid;
+			$group = null;
 			if ($allow_personal_poll && $allow_group_poll) {
 				if ($this->faker()->boolean()) {
-					$container_guid = $this->getRandomGroup()->guid;
+					$group = $this->getRandomGroup();
+					$container_guid = $group->guid;
 				}
 			} elseif ($allow_group_poll) {
-				$container_guid = $this->getRandomGroup()->guid;
+				$group = $this->getRandomGroup();
+				$container_guid = $group->guid;
 			} else {
 				// unable to seed
 				break;
+			}
+			
+			if ($group instanceof \ElggGroup) {
+				$group->enableTool('poll');
 			}
 			
 			// make poll close date
