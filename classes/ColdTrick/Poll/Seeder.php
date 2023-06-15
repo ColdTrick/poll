@@ -123,6 +123,8 @@ class Seeder extends Seed {
 				$this->log("Deleted poll {$entity->guid}");
 			} else {
 				$this->log("Failed to delete poll {$entity->guid}");
+				$entities->reportFailure();
+				continue;
 			}
 			
 			$this->advance();
