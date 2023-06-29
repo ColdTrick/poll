@@ -2,6 +2,11 @@
 
 /**
  * Poll entity class
+ *
+ * @property string $answers          JSON encoded answer configuration
+ * @property int    $close_date       timestamp when the voting for the poll will be closed
+ * @property string $comments_allowed are comments allowed
+ * @property string $results_output   how to display the poll results
  */
 class Poll extends \ElggObject {
 	
