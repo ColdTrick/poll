@@ -28,7 +28,7 @@ echo elgg_view_field([
 // form footer
 $footer = elgg_view_field([
 	'#type' => 'submit',
-	'value' => elgg_echo('poll:vote'),
+	'text' => elgg_echo('poll:vote'),
 ]);
 
 elgg_set_form_footer($footer);
