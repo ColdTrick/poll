@@ -11,10 +11,10 @@
 	},
 	"require": {
 		"composer/installers": "^1.0.8",
-		"npm-asset/chart.js": "~3.4.1"
+		"npm-asset/chart.js": "~4.4.0"
 	},
 	"conflict": {
-		"elgg/elgg": "<5.0"
+		"elgg/elgg": "<5.1"
 	},
 	"repositories": [
 		{

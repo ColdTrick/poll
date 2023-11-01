@@ -15,9 +15,6 @@ class Cron {
 	 * @return void
 	 */
 	public static function sendCloseNotifications(\Elgg\Event $event): void {
-		echo 'Starting Poll closed notification' . PHP_EOL;
-		elgg_log('Starting Poll closed notification', 'NOTICE');
-		
 		elgg_call(ELGG_IGNORE_ACCESS, function() {
 			$time = mktime(0, 0, 0);
 			
@@ -57,8 +54,5 @@ class Cron {
 				$poll->notifyParticipantsOnClose();
 			}
 		});
-		
-		echo 'Done with Poll closed notification' . PHP_EOL;
-		elgg_log('Done with Poll closed notification', 'NOTICE');
 	}
 }

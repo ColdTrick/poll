@@ -8,7 +8,7 @@ elgg_entity_gatekeeper($guid, 'object', \Poll::SUBTYPE);
 $entity = get_entity($guid);
 
 // breadcrumb
-elgg_push_entity_breadcrumbs($entity, false);
+elgg_push_entity_breadcrumbs($entity);
 
 // build page elements
 $title = $entity->getDisplayName();

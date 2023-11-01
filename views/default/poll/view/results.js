@@ -1,4 +1,4 @@
-define(['jquery', 'elgg', 'chart.js/chart.min'], function($, elgg, Chart) {
+define(['jquery', 'elgg', 'chart.js/chart.umd'], function($, elgg, Chart) {
 	function init_chart(elem) {
 		var data = $(elem).data();
 		if (data.initialized) {
@@ -48,7 +48,7 @@ define(['jquery', 'elgg', 'chart.js/chart.min'], function($, elgg, Chart) {
 		}
 		
 		$(elem).data('initialized', true);
-	};
+	}
 	
 	$('.poll-result-chart').each(function(index, elem) {
 		init_chart(elem);
