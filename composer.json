@@ -10,7 +10,6 @@
 		"issues": "https://github.com/ColdTrick/poll/issues"
 	},
 	"require": {
-		"composer/installers": "^1.0.8",
 		"npm-asset/chart.js": "~4.4.0"
 	},
 	"conflict": {
@@ -25,9 +24,6 @@
 	"config": {
 		"fxp-asset": {
             "enabled": false
-		},
-		"allow-plugins": {
-			"composer/installers": true
 		}
 	}
 }
