@@ -12,7 +12,7 @@ use Elgg\Router\Middleware\Gatekeeper;
 
 return [
 	'plugin' => [
-		'version' => '10.1',
+		'version' => '11.0',
 	],
 	'entities' => [
 		[
