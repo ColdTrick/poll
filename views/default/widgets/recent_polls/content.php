@@ -11,6 +11,7 @@ $options = [
 	'limit' => (int) $widget->num_display ?: 5,
 	'pagination' => false,
 	'no_results' => elgg_echo('poll:none'),
+	'widget_more' => elgg_view_url($widget->getURL(), elgg_echo('poll:more')),
 ];
 
 if ($container instanceof \ElggUser && $widget->context !== 'dashboard') {

@@ -1,6 +1,6 @@
 <?php
 
-elgg_require_js('forms/poll/edit');
+elgg_import_esm('forms/poll/edit');
 
 echo elgg_view_field([
 	'#type' => 'hidden',

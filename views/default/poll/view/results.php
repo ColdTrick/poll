@@ -16,7 +16,7 @@ if (empty($votes)) {
 	return;
 }
 
-elgg_require_js('poll/view/results');
+elgg_import_esm('poll/view/results');
 
 // convert votes result to be used in charts
 $poll_type = $entity->results_output;

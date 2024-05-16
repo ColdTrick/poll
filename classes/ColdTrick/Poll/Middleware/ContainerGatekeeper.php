@@ -20,7 +20,6 @@ class ContainerGatekeeper extends \Elgg\Router\Middleware\Gatekeeper {
 	 * @throws HttpException
 	 */
 	public function __invoke(Request $request): void {
-		
 		parent::__invoke($request);
 		
 		$container = elgg_get_page_owner_entity();

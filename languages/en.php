@@ -28,6 +28,7 @@ return [
 	'poll:settings:add_vote_to_river:info' => "This settings determines if voting on a poll is added to the activity stream.",
 	
 	'poll:none' => "No polls found",
+	'poll:more' => "More polls",
 	'poll:group' => "Group polls",
 	
 	'poll:all:title' => "All site polls",

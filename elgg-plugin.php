@@ -7,6 +7,7 @@ if (is_dir(__DIR__ . '/vendor')) {
 	$composer_path = __DIR__ . '/';
 }
 
+use ColdTrick\Poll\Bootstrap;
 use ColdTrick\Poll\Middleware\ContainerGatekeeper;
 use Elgg\Router\Middleware\Gatekeeper;
 
@@ -14,6 +15,7 @@ return [
 	'plugin' => [
 		'version' => '11.0',
 	],
+	'bootstrap' => Bootstrap::class,
 	'entities' => [
 		[
 			'type' => 'object',

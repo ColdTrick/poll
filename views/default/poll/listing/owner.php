@@ -7,6 +7,9 @@
  */
 
 $entity = elgg_extract('entity', $vars);
+if (!$entity instanceof \ElggUser) {
+	return;
+}
 
 $options = (array) elgg_extract('options', $vars, []);
 

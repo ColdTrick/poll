@@ -1,6 +1,6 @@
 <?php
 
-elgg_require_js('elgg/toggle');
+elgg_import_esm('elgg/toggle');
 
 $answers = (array) elgg_extract('answers', $vars);
 $answers[] = []; // add a blank option

@@ -27,7 +27,7 @@ function poll_is_enabled_for_container(\ElggEntity $container): bool {
 /**
  * Check if poll is enabled for groups
  *
- * @param \ElggGroup $group (optional) the group to check for
+ * @param null|\ElggGroup $group (optional) the group to check for
  *
  * @return bool
  */

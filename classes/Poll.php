@@ -22,14 +22,14 @@ class Poll extends \ElggObject {
 	}
 	
 	/**
-	 * {@inheritDoc}
+	 * {@inheritdoc}
 	 */
-	public function canComment($user_guid = 0, $default = null): bool {
+	public function canComment($user_guid = 0): bool {
 		if ($this->comments_allowed !== 'yes') {
 			return false;
 		}
 		
-		return parent::canComment($user_guid, $default);
+		return parent::canComment($user_guid);
 	}
 	
 	/**
