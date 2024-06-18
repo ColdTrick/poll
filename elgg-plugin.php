@@ -37,6 +37,7 @@ return [
 		'add_vote_to_river' => 'yes',
 	],
 	'actions' => [
+		'poll/clear_votes' => [],
 		'poll/edit' => [],
 		'poll/export' => [],
 		'poll/vote' => [],

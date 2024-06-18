@@ -51,6 +51,7 @@ return [
 	'poll:no_votes' => "No vote has been cast yet",
 	'poll:vote:title' => "Vote for this poll",
 	'poll:vote' => "Vote",
+	'poll:votes:clear' => "Clear votes",
 	
 	'poll:menu:site' => "Polls",
 	'poll:menu:owner_block:group' => "Group polls",
@@ -105,6 +106,7 @@ To view the results check out the poll here:
 	'poll:action:vote:error:can_vote' => "You're not allowed to vote on this poll",
 	'poll:action:vote:error:vote' => "An error occurred while saving your vote",
 	'poll:action:vote:success' => "Your vote was saved",
+	'poll:action:clear_votes:success' => "The votes have been cleared",
 	
 	'poll:action:export:error:no_votes' => "No votes available to export",
 ];

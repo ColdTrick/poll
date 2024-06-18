@@ -34,6 +34,16 @@ class Entity {
 			]),
 		]);
 		
+		$return_value[] = \ElggMenuItem::factory([
+			'name' => 'clear_votes',
+			'icon' => 'sync-alt',
+			'text' => elgg_echo('poll:votes:clear'),
+			'confirm' => true,
+			'href' => elgg_generate_action_url('poll/clear_votes', [
+				'guid' => $entity->guid,
+			]),
+		]);
+		
 		return $return_value;
 	}
 }

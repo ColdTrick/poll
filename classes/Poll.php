@@ -252,6 +252,21 @@ class Poll extends \ElggObject {
 	}
 	
 	/**
+	 * Removes all votes and related river activity
+	 *
+	 * @return void
+	 */
+	public function clearVotes(): void {
+		$this->deleteAnnotations('vote');
+		
+		elgg_delete_river([
+			'object_guid' => $this->guid,
+			'action_type' => 'vote',
+			'limit' => false,
+		]);
+	}
+	
+	/**
 	 * Notify the owner of the poll that it's closed
 	 *
 	 * @return array
