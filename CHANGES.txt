@@ -1,6 +1,12 @@
 Version history
 ===============
 
+12.0 (2024-06-28):
+
+- added: poll action to clear votes
+- added: restorable capability
+- changed: updated for Elgg 6
+
 11.0 (2023-11-30):
 
 - changed: updated for Elgg 5.1

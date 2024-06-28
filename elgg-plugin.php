@@ -13,7 +13,7 @@ use Elgg\Router\Middleware\Gatekeeper;
 
 return [
 	'plugin' => [
-		'version' => '11.0',
+		'version' => '12.0',
 	],
 	'bootstrap' => Bootstrap::class,
 	'entities' => [
