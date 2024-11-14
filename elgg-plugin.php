@@ -161,6 +161,7 @@ return [
 	'notifications' => [
 		'object' => [
 			'poll' => [
+				'close' => \ColdTrick\Poll\Notifcations\ClosePollEventHandler::class,
 				'create' => \ColdTrick\Poll\CreatePollNotificationHandler::class,
 			],
 		],

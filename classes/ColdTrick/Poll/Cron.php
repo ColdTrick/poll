@@ -46,11 +46,7 @@ class Cron {
 					continue;
 				}
 				
-				// notify owner
-				$poll->notifyOwnerOnClose();
-				
-				// notify participants
-				$poll->notifyParticipantsOnClose();
+				elgg_trigger_event('close', 'object', $poll);
 			}
 		});
 	}
