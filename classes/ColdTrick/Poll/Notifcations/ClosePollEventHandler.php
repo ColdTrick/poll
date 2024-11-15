@@ -114,4 +114,11 @@ class ClosePollEventHandler extends NotificationEventHandler {
 	protected function getNotificationURL(\ElggUser $recipient, string $method): string {
 		return (string) $this->getPoll()?->getURL();
 	}
+	
+	/**
+	 * {@inheritDoc}
+	 */
+	public static function isConfigurableByUser(): bool {
+		return false;
+	}
 }
