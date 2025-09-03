@@ -31,7 +31,7 @@ function poll_is_enabled_for_container(\ElggEntity $container): bool {
  *
  * @return bool
  */
-function poll_is_enabled_for_group(\ElggGroup $group = null): bool {
+function poll_is_enabled_for_group(?\ElggGroup $group = null): bool {
 	if (elgg_get_plugin_setting('enable_group', 'poll') === 'no') {
 		return false;
 	}
