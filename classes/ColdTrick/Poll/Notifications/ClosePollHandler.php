@@ -1,13 +1,13 @@
 <?php
 
-namespace ColdTrick\Poll\Notifcations;
+namespace ColdTrick\Poll\Notifications;
 
-use Elgg\Notifications\NotificationEventHandler;
+use Elgg\Notifications\NonConfigurableNotificationEventHandler;
 
 /**
  * Send a notification when a Poll is closed
  */
-class ClosePollEventHandler extends NotificationEventHandler {
+class ClosePollHandler extends NonConfigurableNotificationEventHandler {
 	
 	/**
 	 * Get the Poll from the notification
@@ -113,12 +113,5 @@ class ClosePollEventHandler extends NotificationEventHandler {
 	 */
 	protected function getNotificationURL(\ElggUser $recipient, string $method): string {
 		return (string) $this->getPoll()?->getURL();
-	}
-	
-	/**
-	 * {@inheritDoc}
-	 */
-	public static function isConfigurableByUser(): bool {
-		return false;
 	}
 }

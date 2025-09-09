@@ -24,7 +24,7 @@ return array (
   'poll:settings:vote_change_allowed:info' => 'Esta configuración permite a los usuarios cambiar su voto después de que hayan votado.',
   'poll:settings:add_vote_to_river' => 'Añadir la actividad de voto de encuesta a Actividad',
   'poll:settings:add_vote_to_river:info' => 'Esta configuración determina si se añade la votación de una encuesta para el flujo de actividad.',
-  'poll:none' => 'Encuesta no encontrada',
+  'list:object:poll:no_results' => 'Encuesta no encontrada',
   'poll:group' => 'Encuesta de grupo',
   'add:object:poll' => 'Añadir encuesta',
   'poll:all:title' => 'Todas las encuestas del sitio',

@@ -10,7 +10,7 @@ $options = [
 	'subtype' => \Poll::SUBTYPE,
 	'limit' => (int) $widget->num_display ?: 5,
 	'pagination' => false,
-	'no_results' => elgg_echo('poll:none'),
+	'no_results' => true,
 	'widget_more' => elgg_view_url($widget->getURL(), elgg_echo('poll:more')),
 ];
 

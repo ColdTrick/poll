@@ -1,15 +1,14 @@
 <?php
 
+use ColdTrick\Poll\Bootstrap;
+use ColdTrick\Poll\Middleware\ContainerGatekeeper;
+
 require_once(dirname(__FILE__) . '/lib/functions.php');
 
 $composer_path = '';
 if (is_dir(__DIR__ . '/vendor')) {
 	$composer_path = __DIR__ . '/';
 }
-
-use ColdTrick\Poll\Bootstrap;
-use ColdTrick\Poll\Middleware\ContainerGatekeeper;
-use Elgg\Router\Middleware\Gatekeeper;
 
 return [
 	'plugin' => [
@@ -26,6 +25,7 @@ return [
 				'searchable' => true,
 				'likable' => true,
 				'restorable' => true,
+				'subscribable' => true,
 			],
 		],
 	],
@@ -61,6 +61,9 @@ return [
 			'defaults' => [
 				'subpage' => 'all',
 			],
+			'required_plugins' => [
+				'groups',
+			],
 			'middleware' => [
 				\Elgg\Router\Middleware\GroupPageOwnerGatekeeper::class,
 			],
@@ -68,6 +71,9 @@ return [
 		'collection:object:poll:friends' => [
 			'path' => '/poll/friends/{username}',
 			'resource' => 'poll/friends',
+			'required_plugins' => [
+				'friends',
+			],
 			'middleware' => [
 				\Elgg\Router\Middleware\UserPageOwnerGatekeeper::class,
 			],
@@ -87,7 +93,7 @@ return [
 			'path' => '/poll/edit/{guid}',
 			'resource' => 'poll/edit',
 			'middleware' => [
-				Gatekeeper::class,
+				\Elgg\Router\Middleware\Gatekeeper::class,
 			],
 		],
 		'default:object:poll' => [
@@ -138,9 +144,6 @@ return [
 			'menu:site' => [
 				'\ColdTrick\Poll\Menus\Site::register' => [],
 			],
-			'menu:title:object:poll' => [
-				\Elgg\Notifications\RegisterSubscriptionMenuItemsHandler::class => [],
-			],
 		],
 		'seeds' => [
 			'database' => [
@@ -161,8 +164,8 @@ return [
 	'notifications' => [
 		'object' => [
 			'poll' => [
-				'close' => \ColdTrick\Poll\Notifcations\ClosePollEventHandler::class,
-				'create' => \ColdTrick\Poll\CreatePollNotificationHandler::class,
+				'close' => \ColdTrick\Poll\Notifications\ClosePollHandler::class,
+				'create' => \ColdTrick\Poll\Notifications\CreatePollHandler::class,
 			],
 		],
 	],

@@ -8,7 +8,7 @@
 $defaults = [
 	'type' => 'object',
 	'subtype' => \Poll::SUBTYPE,
-	'no_results' => elgg_echo('poll:none'),
+	'no_results' => true,
 	'preload_owners' => true,
 	'preload_containers' => true,
 ];

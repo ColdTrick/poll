@@ -24,7 +24,7 @@ return array (
   'poll:settings:vote_change_allowed:info' => 'Diese Einstellung erlaubt Benutzern ihre Wahl zu ändern nachdem sie abgestimmt haben.',
   'poll:settings:add_vote_to_river' => 'Umfragenaktivität zur Aktivitätenliste hinzufügen',
   'poll:settings:add_vote_to_river:info' => 'Diese Einstellung legt fest, ob das Abstimmen bei einer Umfrage zur Aktivitätenliste hinzugefügt wird.',
-  'poll:none' => 'Keine Umfragen gefunden',
+  'list:object:poll:no_results' => 'Keine Umfragen gefunden',
   'poll:group' => 'Gruppenumfragen',
   'add:object:poll' => 'Eine neue Umfrage erstellen',
   'poll:all:title' => 'Alle Site-Umfragen',

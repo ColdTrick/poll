@@ -1,13 +1,13 @@
 <?php
 
-namespace ColdTrick\Poll;
+namespace ColdTrick\Poll\Notifications;
 
 use Elgg\Notifications\NotificationEventHandler;
 
 /**
  * Notification handler for the creation of a Poll
  */
-class CreatePollNotificationHandler extends NotificationEventHandler {
+class CreatePollHandler extends NotificationEventHandler {
 	
 	/**
 	 * {@inheritdoc}

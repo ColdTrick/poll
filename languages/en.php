@@ -10,6 +10,7 @@ return [
 	'add:object:poll' => "Add a new poll",
 	'notification:object:poll:create' => 'Send a notification when a poll is created',
 	'input:container_guid:object:poll:info' => 'This poll will be created in %s',
+	'list:object:poll:no_results' => 'No polls found',
 	
 	// settings
 	'poll:settings:enable_site' => "Enable polls for site",
@@ -27,7 +28,6 @@ return [
 	'poll:settings:add_vote_to_river' => "Add poll vote activity to the river",
 	'poll:settings:add_vote_to_river:info' => "This settings determines if voting on a poll is added to the activity stream.",
 	
-	'poll:none' => "No polls found",
 	'poll:more' => "More polls",
 	'poll:group' => "Group polls",
 	

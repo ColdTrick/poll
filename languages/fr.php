@@ -24,7 +24,7 @@ return array (
   'poll:settings:vote_change_allowed:info' => 'Ces paramètres permettent aux utilisateurs de modifier leur vote après avoir participé une première fois.',
   'poll:settings:add_vote_to_river' => 'Ajouter une entrée sur le flux d\'activité quand il y a une participation à un sondage',
   'poll:settings:add_vote_to_river:info' => 'Ce paramètre détermine si le vote sur un sondage est ajouté au flux d\'activité.',
-  'poll:none' => 'Aucun sondage n\'a été trouvé',
+  'list:object:poll:no_results' => 'Aucun sondage n\'a été trouvé',
   'poll:group' => 'Sondages du groupe',
   'add:object:poll' => 'Ajouter un nouveau sondage',
   'poll:all:title' => 'Tous les sondages du site',

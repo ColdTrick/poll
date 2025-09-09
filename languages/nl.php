@@ -56,7 +56,7 @@ Om de resultaten van de peiling te bekijken, klik hier:
 	'poll:settings:enable_site:info' => 'Mogen gebruikers persoonlijke peilingen aanmaken?',
 	'poll:settings:enable_group' => 'Schakel peilingen in voor groepen',
 	'poll:settings:enable_group:info' => 'Mogen gebruikers peilingen aanmaken in groepen? Groepen moeten dit nog wel inschakelen om er gebruik van te kunnen maken.',
-	'poll:none' => 'Geen peilingen gevonden',
+	'list:object:poll:no_results' => 'Geen peilingen gevonden',
 	'poll:group' => 'Groepspeilingen',
 	'add:object:poll' => 'Maak een nieuwe peiling',
 	'poll:all:title' => 'Alle site peilingen',

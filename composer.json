@@ -13,17 +13,12 @@
 		"npm-asset/chart.js": "~4.4.0"
 	},
 	"conflict": {
-		"elgg/elgg": "<6.0"
+		"elgg/elgg": "<6.3"
 	},
 	"repositories": [
 		{
             "type": "composer",
             "url": "https://asset-packagist.org"
 		}
-	],
-	"config": {
-		"fxp-asset": {
-            "enabled": false
-		}
-	}
+	]
 }
