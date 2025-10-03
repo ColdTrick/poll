@@ -13,14 +13,14 @@ class CreatePollHandler extends NotificationEventHandler {
 	 * {@inheritdoc}
 	 */
 	protected function getNotificationSubject(\ElggUser $recipient, string $method): string {
-		return elgg_echo('poll:notification:create:subject', [$this->event->getObject()->getDisplayName()], $recipient->getLanguage());
+		return elgg_echo('poll:notification:create:subject', [$this->event->getObject()->getDisplayName()]);
 	}
 	
 	/**
 	 * {@inheritdoc}
 	 */
 	protected function getNotificationSummary(\ElggUser $recipient, string $method): string {
-		return elgg_echo('poll:notification:create:summary', [$this->event->getObject()->getDisplayName()], $recipient->getLanguage());
+		return elgg_echo('poll:notification:create:summary', [$this->event->getObject()->getDisplayName()]);
 	}
 	
 	/**
@@ -35,7 +35,7 @@ class CreatePollHandler extends NotificationEventHandler {
 			$entity->getDisplayName(),
 			elgg_get_excerpt((string) $entity->description),
 			$entity->getURL(),
-		], $recipient->getLanguage());
+		]);
 	}
 		
 	/**

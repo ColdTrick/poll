@@ -70,10 +70,10 @@ class ClosePollHandler extends NonConfigurableNotificationEventHandler {
 		$poll = $this->getPoll();
 		
 		if ($recipient->guid === $poll->owner_guid) {
-			return elgg_echo('poll:notification:close:owner:subject', [$poll->getDisplayName()], $recipient->getLanguage());
+			return elgg_echo('poll:notification:close:owner:subject', [$poll->getDisplayName()]);
 		}
 		
-		return elgg_echo('poll:notification:close:participant:subject', [$poll->getDisplayName()], $recipient->getLanguage());
+		return elgg_echo('poll:notification:close:participant:subject', [$poll->getDisplayName()]);
 	}
 	
 	/**
@@ -83,10 +83,10 @@ class ClosePollHandler extends NonConfigurableNotificationEventHandler {
 		$poll = $this->getPoll();
 		
 		if ($recipient->guid === $poll->owner_guid) {
-			return elgg_echo('poll:notification:close:owner:summary', [$poll->getDisplayName()], $recipient->getLanguage());
+			return elgg_echo('poll:notification:close:owner:summary', [$poll->getDisplayName()]);
 		}
 		
-		return elgg_echo('poll:notification:close:participant:summary', [$poll->getDisplayName()], $recipient->getLanguage());
+		return elgg_echo('poll:notification:close:participant:summary', [$poll->getDisplayName()]);
 	}
 	
 	/**
@@ -99,13 +99,13 @@ class ClosePollHandler extends NonConfigurableNotificationEventHandler {
 			return elgg_echo('poll:notification:close:owner:body', [
 				$poll->getDisplayName(),
 				$poll->getURL(),
-			], $recipient->getLanguage());
+			]);
 		}
 		
 		return elgg_echo('poll:notification:close:participant:body', [
 			$poll->getDisplayName(),
 			$poll->getURL(),
-		], $recipient->getLanguage());
+		]);
 	}
 	
 	/**
