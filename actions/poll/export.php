@@ -21,13 +21,13 @@ $tmp_file = $temp_file->open('write');
 fputcsv($tmp_file, [
 	elgg_echo('poll:edit:answers'),
 	elgg_echo('total'),
-], ';', '"');
+], ';', '"', '\\');
 
 foreach ($votes as $vote) {
 	fputcsv($tmp_file, [
 		elgg_extract('full_label', $vote),
 		elgg_extract('value', $vote),
-	], ';', '"');
+	], ';', '"', '\\');
 }
 
 $temp_file->close();
