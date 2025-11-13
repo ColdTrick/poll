@@ -1,6 +1,12 @@
 Version history
 ===============
 
+13.0 (2025-11-13):
+
+- changed: updated Chartjs to v4.5
+- changed: updated for Elgg 6.3
+- fixed: PHP implicit null declaration
+
 12.1 (2024-11-21):
 
 - added: poll close notification moved to notification event
