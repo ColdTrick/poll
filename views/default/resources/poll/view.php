@@ -1,20 +1,11 @@
 <?php
 
-// verify input
-$guid = (int) elgg_extract('guid', $vars);
-elgg_entity_gatekeeper($guid, 'object', \Poll::SUBTYPE);
-
 /* @var $entity \Poll */
-$entity = get_entity($guid);
+$entity = elgg_entity_gatekeeper((int) elgg_extract('guid', $vars), 'object', \Poll::SUBTYPE);
 
-// breadcrumb
 elgg_push_entity_breadcrumbs($entity);
 
-// build page elements
-$title = $entity->getDisplayName();
-
-// draw page
-echo elgg_view_page($title, [
+echo elgg_view_page($entity->getDisplayName(), [
 	'content' => elgg_view_entity($entity),
 	'entity' => $entity,
 	'filter_id' => 'poll/view',

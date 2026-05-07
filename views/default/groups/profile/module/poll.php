@@ -4,7 +4,7 @@
  */
 
 $params = [
-	'title' => elgg_echo('poll:group'),
+	'title' => elgg_echo('collection:object:poll'),
 	'entity_type' => 'object',
 	'entity_subtype' => \Poll::SUBTYPE,
 ];

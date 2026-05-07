@@ -20,7 +20,7 @@ foreach ($answers as $index => $answer) {
 	
 	$answer_fields = '<table class="elgg-discover"><tr><td class="poll-edit-answers-icon">';
 	
-	$answer_fields .= elgg_view_icon('drag-arrow', ['class' => 'elgg-discoverable']);
+	$answer_fields .= elgg_view_icon('arrows-alt', ['class' => 'elgg-discoverable']);
 
 	$answer_fields .= '</td><td>';
 

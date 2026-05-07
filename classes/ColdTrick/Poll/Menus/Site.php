@@ -23,7 +23,7 @@ class Site {
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
 			'icon' => 'chart-pie',
-			'text' => elgg_echo('poll:menu:site'),
+			'text' => elgg_echo('collection:object:poll'),
 			'href' => elgg_generate_url('default:object:poll'),
 		]);
 		

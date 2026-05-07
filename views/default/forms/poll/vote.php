@@ -10,7 +10,6 @@ if (empty($answer_options)) {
 	return;
 }
 
-// voting options
 echo elgg_view_field([
 	'#type' => 'radio',
 	'#label' => elgg_echo('poll:vote:title'),
@@ -25,7 +24,6 @@ echo elgg_view_field([
 	'value' => $entity->guid,
 ]);
 
-// form footer
 $footer = elgg_view_field([
 	'#type' => 'submit',
 	'text' => elgg_echo('poll:vote'),

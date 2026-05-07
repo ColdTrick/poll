@@ -9,10 +9,12 @@
 .poll-edit-answers-icon {
 	width: 20px;
 	vertical-align: middle;
-}
-
-.poll-edit-answers-icon .elgg-icon {
-	cursor: pointer;
+	white-space: nowrap;
+	
+	.elgg-icon {
+		cursor: pointer;
+		padding: 0 4px;
+	}
 }
 
 .poll-edit-answers-blank .poll-edit-answers-icon .elgg-icon {

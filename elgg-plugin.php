@@ -1,9 +1,7 @@
 <?php
 
 use ColdTrick\Poll\Bootstrap;
-use ColdTrick\Poll\Middleware\ContainerGatekeeper;
-
-require_once(dirname(__FILE__) . '/lib/functions.php');
+use Elgg\Controllers\GenericContentListing;
 
 $composer_path = '';
 if (is_dir(__DIR__ . '/vendor')) {
@@ -22,6 +20,7 @@ return [
 			'class' => 'Poll',
 			'capabilities' => [
 				'commentable' => true,
+				'river_emittable' => true,
 				'searchable' => true,
 				'likable' => true,
 				'restorable' => true,
@@ -40,29 +39,31 @@ return [
 	'actions' => [
 		'poll/clear_votes' => [],
 		'poll/edit' => [],
-		'poll/export' => [],
+		'poll/export' => [
+			'controller' => \ColdTrick\Poll\Controllers\Export::class,
+		],
 		'poll/vote' => [],
 	],
 	'routes' => [
 		'collection:object:poll:all' => [
 			'path' => '/poll/all',
-			'resource' => 'poll/all',
+			'controller' => GenericContentListing::class,
 		],
 		'collection:object:poll:owner' => [
 			'path' => '/poll/owner/{username}',
-			'resource' => 'poll/owner',
+			'controller' => GenericContentListing::class,
 			'middleware' => [
 				\Elgg\Router\Middleware\UserPageOwnerGatekeeper::class,
 			],
 		],
 		'collection:object:poll:group' => [
-			'path' => '/poll/group/{guid}/{subpage?}',
-			'resource' => 'poll/group',
-			'defaults' => [
-				'subpage' => 'all',
-			],
+			'path' => '/poll/group/{guid}',
+			'controller' => GenericContentListing::class,
 			'required_plugins' => [
 				'groups',
+			],
+			'options' => [
+				'group_tool' => 'poll',
 			],
 			'middleware' => [
 				\Elgg\Router\Middleware\GroupPageOwnerGatekeeper::class,
@@ -70,7 +71,7 @@ return [
 		],
 		'collection:object:poll:friends' => [
 			'path' => '/poll/friends/{username}',
-			'resource' => 'poll/friends',
+			'controller' => GenericContentListing::class,
 			'required_plugins' => [
 				'friends',
 			],
@@ -86,7 +87,8 @@ return [
 			'path' => '/poll/add/{guid}',
 			'resource' => 'poll/add',
 			'middleware' => [
-				ContainerGatekeeper::class,
+				\Elgg\Router\Middleware\Gatekeeper::class,
+				\Elgg\Router\Middleware\PageOwnerGatekeeper::class,
 			],
 		],
 		'edit:object:poll' => [
@@ -98,7 +100,7 @@ return [
 		],
 		'default:object:poll' => [
 			'path' => '/poll',
-			'resource' => 'poll/all',
+			'controller' => GenericContentListing::class,
 		],
 	],
 	'events' => [
@@ -164,8 +166,12 @@ return [
 	'notifications' => [
 		'object' => [
 			'poll' => [
-				'close' => \ColdTrick\Poll\Notifications\ClosePollHandler::class,
-				'create' => \ColdTrick\Poll\Notifications\CreatePollHandler::class,
+				'close' => [
+					\ColdTrick\Poll\Notifications\ClosePollHandler::class => [],
+				],
+				'create' => [
+					\ColdTrick\Poll\Notifications\CreatePollHandler::class => [],
+				],
 			],
 		],
 	],

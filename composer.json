@@ -13,7 +13,7 @@
 		"npm-asset/chart.js": "~4.5.0"
 	},
 	"conflict": {
-		"elgg/elgg": "<6.3"
+		"elgg/elgg": "<7.0"
 	},
 	"repositories": [
 		{

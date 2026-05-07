@@ -9,7 +9,7 @@ $(document).on('click', '.poll-edit-answers-icon .elgg-icon-delete', function() 
 });
 
 $('.poll-edit-answers').sortable({
-	handle: '.elgg-icon-drag-arrow',
+	handle: '.elgg-icon-arrows-alt',
 	items: '> li:not(.poll-edit-answers-blank)',
 });
 

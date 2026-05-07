@@ -33,7 +33,7 @@ class WidgetManager {
 			$return_value['disable'] = [];
 		}
 		
-		if (poll_is_enabled_for_group($entity)) {
+		if ($entity->isToolEnabled('poll')) {
 			$return_value['enable'][] = 'recent_polls';
 		} else {
 			$return_value['disable'][] = 'recent_polls';

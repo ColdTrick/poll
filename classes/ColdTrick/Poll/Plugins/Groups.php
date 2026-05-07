@@ -18,7 +18,7 @@ class Groups {
 	 * @return null|Collection
 	 */
 	public static function registerTool(\Elgg\Event $event): ?Collection {
-		if (!poll_is_enabled_for_group()) {
+		if (elgg_get_plugin_setting('enable_group', 'poll') === 'no') {
 			return null;
 		}
 		

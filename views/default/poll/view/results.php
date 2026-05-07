@@ -35,8 +35,9 @@ foreach ($votes as $vote) {
 	$results['datasets'][0]['backgroundColor'][] = elgg_extract('color', $vote);
 }
 
+$chart_id = 'poll-result-chart-' . $entity->guid;
 $poll_content = elgg_format_element('canvas', [
-	'id' => 'poll-result-chart',
+	'id' => $chart_id,
 	'class' => ['poll-result-chart'],
 	'data-chart-type' => $poll_type,
 	'data-chart-data' => json_encode($results),
@@ -56,3 +57,10 @@ foreach ($votes as $vote) {
 $poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $legend);
 
 echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper', "poll-result-{$poll_type}"]], $poll_content);
+?>
+
+<script>
+	import('poll/view/results').then((poll) => {
+		poll.default.init($('#<?= $chart_id ?>').eq(0));
+	});
+</script>

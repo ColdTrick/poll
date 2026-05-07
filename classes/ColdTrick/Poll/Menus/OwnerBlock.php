@@ -27,7 +27,7 @@ class OwnerBlock {
 		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
-			'text' => elgg_echo('poll:menu:site'),
+			'text' => elgg_echo('collection:object:poll'),
 			'href' => elgg_generate_url('collection:object:poll:owner', [
 				'username' => $entity->username,
 			]),
@@ -49,7 +49,7 @@ class OwnerBlock {
 			return null;
 		}
 		
-		if (!poll_is_enabled_for_group($entity)) {
+		if (!$entity->isToolEnabled('poll')) {
 			return null;
 		}
 		
@@ -58,7 +58,7 @@ class OwnerBlock {
 		
 		$return_value[] = \ElggMenuItem::factory([
 			'name' => 'poll',
-			'text' => elgg_echo('poll:menu:owner_block:group'),
+			'text' => elgg_echo('collection:object:poll:group'),
 			'href' => elgg_generate_url('collection:object:poll:group', [
 				'guid' => $entity->guid,
 			]),

@@ -18,10 +18,9 @@ if (elgg_extract('show_poll_tabs', $vars, false)) {
 
 $content .= elgg_view('poll/view/close_date', $vars);
 
-// brief view
 $params = [
-	'content' => $content,
 	'icon' => true,
+	'content' => $content,
 ];
 $params = $params + $vars;
 echo elgg_view('object/elements/summary', $params);

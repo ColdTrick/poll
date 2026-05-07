@@ -14,7 +14,6 @@ if ($group instanceof \ElggGroup) {
 	$value = $group->getPluginSetting('poll', 'enable_group_members', $value);
 }
 
-// enable group members
 $content = elgg_view_field([
 	'#type' => 'select',
 	'#label' => elgg_echo('poll:group_settings:members'),

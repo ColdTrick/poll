@@ -5,10 +5,8 @@ if (!$entity instanceof \Poll) {
 	return;
 }
 
-// tabbed
 $tabs = [];
 
-// add answers form
 if ($entity->canVote()) {
 	$form_vars = [
 		'class' => 'mvm poll-content',
@@ -26,7 +24,6 @@ if ($entity->canVote()) {
 	];
 }
 
-// show results
 $content = elgg_view('poll/view/results', $vars);
 if (!empty($content)) {
 	$selected = !$entity->canVote() || (bool) $entity->getVote();

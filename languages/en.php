@@ -4,10 +4,15 @@ return [
 	
 	'item:object:poll' => 'Poll',
 	'collection:object:poll' => 'Polls',
+	'collection:object:poll:all' => 'All site polls',
+	'collection:object:poll:owner' => '%s\'s polls',
+	'collection:object:poll:group' => 'Group polls',
+	'collection:object:poll:friends' => 'Friends\' polls',
+	'add:object:poll' => 'Add a new poll',
+	'edit:object:poll' => 'Edit poll',
 	'river:object:poll:create' => "%s created a new poll %s",
 	'river:object:poll:vote' => "%s voted on the poll %s",
 	'river:object:poll:comment' => "%s commented on the poll %s",
-	'add:object:poll' => "Add a new poll",
 	'notification:object:poll:create' => 'Send a notification when a poll is created',
 	'input:container_guid:object:poll:info' => 'This poll will be created in %s',
 	'list:object:poll:no_results' => 'No polls found',
@@ -29,11 +34,7 @@ return [
 	'poll:settings:add_vote_to_river:info' => "This settings determines if voting on a poll is added to the activity stream.",
 	
 	'poll:more' => "More polls",
-	'poll:group' => "Group polls",
 	
-	'poll:all:title' => "All site polls",
-	'poll:owner:title' => "%s's polls",
-	'poll:friends:title' => "Friends' polls",
 	'poll:edit:title' => "Edit poll \"%s\"",
 	'poll:edit:answers' => "Answers",
 	'poll:edit:answers:name' => "Name",
@@ -53,8 +54,6 @@ return [
 	'poll:vote' => "Vote",
 	'poll:votes:clear' => "Clear votes",
 	
-	'poll:menu:site' => "Polls",
-	'poll:menu:owner_block:group' => "Group polls",
 	'poll:menu:poll_tabs:vote' => "Vote",
 	'poll:menu:poll_tabs:results' => "Results",
 	
@@ -71,9 +70,6 @@ return [
 	
 	'widgets:recent_polls:name' => "Recent polls",
 	'widgets:recent_polls:description' => "Show a list of the recently created polls",
-	
-	'poll:container_gatekeeper:user' => "Poll is not enabled for personal use",
-	'poll:container_gatekeeper:group' => "Poll is not enabled for use in groups",
 	
 	// notifications
 	'poll:notification:create:subject' => "A new poll \"%s\" was created",
@@ -107,6 +103,4 @@ To view the results check out the poll here:
 	'poll:action:vote:error:vote' => "An error occurred while saving your vote",
 	'poll:action:vote:success' => "Your vote was saved",
 	'poll:action:clear_votes:success' => "The votes have been cleared",
-	
-	'poll:action:export:error:no_votes' => "No votes available to export",
 ];
