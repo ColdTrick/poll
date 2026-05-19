@@ -6,7 +6,7 @@
 
 return array (
   'poll:settings:group_create:info' => 'Al habilitar encuestas del grupo, este ajuste controla quién puede crear encuestas de forma predeterminada. Los propietarios de grupos pueden configurar de otra manera.',
-  'poll:menu:owner_block:group' => 'Encuestas del grupo',
+  'collection:object:poll:group' => 'Encuestas del grupo',
   'groups:tool:poll' => 'Habilitar encuestas del grupo',
   'item:object:poll' => 'Encuesta',
   'river:object:poll:create' => '%s se ha creado una nueva encuesta %s',
@@ -27,9 +27,9 @@ return array (
   'list:object:poll:no_results' => 'Encuesta no encontrada',
   'poll:group' => 'Encuesta de grupo',
   'add:object:poll' => 'Añadir encuesta',
-  'poll:all:title' => 'Todas las encuestas del sitio',
-  'poll:owner:title' => 'Encuestas de %s',
-  'poll:friends:title' => 'Encuestas de amigos',
+  'collection:object:poll:all' => 'Todas las encuestas del sitio',
+  'collection:object:poll:owner' => 'Encuestas de %s',
+  'collection:object:poll:friends' => 'Encuestas de amigos',
   'poll:edit:title' => 'Editar encuesta "%s"',
   'poll:edit:answers' => 'Respuestas',
   'poll:edit:answers:name' => 'Nombre',
