@@ -1,5 +1,9 @@
 .poll-edit-answers > li > table {
 	width: 100%;
+	
+	.elgg-input-text {
+		margin-bottom: 4px;
+	}
 }
 
 .poll-edit-answers-name {
