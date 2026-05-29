@@ -10,7 +10,7 @@
  */
 class Poll extends \ElggObject {
 	
-	const SUBTYPE = 'poll';
+	public const SUBTYPE = 'poll';
 	
 	/**
 	 * {@inheritdoc}
@@ -19,17 +19,6 @@ class Poll extends \ElggObject {
 		parent::initializeAttributes();
 		
 		$this->attributes['subtype'] = self::SUBTYPE;
-	}
-	
-	/**
-	 * {@inheritdoc}
-	 */
-	public function canComment($user_guid = 0): bool {
-		if ($this->comments_allowed !== 'yes') {
-			return false;
-		}
-		
-		return parent::canComment($user_guid);
 	}
 	
 	/**

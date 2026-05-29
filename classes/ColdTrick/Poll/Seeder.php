@@ -83,7 +83,10 @@ class Seeder extends Seed {
 				continue;
 			}
 			
-			$this->createComments($entity);
+			if ($entity->comments_allowed === 'yes') {
+				$this->createComments($entity);
+			}
+			
 			$this->createLikes($entity);
 			$this->createAnswers($entity);
 			$this->createVotes($entity);

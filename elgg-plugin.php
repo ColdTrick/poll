@@ -108,6 +108,7 @@ return [
 			'object' => [
 				\ColdTrick\Poll\GroupToolContainerLogicCheck::class => [],
 				'\ColdTrick\Poll\Permissions::enabledForSite' => [],
+				'\ColdTrick\Poll\Permissions::preventPollCommentsWhenDisabled' => [],
 			],
 		],
 		'container_permissions_check' => [

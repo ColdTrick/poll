@@ -60,4 +60,28 @@ class Permissions {
 		// check group setting
 		return $container->getPluginSetting('poll', 'enable_group_members', $default_setting) === 'yes';
 	}
+	
+	/**
+	 * Prevent comments on Polls when comments are disabled
+	 *
+	 * @param \Elgg\Event $event 'container_logic_check', 'object'
+	 *
+	 * @return bool|null
+	 */
+	public static function preventPollCommentsWhenDisabled(\Elgg\Event $event): ?bool {
+		if ($event->getParam('subtype') !== 'comment') {
+			return null;
+		}
+		
+		$container = $event->getParam('container');
+		if (!$container instanceof \Poll) {
+			return null;
+		}
+		
+		if ($container->comments_allowed !== 'yes') {
+			return false;
+		}
+		
+		return null;
+	}
 }
