@@ -59,8 +59,8 @@ $poll_content .= elgg_format_element('div', ['class' => 'poll-bar-legend'], $leg
 echo elgg_format_element('div', ['class' => ['poll-content', 'poll-result-chart-wrapper', "poll-result-{$poll_type}"]], $poll_content);
 ?>
 
-<script>
-	import('poll/view/results').then((poll) => {
-		poll.default.init($('#<?= $chart_id ?>').eq(0));
-	});
+<script type="module">
+	import poll from 'poll/view/results';
+	
+	poll.init($('#<?= $chart_id ?>').eq(0));
 </script>
