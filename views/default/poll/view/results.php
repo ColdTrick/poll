@@ -33,6 +33,7 @@ foreach ($votes as $vote) {
 	
 	$results['datasets'][0]['data'][] = elgg_extract('value', $vote);
 	$results['datasets'][0]['backgroundColor'][] = elgg_extract('color', $vote);
+	$results['datasets'][0]['borderColor'] = '#dcdcdc';
 }
 
 $chart_id = 'poll-result-chart-' . $entity->guid;

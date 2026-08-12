@@ -42,11 +42,13 @@
 	}
 }
 
-.poll-bar-legend .elgg-image-block {
-	padding: 0;
-}
-.poll-bar-legend-item {
-	width: 1em;
-	height: 1em;
-	display: inline-block;
+.poll-bar-legend {
+	margin-top: 1rem;
+	
+	.poll-bar-legend-item {
+		width: 1em;
+		height: 1em;
+		display: inline-block;
+		border-radius: 50%;
+	}
 }
