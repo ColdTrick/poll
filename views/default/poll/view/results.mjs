@@ -14,6 +14,8 @@ var poll = {
 		
 		var ctx = elem[0].getContext('2d');
 		
+		const borderColor = window.getComputedStyle(document.body).getPropertyValue('--elgg-text-color-mild');
+		
 		switch (data.chartType) {
 			case 'pie':
 				var chart = new Chart(ctx, {
@@ -41,9 +43,23 @@ var poll = {
 							},
 						},
 						scales: {
+							x: {
+								grid: {
+									color: borderColor
+								},
+								ticks: {
+									color: borderColor
+								}
+							},
 							y: {
 								beginAtZero: true,
-							},
+								grid: {
+									color: borderColor
+								},
+								ticks: {
+									color: borderColor
+								}
+							}							
 						}
 					},
 				});
