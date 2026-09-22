@@ -18,7 +18,7 @@ class Cron {
 		elgg_call(ELGG_IGNORE_ACCESS, function() {
 			$time = mktime(0, 0, 0);
 			
-			/* @var $batch \ElggBatch */
+			/** @var \ElggBatch $batch */
 			$batch = elgg_get_entities([
 				'type' => 'object',
 				'subtype' => \Poll::SUBTYPE,
@@ -40,7 +40,7 @@ class Cron {
 				],
 			]);
 			
-			/* @var $poll \Poll */
+			/** @var \Poll $poll */
 			foreach ($batch as $poll) {
 				if (!$poll instanceof \Poll) {
 					continue;

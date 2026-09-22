@@ -1,6 +1,6 @@
 <?php
 
-/* @var $entity \Poll */
+/** @var \Poll $entity */
 $entity = elgg_entity_gatekeeper((int) elgg_extract('guid', $vars), 'object', \Poll::SUBTYPE);
 
 elgg_push_entity_breadcrumbs($entity);

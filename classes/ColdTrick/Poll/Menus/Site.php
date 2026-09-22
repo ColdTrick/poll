@@ -17,7 +17,7 @@ class Site {
 	 * @return MenuItems
 	 */
 	public static function register(\Elgg\Event $event): MenuItems {
-		/* @var $return_value MenuItems */
+		/** @var MenuItems $return_value */
 		$return_value = $event->getValue();
 		
 		$return_value[] = \ElggMenuItem::factory([

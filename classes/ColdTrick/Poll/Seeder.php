@@ -70,7 +70,7 @@ class Seeder extends Seed {
 				'close_date' => $close_date,
 			];
 			
-			/* @var $entity \Poll */
+			/** @var \Poll $entity */
 			try {
 				$logger->disable();
 				
@@ -117,7 +117,7 @@ class Seeder extends Seed {
 	 * {@inheritdoc}
 	 */
 	public function unseed() {
-		/* @var $entities \ElggBatch */
+		/** @var \ElggBatch $entities */
 		$entities = elgg_get_entities([
 			'type' => 'object',
 			'subtype' => \Poll::SUBTYPE,
@@ -127,7 +127,7 @@ class Seeder extends Seed {
 			'batch_inc_offset' => false,
 		]);
 		
-		/* @var $entity \Poll */
+		/** @var \Poll $entity */
 		foreach ($entities as $entity) {
 			if ($entity->delete()) {
 				$this->log("Deleted poll {$entity->guid}");
@@ -201,7 +201,7 @@ class Seeder extends Seed {
 			$already_voted[] = $voter->guid;
 			
 			// backdate the vote
-			/* @var $vote \ElggAnnotation */
+			/** @var \ElggAnnotation $vote */
 			$vote = $entity->getVote(false, $voter->guid);
 			
 			$vote_closed = $entity->close_date ?? time();
@@ -224,7 +224,7 @@ class Seeder extends Seed {
 				'object_guid' => $entity->guid,
 			]);
 			if (!empty($river)) {
-				/* @var $river \ElggRiverItem */
+				/** @var \ElggRiverItem $river */
 				$river = $river[0];
 				
 				$update_river = Update::table('river');
