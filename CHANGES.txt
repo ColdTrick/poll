@@ -1,6 +1,10 @@
 Version history
 ===============
 
+14.0.3 (2026-11-12):
+
+- several small chores/fixes
+
 14.0.2 (2026-08-19):
 
 - fixed: bar graphs use color for grid that works in dark mode
